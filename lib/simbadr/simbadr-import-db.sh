@@ -423,7 +423,7 @@ echo "</group>" > "$TEMP_LOCAL_SIMBADR/"simbadrdb.footer
 
 export_XML_DataBase () { 
 
-echo "   <host id="'"'$ipaddress_'"'">" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
+echo " <host id="'"'$ipaddress_'"'">" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
 echo "   <hostname>$hostname_</hostname>
    <device>$devicetype_</device>
    <identity>$equipment_id_</identity>        
@@ -471,7 +471,7 @@ echo "   <hostname>$hostname_</hostname>
       </bluetooth>          
       <dhcp>$network_dhcp_enable_</dhcp>
    </network>" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
-    echo "<setupimg img_os="'"'$setup_img_os'"' "img_device="'"'$setup_img_device'"' "img_status_on="'"'$setupimg_on_'"'  "img_status_off="'"'$setupimg_off_'"'       "/>" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
+    echo "   <setupimg img_os="'"'$setup_img_os'"' "img_device="'"'$setup_img_device'"' "img_status_on="'"'$setupimg_on_'"'  "img_status_off="'"'$setupimg_off_'"'       "/>" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
   echo " </host>" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
  
 }
@@ -479,7 +479,6 @@ echo "   <hostname>$hostname_</hostname>
 
 while IFS="," read -r hostIPAddress 
 do
-
 #
 #172.16.255.22,caex255-2,Server
 #172.16.0.73,caex73,Desktop
@@ -490,11 +489,9 @@ do
 #172.16.0.11,caex11,Workstation
 #172.16.255.31,caex255-031,All-in-on
 
-
 ipaddress_=$hostIPAddress
 
 #ipaddress_="172.16.251.79"
-
 select_HOST
 	select_HOSTNAME
 select_VENDOR
@@ -511,16 +508,29 @@ done < $1
 
 
 export_XML_header 
-echo "...$TEMP_LOCAL_SIMBADR/""simbadrdb.header"
+	echo "...$TEMP_LOCAL_SIMBADR/""simbadrdb.header"
 export_XML_footer 
-echo "...$TEMP_LOCAL_SIMBADR/""simbadrdb.footer"
+	echo "...$TEMP_LOCAL_SIMBADR/""simbadrdb.footer"
+
+
 cat "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.header && cat "$TEMP_LOCAL_SIMBADR/"simbadrdb.footer >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.header 
+
 mv "$TEMP_LOCAL_SIMBADR/"simbadrdb.header "$TEMP_LOCAL_SIMBADR/"simbadrdb.xml 
+
 echo "...merge simbadrdb.header + simbadrdb.tmp + simbadrdb.footer "
 echo "rename simbadrdb.header for simbadrdb.xml"
+# verificar
 rm "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
+
 echo "$TEMP_LOCAL_SIMBADR/""simbadrdb.tmp and simbadrdb.footer removed ! "
+# verificar
 rm "$TEMP_LOCAL_SIMBADR/"simbadrdb.footer
+
+reg_host_total=$(grep "id=" "$TEMP_LOCAL_SIMBADR/"simbadrdb.xml | wc -l)
+echo "Imported $reg_host_total registers." 
+
+ 
+
 read -p 'would you like to update the database now (yes or no)?' choice
 
 if [ $choice = "yes" ]
