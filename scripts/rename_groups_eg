@@ -1,0 +1,36 @@
+#!/bin/bash
+
+
+ baseDIR_LIB=$(simbadr-read-conf.sh --library)
+
+"$baseDIR_LIB"winfogrp.sh -i NOME01 -o DTIC -c
+"$baseDIR_LIB"winfogrp.sh -i NOME02 -o GABINETE -c
+"$baseDIR_LIB"winfogrp.sh -i NOME03 -o DAM -c
+"$baseDIR_LIB"winfogrp.sh -i NOME04 -o APGI -c
+"$baseDIR_LIB"winfogrp.sh -i NOME05 -o SAPCE -c
+"$baseDIR_LIB"winfogrp.sh -i NOME06 -o SAMEM -c
+"$baseDIR_LIB"winfogrp.sh -i NOME07 -o SAUDE -c
+"$baseDIR_LIB"winfogrp.sh -i NOME08 -o DA -c
+"$baseDIR_LIB"winfogrp.sh -i NOME09 -o SALC -c
+"$baseDIR_LIB"winfogrp.sh -i NOME10 -o S1 -c
+"$baseDIR_LIB"winfogrp.sh -i NOME11 -o S2_SEG -c
+"$baseDIR_LIB"winfogrp.sh -i NOME12 -o S3 -c
+"$baseDIR_LIB"winfogrp.sh -i NOME13 -o S4_RP -c
+"$baseDIR_LIB"winfogrp.sh -i NOME14 -o SAME -c
+"$baseDIR_LIB"winfogrp.sh -i NOME15 -o STVTR -c
+
+"$baseDIR_LIB"winfogrp.sh -i NOME16 -o GARAGEM -c
+"$baseDIR_LIB"winfogrp.sh -i NOME17 -o CIA -c
+
+"$baseDIR_LIB"winfogrp.sh -i NOME18 -o L4 -c
+"$baseDIR_LIB"winfogrp.sh -i NOME19 -o LAB -c
+"$baseDIR_LIB"winfogrp.sh -i NOME20 -o ALMOX -c
+
+"$baseDIR_LIB"winfogrp.sh -i NOME21 -o APROV -c
+"$baseDIR_LIB"winfogrp.sh -i NOME22 -o FISCALIZACAO -c
+"$baseDIR_LIB"winfogrp.sh -i NOME23 -o SPP -c
+
+"$baseDIR_LIB"winfogrp.sh -i NOME24 -o SSPC -c
+"$baseDIR_LIB"winfogrp.sh -i NOME25 -o VoIP -c
+"$baseDIR_LIB"winfogrp.sh -i NOME26 -o PRINTERS -c
+

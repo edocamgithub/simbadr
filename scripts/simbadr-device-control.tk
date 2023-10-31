@@ -1,0 +1,35 @@
+#!/usr/bin/wish 
+# Created 1 mar 2023 1119
+# Write by Eduardo M. Araujo 
+# Function: Add new IP in selected database group.  
+
+proc insert_license {} {
+
+
+}
+proc use_license {} {
+
+}
+
+
+
+
+menu .zero 
+menu .zero.item
+menu .zero.item1
+menu .zero.item2
+
+
+.zero add cascade -label "License" -menu .zero.item 
+	.zero.item add cascade -label "Insert" -command [ insert_license ]
+	.zero.item add cascade -label "Use License" -commad [ tk_popup - ]
+
+.zero add cascade -label "Device" -menu .zero.item2
+	.zero.item2 add cascade -label "IPAddress"
+	.zero.item2 add cascade -label "List"
+	
+.zero add cascade -label "About"
+.zero add command -label "Exit" -command { tk_messageBox -message "Finish" } -command "exit"
+
+
+. configure -menu .zero 
