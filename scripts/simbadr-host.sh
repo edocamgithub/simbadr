@@ -115,13 +115,6 @@ update_db_simbadr_list () {
 # --> command IP GroupNumber
 # add-ip-db-simbadr.sh 192.168.0.1 02
 
-$lib_DIR"rwinfodb.sh" --add $hostname_ip --filename $db_DIR"$hostname_group_number"
-$lib_DIR"rwinfodb.sh" --compile $db_DIR"$hostname_group_number"
-$lib_DIR"rwinfodb.sh" --exhibit $db_DIR"$hostname_group_number"
-echo "IP devices registred"
-$lib_DIR"rwinfodb.sh" --numberdb $db_DIR"$hostname_group_number"
-$lib_DIR"sum-device-92.sh"
-
 
 
 # filename:hostname.list 
@@ -158,7 +151,16 @@ echo "$hostname_ip,$inventory_register,$inventory_note,$inventory_accountable,$i
 
 $lib_DIR"rwinfodb.sh" --delete $hostname_ip --filename $db_DIR"$hostname_group_number"
 $lib_DIR"rwinfodb.sh" --compile $db_DIR"$hostname_group_number"
+#$lib_DIR"sum-device-92.sh"
+
+$lib_DIR"rwinfodb.sh" --add $hostname_ip --filename $db_DIR"$hostname_group_number"
+$lib_DIR"rwinfodb.sh" --compile $db_DIR"$hostname_group_number"
+$lib_DIR"rwinfodb.sh" --exhibit $db_DIR"$hostname_group_number"
+echo "IP devices registred"
+$lib_DIR"rwinfodb.sh" --numberdb $db_DIR"$hostname_group_number"
 $lib_DIR"sum-device-92.sh"
+
+
 
 
 }
