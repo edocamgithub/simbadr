@@ -7,27 +7,21 @@
    VERSION="0.1.1"
      BUILT="2021nov07"
     AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (C)2019-2023 Eduardo M. Araujo."
+ COPYRIGHT="Copyright (C)2021-2023"
    CONTACT="Contact for email: <edocam@outlook.com>"
    
    baseLOG=$(simbadr-read-conf.sh --backup)
    AUTHLOG="$baseLOG"simbadr.log
 
-
 # Habilita a impressao de variaveis
 debugVisible=false
 
-
-
 db_DIR=$(simbadr-read-conf.sh -g)
-
 lib_DIR=$(simbadr-read-conf.sh -l)
-
 
 simbadr_remove_ip_only_DIR=$(simbadr-read-conf.sh --group93)
 simbadr_remove_ip_only_FILE=$simbadr_remove_ip_only_DIR"removedip.list"
 simbadr_remove_ip_for_list_DIR=$(simbadr-read-conf.sh --group92)
-
 
 function debug_log ()
 {
@@ -41,7 +35,6 @@ if [ $debugVisible = true ]
 fi
 }
 
-
 # Log de variaveis
 function log_ () {
 PIDexec=$(pgrep $APPNAME)
@@ -51,8 +44,6 @@ logs_simbadr=$(echo "$DATEpid, PID ( $PIDexec ), exec_file --> $APPNAME, user --
 #
 # e.g.
 # del-ip-db-simbadr.sh 192.168.0.1 01
-
-
 
 $lib_DIR"rwinfodb.sh" --delete $1 --filename $db_DIR"$2"
 $lib_DIR"rwinfodb.sh" --compile $db_DIR"$2"
@@ -82,5 +73,5 @@ Gn=$2
 
 debug_log
 
-exit 
+exit 0 
 
