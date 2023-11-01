@@ -1,5 +1,5 @@
 # Simbadr - Basic Network Device Monitoring System
 
-This is monitoring system for network device basead in Internet Protocol V4.
+This is monitoring system for IPv4-based network devices.
 Written in Bash Script.
 
