@@ -2,19 +2,15 @@
 ##################################################################
 #  File: simbadr-import-db.sh 	        
 #  Version: 1.1.0					 
-#
 #  Function: Import list csv for database XML 
 #                   ---------------------------
 #  Required: hostname.list, contact.list, inventory.list 
 #            network.list, system.list, vendor.list      
 #
 #  Note: RUN lib/simbadr/simbadr-import-db.sh /opt/simbadr/var/log/simbadr/blocks/00/92
-#	
 #                 ---------------------------
-#
 #  Written by Eduardo M. Araujo. - versão 0.0.1
-#  Copyright (c)2022 Eduardo M. Araujo..
-#
+#  Copyright (c)2022-2023 
 ##################################################################
  
    APPNAME=$(basename $0)
@@ -43,21 +39,21 @@ baseDIR_DB=$(simbadr-read-conf.sh -92)
 #
 baseDIR_LIB=$(simbadr-read-conf.sh -l)
 	baseDIR_=$(echo $baseDIR_LIB | cut -d "/" -f "1-3")
-		baseSCRIPT=$baseDIR_"/scripts"
+ baseSCRIPT=$baseDIR_"/scripts"
 
 baseDIR_OSList=$(simbadr-read-conf.sh -s)
-filenameOS=$baseDIR_OSList"oslist.db"
+    filenameOS=$baseDIR_OSList"oslist.db"
 
 baseDIR_LIB_=$(simbadr-read-conf.sh -l | cut -d "/" -f "1-5")
-
-backupDIR=$(simbadr-read-conf.sh -b)
+   backupDIR=$(simbadr-read-conf.sh -b)
 
 echo_TEST_VARIABLES (){
-echo >/dev/null
+	echo >/dev/null
 }
 
 echo_TEST_VARIABLES_ () {
 #
+clear
 # lines for variables call HOST
 echo "+++++++++++++++++++++++++" 
 echo "#selected line with grep command, used IP for reference on finder!  "
@@ -531,7 +527,8 @@ echo "Imported $reg_host_total registers."
 
  
 
-read -p 'would you like to update the database now (yes or no)?' choice
+
+read -p 'would you like to update the database now (yes or no)? ' choice
 
 if [ $choice = "yes" ]
 	then
@@ -543,8 +540,6 @@ if [ $choice = "yes" ]
    	exit
    fi	
 
-#grep "host id=" /tmp/simbadrdb.xml 
-#| wc -l 
 
 
 
