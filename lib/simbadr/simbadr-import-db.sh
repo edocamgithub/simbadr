@@ -53,7 +53,7 @@ echo_TEST_VARIABLES (){
 
 echo_TEST_VARIABLES_ () {
 #
-clear
+
 # lines for variables call HOST
 echo "+++++++++++++++++++++++++" 
 echo "#selected line with grep command, used IP for reference on finder!  "
@@ -484,7 +484,7 @@ do
 #172.16.1.203,caex1-203,Notebook
 #172.16.0.11,caex11,Workstation
 #172.16.255.31,caex255-031,All-in-on
-
+echo "$hostIPAddress"  >> /tmp/simbadr/list.ip
 ipaddress_=$hostIPAddress
 
 #ipaddress_="172.16.251.79"
