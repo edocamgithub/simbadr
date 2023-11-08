@@ -92,7 +92,8 @@ choose_OS () {
 			;;						
 			
 			*)
-				system_osname="no_operating_system"
+				system_osname="Embedded_System"
+				
 			;;
 esac			
 
@@ -200,27 +201,27 @@ echo -e "\n\n\n"
 echo -e "----------------------------------------------------------------------------------------------------------------------
 * >>>>>>>>>>>>>>>>> Veryfied the new data for include or update SIMBADR database    
 
-# [ Device Config ]
-  IP Address: $hostname_ip\t   Hostname: $hostname_hostname\t Device Type: $hostname_device\t   Identity: $equipment_id
+#1[ Device Config ]
+	IP Address: $hostname_ip\t   Hostname: $hostname_hostname\t Device Type: $hostname_device\t   Identity: $equipment_id
 
-# [ Contact ]
+#2[ Contact ]
   User/Owner: $contact_user\t 	Phone Number: $contact_phone\t  E-mail: $contact_email
   Depto.: $group_number_select\t  Group Number: $gnumber	
   
-# [ Network Config ]
+#3[ Network Config ]
    Ethernet IP: $hostname_ip\t            MAC Address: $network_mac_ethernet 
    Wireless IP: $network_ip_wireless\t    MAC Address: $network_mac_wireless
    Bluetooth IP: $network_ip_bluetooth\t  MAC Address: $network_mac_bluetooth 
    DHCP Client: $network_dhcp_complete
   
-# [ Operational System ]    
+#4[ Operational System ]    
   Name: $system_osname  Release: $system_release 
   Windows Key: $system_product_key   ID Product Key or another: $system_id_product_key 
   
-# [ Vendor ] 
+#5[ Vendor ] 
   Manufacturer:  $vendor_manufacturer 	Model: $vendor_model   Serial Number: $vendor_serial_number
 
-# [ Inventory ] 
+#6[ Inventory ] 
   Register: $inventory_register
   Note: $inventory_note
   Accountable: $inventory_accountable
@@ -414,7 +415,7 @@ echo "---------------------------------------"
 # 172.16.1.17,Microsoft Windows 10 Pro,10.0.19042, GGFKKR-LLKKIU-HMMGFT-UMMYTF, 09o9i8u7uy6t5
 
 echo -e "\n\t\t\t\t\t [   Select the Operational System:   ] \n"
-echo -e "\t (1)Linux (2)Windows (3)FreeBSD (4)MACOS (5)without System \n"
+echo -e "\t (1)Linux (2)Windows (3)FreeBSD (4)MACOS (5)Without System or Embedded System \n"
 echo "---- System conf"
 read -p " Operational System: " system_osname_n
  choose_OS
@@ -485,8 +486,8 @@ fi
 
 echo "----"
 echo  
-read -p "Is this correct information? (yes/no):" confirmed_information
-read -p "You really have sure? (yes/no):" confirmed_information_sure 
+read -p "Is this correct information (yes/no)?: " confirmed_information
+read -p "You really have sure (yes/no)?: " confirmed_information_sure 
 
 if  [[ $confirmed_information = yes ]]  &&  [[ $confirmed_information_sure = yes ]]    
 then
@@ -514,7 +515,7 @@ show_data_db
 	read -p " Insert IP Address: " hostname_ip
 	valid_host $hostname_ip
 
-   read -p "Do you want updating information above? (yes/no):" confirmed_update	
+   read -p "Do you want updating information above (yes/no)?: " confirmed_update	
 if [[ $confirmed_update = yes ]]
 	then
 		addnew_host
