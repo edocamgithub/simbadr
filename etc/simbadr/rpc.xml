@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- file setup rpc.xml for Shutdown System PC_OS_Windows 7-->
+<command>
+	net rpc shutdown -C "Restarting owner system ..." -r -I admin%Gusma
+</command>

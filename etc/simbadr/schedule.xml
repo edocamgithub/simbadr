@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- file setup devices.xml for simbadrtools serial=1558016339 -->
+<program>
+	<schedule start="6:00am-5:59pm">
+		<slow  time="36000" report="no" comment="60min">01, 02, 03</slow>
+		<normal time="6000" report="yes" comment="10min">04, 05</normal>	
+		<medium time="3000" report="no" comment="5min">06</medium>
+		<quick time="60" report="yes" commment="1min">07, 08</quick>
+	</schedule>
+	<schedule COB="6:00pm-17:59am">
+		<slow time="" report="" comment=""/>
+		<normal time="" report="" comment=""/>	
+		<medium time="" report="" comment=""/>
+		<quick time="" report="" commment=""/>
+	</schedule>
+</program>

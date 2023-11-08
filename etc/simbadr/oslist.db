@@ -1,0 +1,57 @@
+Ubuntu:12.04 LTS:Precise Pangolin:
+Ubuntu:12.10:Quantal Quetzal:
+Ubuntu:13.04:Raring Ringtail:
+Ubuntu:13.10:Saucy Salamander:
+Ubuntu:14.04 LTS:Trusty Tahr:
+Ubuntu:14.10:Utopic Unicorn:
+Ubuntu:15.04:Vivid Vervet:
+Ubuntu:15.10:Wily Werewolf:
+Ubuntu:16.04 LTS:Xenial Xerus:
+Ubuntu:16.10:Yakkety Yak:
+Ubuntu:17.04:Zesty Zapus:
+Ubuntu:17.10:Artful Aardvark:
+Ubuntu:18.04 LTS:Bionic Beaver:GNU/Linux:Ubuntu 18.04 LTS:x86:Canonical
+Ubuntu:18.10:Cosmic Cuttlefish:
+Ubuntu:19.04:Disco Dingo:
+Ubuntu:20.04:focal:Ubuntu 20.04.4 LTS:x86_64
+Mac OS X:v10.0:Cheetah:
+Mac OS X:Puma:Puma:
+Mac OS X:v10.2:Jaguar:
+Mac OS X:v10.3:Panther:
+Mac OS X:v10.4:Tiger:Unix Lite:Mac OS X Tiger:PowerPc Risc:Apple
+Mac OS X:v10.5:Leopard:
+Mac OS X:v10.6:Snow Leopard:
+Mac OS X:v10.7:Lion:
+OS X:v10.8:Mountain Lion:
+OS X:v10.9:Mavericks:
+OS X:v10.10:Yosemite:
+OS X:v10.11:El Capitan:
+macOS:v10.12:Sierra:
+macOS:v10.13:High Sierra:
+macOS:v10.14:Mojave:
+Windows:XP:5.1.26003:Windows:Microsoft Windows XP:x86:Microsoft
+Windows:Vista:6.0.6000:Microsoft Windows XP:x86
+Windows:Vista SP1:6.0.6001:Microsoft Windows XP:x86
+Windows:Vista SP2:6.0.6002:Microsoft Windows XP:x86
+Windows:7:6.1.7600:Microsoft Windows XP:x86
+Windows:7 SP1:6.1.7601:Microsoft Windows XP:x86
+Windows:8:6.2.9200:Microsoft Windows XP:x86
+Windows:8.1:6.3.9200:Microsoft Windows XP:x86
+Windows:8.1 (Update 1):6.3.9600:Microsoft Windows XP:x86
+Windows:10:10.0.10240:Microsoft Windows XP:x86
+Windows:10 (1511):10.0.10586:Microsoft Windows XP:x86
+Windows:10 (1607):10.0.14393:Microsoft Windows XP:x86
+Windows:10 (1703):10.0.15063:Microsoft Windows XP:x86
+Windows:10 (1709):10.0.16299:Microsoft Windows XP:x86
+Windows:10 (1803):10.0.17134:Microsoft Windows XP:x86
+Windows:10 (1809):10.0.17763:Microsoft Windows XP:x86
+OpenBSD:6.5:24 April 2019:
+OpenBSD:6.4:18 October 2018:
+FreeBSD:Release 12.0:December,2018:
+FreeBSD:11.2:June,2018:
+FreeBSD:11.1:July,2017:
+Printer:Release:001:Printer:001:Printer
+VoIP:002:002:VoIP
+Switch:003:003:Switch
+Windows:10 Pro:21H2:Windows:Microsoft Windows 10 Pro:x64:Microsoft:November 16,2021:21H2
+Embedded_System:Embedded Software:Without Operational System:0:0:0:0
