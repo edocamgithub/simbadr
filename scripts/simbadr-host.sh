@@ -93,6 +93,7 @@ choose_OS () {
 			
 			*)
 				system_osname="Embedded_System"
+				system_release="Emdedded"
 				
 			;;
 esac			
