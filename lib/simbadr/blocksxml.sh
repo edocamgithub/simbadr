@@ -41,10 +41,10 @@ if test -d $TEMP_LOCAL_SIMBADR
 	fi
 
 
-	file_list_name=$1
-	    group_name=$2
-	     type_name=$3
-		     folder=$1
+#	file_list_name=$1
+	   # group_name=$2
+	    # type_name=$3
+		    # folder=$1
 
 
 # Habilita a impressao de variaveis
