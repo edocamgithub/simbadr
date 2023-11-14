@@ -94,7 +94,7 @@ choose $argumentos
 	 type_device=$3
 	 group_number=$(echo $file_in_xml | cut -d "/" -f 3 | cut -d "." -f1)
 	 
-
+# verificar a linha acima
 #file_in_xml_tmp
 file_in_xml_tmp=$(mktemp "$TEMP_LOCAL_SIMBADR"simbadr_xml.XXX)
 
