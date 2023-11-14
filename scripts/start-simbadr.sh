@@ -61,7 +61,7 @@ group_enable_list="simbadr"
 #
 
 
-simbadr_group=$(cat $baseDIR_etc/simbadr | grep group_enable | cut -d "=" -f "2" )
+simbadr_group=$(cat $baseDIR_etc/$group_enable_list| grep group_enable | cut -d "=" -f "2" )
 
 
 
