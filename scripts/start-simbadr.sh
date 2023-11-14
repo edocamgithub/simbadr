@@ -180,7 +180,7 @@ for groupList in $@
    group=$("$baseDIR_LIB"rinfogrp.sh -"$number")
          # "$baseDIR_LIB"reports.sh $number 
           "$baseDIR_LIB"blocksxml.sh "$number" "$group" "$device"
-echo "$number" >> /tmp/number.txt
+echo "$number" >>  "$TEMP_LOCAL_SIMBADR/"number.txt
 	finishLog
 	waitupdateLog
 	done
