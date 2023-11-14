@@ -176,7 +176,7 @@ for groupList in $@
 	startLog
 
   number=$groupList
-  device=$("$baseDIR_LIB"rinfodevice.sh -w)
+  device=$("$baseDIR_LIB"rinfodevice.sh -d)
    group=$("$baseDIR_LIB"rinfogrp.sh -"$number")
          # "$baseDIR_LIB"reports.sh $number 
           "$baseDIR_LIB"blocksxml.sh "$number" "$group" "$device"
