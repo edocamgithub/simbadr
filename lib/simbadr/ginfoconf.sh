@@ -108,6 +108,7 @@ echo '<list>
 <device alias="tb">Tablet</device>
 <device alias="ph">VoIP phone</device>
 <device alias="uk">Unknown</device>
+<device alias="ad">Any devices</device>
 </list>'
 ;;
 
