@@ -1,7 +1,7 @@
 #!/bin/bash
 ##################################################################
 #  File: rinfodevice.sh 	       Built: 201905161412
-#  Version: 1.0.1
+#  Version: 1.0.2
 #
 #  Function: Read devices.xml
 #
@@ -9,7 +9,7 @@
 #
 ##################################################################
 #                   ---------------------------
-#  Copyright (c)2019-2021 Eduardo M. Araujo..
+#  Copyright (c)2019-2023 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
 #
@@ -18,7 +18,7 @@
 #
 #  Note: null
 #           24 set 2019 - +ipphone
-#  
+#           14 nov 2023 +Any devices
 #
 #                   ---------------------------
 #
@@ -73,6 +73,7 @@ help_manual() {
     -f, --smartphone      retorna o nome padrão ou marca;
     -b, --tablet          retorna o nome padrão ou marca;
     -v, --voip phone      retorna o nome padrão ou marca;
+    -d, --any devices      retorna o nome padrão ou marca;
   
    Exemplos:
          $APPNAME  -f
@@ -136,7 +137,11 @@ case "$options" in
     
      -b | --table )
 			grep \"tb\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;;
-    
+
+
+-d | --any devices )
+			grep \"ad\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;; 
+   
 	*)
 		exit 0;;
 esac
