@@ -46,7 +46,7 @@ debugVerbose=false
 
 # Habilita as opcoes
 argumentos=$@
-list_group=$@
+#list_group=$@
 #
 
 # Diretorio de base
