@@ -54,7 +54,7 @@ argumentos=$@
     baseDIR_barra=$(echo $baseDIR | cut -d"/" -f1-7)
        grouplocal=$(simbadr-read-conf.sh --group99)
       baseDIR_LIB=$(simbadr-read-conf.sh --library)
-          etc_DIR=$(simbadr-read-conf.sh -s)
+        #  etc_DIR=$(simbadr-read-conf.sh -s)
 group_enable_list="simbadr"
       baseDIR_etc=$(simbadr-read-conf.sh --setup)
 
