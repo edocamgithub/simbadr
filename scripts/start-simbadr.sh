@@ -103,36 +103,6 @@ esac
 #
 
 
-
-export_infodash () {
-
-   #Get XML format information for Panel On and OFF 
-# "$baseDIR_LIB"infodash.sh "$list_group" | tail -n13 > "$grouplocal"infodash.xml
- "$baseDIR_LIB"infodash.sh "$simbadr_group" | tail -n13 > "$grouplocal"infodash.xml
- 
- #cat "$grouplocal"infodash.xml
-
-#cat "$grouplocal"infodash.xml
-
-#total_g16=$("$baseDIR_LIB"infodash.sh 27 | head -n2 | grep -v "#" | cut -d "," -f 6 | cut -d" " -f2) && echo "    <voip>"$total_g16"</voip>" > /tmp/infodash_01.xml
-#total_g15=$("$baseDIR_LIB"infodash.sh 26 | head -n2 | grep -v "#" | cut -d "," -f 6 | cut -d" " -f2) && echo "    <printer>"$total_g15"</printer>" > /tmp/infodash_02.xml
-
-# Begin
-  #"$baseDIR_LIB"infodash.sh "$number" | tail -9 | head -n5 > /tmp/infodash_head.xml
-# End
-  #"$baseDIR_LIB"infodash.sh "$number" | tail -4 > /tmp/infodash_toes.xml
-# Merge
-  #cat /tmp/infodash_head.xml /tmp/infodash_01.xml /tmp/infodash_02.xml /tmp/infodash_toes.xml >  "$grouplocal"infodash.xml
-
-#"$baseDIR_LIB"grpinfor.sh -a > "$grouplocal"statusinfo.xml
-"$baseDIR_LIB"grpinfor.sh -a > "$TEMP_LOCAL_SIMBADR/"statusinfo.xml
-
-}
-
-# Begin
-choose $argumentos
-
-
 startLog () {
 	datelog=$(date "+%h %d-%m-%Y %H:%M:%S")
 	pidlog=$(pgrep $APPNAME | tail -n1 )
@@ -167,6 +137,38 @@ echo "<warning>
 </warning>" > "$grouplocal"warning.xml
 }
 #
+
+
+
+
+
+export_infodash () {
+
+   #Get XML format information for Panel On and OFF 
+# "$baseDIR_LIB"infodash.sh "$list_group" | tail -n13 > "$grouplocal"infodash.xml
+ "$baseDIR_LIB"infodash.sh "$simbadr_group" | tail -n13 > "$grouplocal"infodash.xml
+ 
+ #cat "$grouplocal"infodash.xml
+
+#cat "$grouplocal"infodash.xml
+
+#total_g16=$("$baseDIR_LIB"infodash.sh 27 | head -n2 | grep -v "#" | cut -d "," -f 6 | cut -d" " -f2) && echo "    <voip>"$total_g16"</voip>" > /tmp/infodash_01.xml
+#total_g15=$("$baseDIR_LIB"infodash.sh 26 | head -n2 | grep -v "#" | cut -d "," -f 6 | cut -d" " -f2) && echo "    <printer>"$total_g15"</printer>" > /tmp/infodash_02.xml
+
+# Begin
+  #"$baseDIR_LIB"infodash.sh "$number" | tail -9 | head -n5 > /tmp/infodash_head.xml
+# End
+  #"$baseDIR_LIB"infodash.sh "$number" | tail -4 > /tmp/infodash_toes.xml
+# Merge
+  #cat /tmp/infodash_head.xml /tmp/infodash_01.xml /tmp/infodash_02.xml /tmp/infodash_toes.xml >  "$grouplocal"infodash.xml
+
+#"$baseDIR_LIB"grpinfor.sh -a > "$grouplocal"statusinfo.xml
+"$baseDIR_LIB"grpinfor.sh -a > "$TEMP_LOCAL_SIMBADR/"statusinfo.xml
+
+}
+
+# Begin
+choose $argumentos
 
 
 

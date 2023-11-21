@@ -3,18 +3,21 @@
 # Write by Eduardo M. Araujo 
 # Function: Add new IP in selected database group.
 
-simbadr_Lib=$(simbadr-read-conf.sh -l)
-simbadr_export_dhcpd_conf_DIR=$(simbadr-read-conf.sh --group93)
+
+ simbadr_export_dhcpd_conf_DIR=$(simbadr-read-conf.sh --group93)
 simbadr_export_dhcpd_conf_FILE=$simbadr_export_dhcpd_conf_DIR"dhcpd.conf_list"
-simbadr_update_dblist_DIR=$(simbadr-read-conf.sh --group92)
-db_DIR=$(simbadr-read-conf.sh -g)
-lib_DIR=$(simbadr-read-conf.sh -l)
+ simbadr_update_dblist_DIR=$(simbadr-read-conf.sh --group92)
+ 
+   db_DIR=$(simbadr-read-conf.sh -g)
+  lib_DIR=$(simbadr-read-conf.sh -l)
 setup_DIR=$(simbadr-read-conf.sh -s)
+ 
+  
   TEMP_LOCAL_SIMBADR="/tmp/simbadr"
 
 
 # Banco de Dado em XML 
-localDBXML=$(simbadr-read-conf.sh -92)
+   localDBXML=$(simbadr-read-conf.sh -92)
 filenameDBXML="simbadrdb.xml"
 #
 
@@ -171,7 +174,7 @@ $lib_DIR"sum-device-92.sh"
 
 
 translate_group_name () {
-	group_number_select=$($simbadr_Lib/rinfogrp.sh -"$hostname_group_number")
+	group_number_select=$($lib_DIR/rinfogrp.sh -"$hostname_group_number")
 	case "$hostname_group_number" in
 		"1" )
 				hostname_group_number=01 ;;
@@ -206,7 +209,7 @@ echo -e "-----------------------------------------------------------------------
 	IP Address: $hostname_ip\t   Hostname: $hostname_hostname\t Device Type: $hostname_device\t   Identity: $equipment_id
 
 #2[ Contact ]
-  User/Owner: $contact_user\t 	Phone Number: $contact_phone\t  E-mail: $contact_email
+  User/Owner: $contact_user\t 	 Phone Number: $contact_phone\t  E-mail: $contact_email
   Depto.: $group_number_select\t  Group Number: $gnumber	
   
 #3[ Network Config ]
@@ -237,15 +240,16 @@ valid_host () {
 
 valid_ip=$1
 
-	              output_locator=$($lib_DIR"rwinfodb.sh" --locate $1)
+  output_locator=$($lib_DIR"rwinfodb.sh" --locate $1)
+
 if test -z $output_locator 
 	then
 	 addnew_host
     exit	
-	 else
-	          ip_locator_host_db=$(echo $output_locator | cut -d ":" -f "1"	)
-	group_number_locator_host_db=$(echo $output_locator | cut -d ":" -f "2"	)
-  	  group_name_locator_host_db=$(echo $output_locator | cut -d ":" -f "3"	)
+	 	else
+		          ip_locator_host_db=$(echo $output_locator | cut -d ":" -f "1"	)
+			group_number_locator_host_db=$(echo $output_locator | cut -d ":" -f "2"	)
+  	  		group_name_locator_host_db=$(echo $output_locator | cut -d ":" -f "3"	)
 	
 	locator_host_db $ip_locator_host_db
 	
@@ -400,10 +404,10 @@ if echo "$network_mac_ethernet" | egrep '\:' >/dev/null
 	fi
 
 
-read  -p " Wireless IP Address: "  network_ip_wireless
-read  -p "         MAC Address: " network_mac_wireless
-read -p " Bluetooth IP Address: " network_ip_bluetooth
-read -p "         MAC Address : " network_mac_bluetooth
+read -p " Wireless IP Address: "  network_ip_wireless
+read -p "         MAC Address: " network_mac_wireless
+read -p "Bluetooth IP Address: " network_ip_bluetooth
+read -p "        MAC Address : " network_mac_bluetooth
 read -p " DHCP Client Enabled (y/n)?: " network_dhcp
 echo "---------------------------------------"
 echo " # Ethernet IP and MAC Address -->( $hostname_ip ) ( $network_mac_ethernet )  Wireless IP and MAC Address -->( $network_ip_wireless ) ( $network_mac_wireless )"
@@ -511,20 +515,14 @@ show_data_db
 
 
 #Begin
-
    echo -e "---- SIMBADR Database version 0.1.0 --- \n"
 	read -p " Insert IP Address: " hostname_ip
 	valid_host $hostname_ip
-
    read -p "Do you want updating information above (yes/no)?: " confirmed_update	
-if [[ $confirmed_update = yes ]]
-	then
-		addnew_host
-		else
-			exit 0
-			fi
-				
-
-	
-	
+	if [[ $confirmed_update = yes ]]
+		then
+			addnew_host
+			else
+				exit 0
+			fi	
 #End
