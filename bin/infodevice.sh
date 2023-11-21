@@ -1,21 +1,16 @@
 #!/bin/bash
 ##################################################################
 #  File: infodevice.sh 	       Built 201902061252 
-#  Version: 1.1.1					 Last update 202209232124 .20190404
+#  Version: 1.2.0					 Last update 202209232124 .20190404
 #
 #  Function: Get information
-#                   ---------------------------
 #
-#  Required:snmp libsnmp-base snmp-mibs-downloader
-#           snmp-mibs-downloader
+#  Required:snmp libsnmp-base snmp-mibs-downloader, Perl-XML(xpath)
+#           perl v5.30.0, icmp, simbadrdb.xml
 #  Note:
 #	snmpd on client
 #
-#
-#                   ---------------------------
-#
-#  Written by Eduardo M. Araujo. - versão 1.0.2
-#  Copyright (c)2019-2022 Eduardo M. Araujo..
+#  Copyright (c)2019-2023 Eduardo M. Araujo..
 #
 # created by template_bash3.sh
 ##################################################################
@@ -24,7 +19,7 @@
    VERSION="0.0.1"
      BUILT="2019Fev06"
     AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2022 Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2023 Eduardo M. Araujo."
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG="/var/log/log_$$.log"
    TEMP_LOCAL_SIMBADR="/tmp/simbadr"
@@ -60,21 +55,19 @@ help_enable=0
 
 # Inclusivos
 
-snmp_get_info_enable=0
-ip_address_enable=0
 ping_test_enable=0
 file_name_enable=0
-community_get_info_enable=0
+ip_address_enable=0
 xml_output_enable=0 
 text_output_enable=0 
 quiet_output_enable=0 
+snmp_get_info_enable=0
+community_get_info_enable=0
 
-community_get=""
+ community_get=""
 ip_address_get=""
-file_name_get=""			
+ file_name_get=""			
 
-
-#
 
 # Habilita as opcoes
 argumentos=$@
@@ -84,25 +77,25 @@ argumentos=$@
 # Manual de uso do script
 help_manual() {
 echo "$APPNAME version $VERSION $COPYRIGHT
- * Coleta informações OID utilizando o protocolo SNMP  *
+ * Get information by ICMP or SNMP testing  *
 
-Uso: $APPNAME  <procotolo [-c community]> <fonte [<filename>]> <saída>
+Use: $APPNAME  <protocol [-c community]> <soucer [<filename>]> <output>
 
-  -h, --help                            apresenta esta informação para ajuda e finaliza;    
-  -m, --more-information                apresenta informações sobre as OID;    
-Protocolo: 
-  -p, --ping-test                       para dispositivos 'NO SNMP enable'; 
-  -s, --snmp-get-info < v1 | v2 >       por padrão será usado a versão 1 do protocolo SNMP;
+  -h, --help                            show this is information;    
+  -m, --more-information                show more information;    
+Protocol: 
+  -p, --ping-test                       testing for 'NO SNMP enable' device or website; 
+  -s, --snmp-get-info < v1 | v2 >       get information for default SNMPv1 ;
  
-      -c, --community <community>       a  comunidade padrão é public; Para outra comunidade
-                                        define com um nome;	 
-   -q, --quiet                           modo silencioso; 
-Fonte:
-  -a, --ip-address <ip>                 usado para fazer nada!;
-  -f, --filename <filename>             usado para fazer nada!;
-Saida:
-  -x, --xml                             usado para fazer isso ou aquilo;
-  -t, --text                            usado para fazer outra coisa;
+      -c, --community <community>       default community is public; for others community 
+                                        choose a name your community;	 
+   -q, --quiet                          silent mode or quiet; 
+Soucer:
+  -a, --ip-address <ip>                 input IP number;
+  -f, --filename <filename>             define filename for IP list;
+Output:
+  -x, --xml                             output format xml file;
+  -t, --text                            output format text file;
 Exemplos:
          $APPNAME -p -a 192.168.0.1 -x  > output.txt    
          $APPNAME -s --community private -f iplist.txt  -t      
@@ -297,7 +290,7 @@ if test -z $depto
 	   
 if test -z $hostname_info
 	then
-			echo "<hostname>host-$just_time </hostname>"
+			echo "<hostname>host-$just_time</hostname>"
 		else
 			echo	"$hostname_"		
 		fi
