@@ -90,5 +90,8 @@
    <deviceAp status="0" content="image/png" description="Imagem com status antena desligado">antena1.png</deviceAp>
    <deviceAp status="1" content="image/png" description="Imagem com status antena ligado">antena1_0.png</deviceAp>
    <deviceAp status="2" content="image/gif" description="Animação com status antena Working GIF">antena1.gif</deviceAp>
+   
+   <firewall status="0" content="image/png" description="Imagem do firewall">firewall.png</firewall>
+   <firewall status="1" content="image/gif" description="Imagem animada do firewall (GIF)">firewall.gif</firewall>
 
 </imageStandard>

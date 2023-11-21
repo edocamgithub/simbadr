@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- file setup groups.xml for infodevicetools serial=1602347876 -->
+<groups>
+   <name alias="00">GLOBAL</name>
+   <name alias="01">DTIC</name>
+   <name alias="02">GABINETE</name>
+   <name alias="03">DAM</name>
+   <name alias="04">APGI</name>
+   <name alias="05">SAPCE</name>
+   <name alias="06">SAMI_LAMI</name>
+   <name alias="07">SAUDE</name>
+   <name alias="08">S_TESTE</name>
+   <name alias="09">DA_SALC</name>
+   <name alias="10">S1</name>
+   <name alias="11">S2_SEG</name>
+   <name alias="12">S3</name>
+   <name alias="13">S4_RP</name>
+   <name alias="14">SAMEN</name>
+   <name alias="15">SSEO</name>
+   <name alias="16">GARAGEM</name>
+   <name alias="17">CIA</name>
+   <name alias="18">L4_BALISTICA</name>
+   <name alias="19">LAB</name>
+   <name alias="20">ALMOX</name>
+   <name alias="21">APROV</name>
+   <name alias="22">FISCALIZACAO</name>
+   <name alias="23">SPP</name>
+   <name alias="24">SSPC</name>
+   <name alias="25">SUBTENENCIA</name>
+   <name alias="26">PRINTERS</name>
+   <name alias="27">VoIP</name>
+   <name alias="28">Switch</name>
+   <name alias="29">Security</name>
+   <name alias="30">INTRANET</name>
+   <name alias="31">INTERNET</name>
+   <name alias="32">_VOID_</name>
+   <name alias="90">OutOfGroup</name>
+   <name alias="91">RESERVED1</name>
+   <name alias="92">simbadrDB</name>
+   <name alias="93">RESERVED2</name>
+   <name alias="94">RESERVED3</name>
+   <name alias="95">DISABLED</name>
+   <name alias="96">BACKUP</name>
+   <name alias="97">LABEL</name>
+   <name alias="98">RESERVED4</name>
+   <name alias="99">REPORTS</name>
+</groups>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- file setup devices.xml for Simbadr serial=1644334675 -->
+<!-- file setup devices.xml for Simbadr serial=1700011910 -->
 <list>
 <device alias="ws">Workstation</device>
 <device alias="sr">Server</device>
@@ -10,6 +10,7 @@
 <device alias="ms">Mobile Station</device>
 <device alias="sp">Smartphone</device>
 <device alias="tb">Tablet</device>
-<device alias="ph">VoIP phone</device>
+<device alias="ph">VoIP_phone</device>
 <device alias="uk">Unknown</device>
+<device alias="ad">Any</device>
 </list>

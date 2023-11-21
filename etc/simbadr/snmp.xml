@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- file setup groups.xml for infodevicetools serial=1558016477 -->
+<version>
+   <infobasic>
+       <sysDescr oid=".1.3.6.1.2.1.1.1.0">iso.org.dod.internet.mgmt.mib-2.system.sysDescr.0</sysDescr>	
+       <sysContact oid=".1.3.6.1.2.1.1.4.0">iso.org.dod.internet.mgmt.mib-2.system.sysContact.0</sysContact>
+       <sysName oid=".1.3.6.1.2.1.1.5.0">iso.org.dod.internet.mgmt.mib-2.system.sysName.0</sysName>	  
+       <sysLocation oid=".1.3.6.1.2.1.1.6.0">iso.org.dod.internet.mgmt.mib-2.system.sysLocation.0</sysLocation> 	
+       <hrSystemUptime oid=".1.3.6.1.2.1.25.1.1.0">iso.org.dod.internet.mgmt.mib-2.25.hrSystemUptime.0</hrSystemUptime>
+       <hrSystemDate oid=".1.3.6.1.2.1.25.1.2.0">iso.org.dod.internet.mgmt.mib-2.25.hrSystemDate.0</hrSystemDate>
+       <hrSystemNumUsers oid=".1.3.6.1.2.1.25.1.5.0">iso.org.dod.internet.mgmt.mib-2.25.hrSystemNumUsers.0</hrSystemNumUsers>
+       <hrSystemProcesses oid=".1.3.6.1.2.1.25.1.6.0" >iso.org.dod.internet.mgmt.mib-2.25.hrSystemProcesses.0</hrSystemProcesses>
+	</infobasic>
+	<oid osid="windows"></oid>
+	<oid osid="bsd"></oid>
+	<oid osid="linux"></oid>
+	<oid osid="mac"></oid>
+	<snmp version="v1"></snmp>
+	<snmp version="v2c"></snmp>
+	<snmp version="v3"></snmp>
+
+
+<community policy="RW" >5ecr3t_1nf0_c43X</community>
+<community policy="NOTICE" >notify_monitor</community>
+<community policy="RO">public_caex_</community>
+
+</version>

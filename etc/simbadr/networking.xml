@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<networking>
+<subnet>172.16.0.0</subnet>
+<subnet>172.16.1.0</subnet>
+<subnet>172.16.251.0</subnet>
+<subnet>172.16.250.0</subnet>
+</networking>
