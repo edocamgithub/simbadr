@@ -1,0 +1,13 @@
+set 8 22:00 - retirar do arquivo infodevice.sh o nome da comunidade SNMP e criar esta vareiavel em /etc/simbadr/snmp.xml e fazer a leitura
+#file_list_add=$(tempfile -m 0644 -p simbadr -d /tmp)
+#file_HeadHtml=$(tempfile -m 0644 -p simbadr -d /tmp)
+#file_FootHtml=$(tempfile -m 0644 -p simbadr -d /tmp)
+#file_ReportQrCodeHtml=$(tempfile -m 0644 -s .html -d /tmp)
+#file_LabelXML=$(tempfile  -m 0644 -p label -s .xml -d /tmp)
+imbadr@new:/opt/simbadr$ xpath  -q -e 'version/community[@policy="NOTICE"]'  /etc/simbadr/snmp.xml | cut -d">" -f "2" | cut -d"<" -f"1"
+notify_monitor
+simbadr@new:/opt/simbadr$ xpath  -q -e 'version/community[@policy="RW"]'  /etc/simbadr/snmp.xml | cut -d">" -f "2" | cut -d"<" -f"1"
+5ecr3t_1nf0_c43X
+simbadr@new:/opt/simbadr$ xpath  -q -e 'version/community[@policy="RO"]'  /etc/simbadr/snmp.xml | cut -d">" -f "2" | cut -d"<" -f"1"
+public_caex_
+simbadr@new:/opt/simbadr$

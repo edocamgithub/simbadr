@@ -1,0 +1,3 @@
+http://bio.gsi.de/DOCS/NCDWARE/V5.0.000/HTML/snmp5.htm
+
+Resetar terminal linux remotamente via snmp
