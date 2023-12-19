@@ -1,7 +1,7 @@
 #!/bin/bash
 ##################################################################
 #  File: simbadr-dependencies-file.sh 	    Built: 202109280822 
-#  Version: 0.0.1
+#  Version: 1.0.0                      Update 202312062029
 #
 #  Function: Read Head Script Files for Simbadr tools.
 #
@@ -9,15 +9,13 @@
 #
 ##################################################################
 #                   ---------------------------
-#  Copyright (c)2019-20201 Eduardo M. Araujo.
+#  Copyright (c)2019-2023 Eduardo M. Araujo.
 #
 #  This file is part the Simbadr scripts tools collections.
 #
 #  Required: null
 #
 #  Note: null
-#
-#                   ---------------------------
 #
 # created by manual 
 ##################################################################
@@ -26,35 +24,34 @@
    VERSION="0.0.1"
      BUILT="2021Set28"
     AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c) 2019-2021 Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2023."
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG="/var/log/log_$$.log"
 
-# Habilita a impressao de variaveis
+# Enable debug displayed
 debugVerbose=true
 #
 
-# Habilita as opcoes
+# Options enable
 argumentos=$@
 #
 
-# Habilita as opcoes
+# Timestamp
 just=$(date "+%s")
 #
 
-# Manual de uso do script
+# Display help
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
- 
-   * Lista as propriedades do arquivo de Script
+echo "$APPNAME version $VERSION $COPYRIGHT
+   * Read Script file dependences *
     
-Uso: $APPNAME [file]
-  
-OPÇÕES:
-  -h, --help         apresenta esta informação para ajuda e finaliza;
-  -V, --version      mostra a versão atual;
+Usage: $APPNAME [file]
  
-Exemplos:
+OPTION:
+  -h, --help         show this is information;
+  -V, --version      show version number;
+ 
+Example:
    $APPNAME  simbadr-write-conf.sh               
    $APPNAME  /opt/simbadr/lib/simbadr/reports.sh 
    
@@ -66,25 +63,19 @@ $CONTACT"
 choose () {
         options=$argumentos
 
-
-
 case "$options" in
      -h | --help )
        help_manual  ;;
 
      -V | --version | -v )
-      echo "versão: $VERSION" ;;
+      echo "version: $VERSION" ;;
 	*)
-	cat $options | grep -E "Required:|Built:|Note:|File:|Version:|Function:"
+	cat $options | grep -E  "Required:|Built:|Note:|File:|Version:|Function:"
 	;;
 	
 esac
 }
 
-
-
 # Begin
 choose $argumentos
-
-
 # End

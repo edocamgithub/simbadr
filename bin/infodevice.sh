@@ -1,25 +1,25 @@
 #!/bin/bash
 ##################################################################
-#  File: infodevice.sh 	       Built 201902061252 
-#  Version: 1.2.0					 Last update 202209232124 .20190404
+#  File: infodevice.sh     Built 201902061252  
+#  
+#  Version: 1.2.2          Update 202312062029 
 #
-#  Function: Get information
+#  Function: Get information from host
 #
-#  Required:snmp libsnmp-base snmp-mibs-downloader, Perl-XML(xpath)
-#           perl v5.30.0, icmp, simbadrdb.xml
-#  Note:
-#	snmpd on client
+#  Required: snmp libsnmp-base snmp-mibs-downloader, Perl-XML(xpath), perl v5.30.0, icmp, simbadrdb.xml
+#           
+#  Note: snmpd, IPv4 enable, Network configured
 #
-#  Copyright (c)2019-2023 Eduardo M. Araujo..
+#  Copyright(c)2019-2023 Eduardo M. Araujo
 #
-# created by template_bash3.sh
+# created by template_bash3.sh 
 ##################################################################
  
    APPNAME=$(basename $0)
-   VERSION="0.0.1"
+   VERSION="1.2.1"
      BUILT="2019Fev06"
     AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2023 Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2023"
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG="/var/log/log_$$.log"
    TEMP_LOCAL_SIMBADR="/tmp/simbadr"
@@ -31,30 +31,27 @@ if test -d $TEMP_LOCAL_SIMBADR
 	else
   		mkdir $TEMP_LOCAL_SIMBADR
 	fi
-
    
-# Banco de Dado em XML 
+# XML database from directory and filename 
 localDBXML=$(simbadr-read-conf.sh -92)
 filenameDBXML="simbadrdb.xml"
-
    
-# Habilita a impressao de variaveis
+# Enable debug displayed
 debugVerbose=false
 #
 
 # CommunityRO
-#community="public_caex_"
+#community="public"
 community="public"
 
-# Opções desligadas por padrão
-# Exclusivos
+# Zero value default
+# Exclusive
 more_information_enable=0
 version_view_enable=0     
 info_oid_enable=0         
 help_enable=0
 
-# Inclusivos
-
+# Include
 ping_test_enable=0
 file_name_enable=0
 ip_address_enable=0
@@ -68,18 +65,17 @@ community_get_info_enable=0
 ip_address_get=""
  file_name_get=""			
 
-
-# Habilita as opcoes
+# Options enable
 argumentos=$@
 #
 
 
-# Manual de uso do script
+# Display help
 help_manual() {
 echo "$APPNAME version $VERSION $COPYRIGHT
  * Get information by ICMP or SNMP testing  *
 
-Use: $APPNAME  <protocol [-c community]> <soucer [<filename>]> <output>
+Usage: $APPNAME  <protocol [-c community]> <soucer [<filename>]> <output>
 
   -h, --help                            show this is information;    
   -m, --more-information                show more information;    
@@ -90,18 +86,17 @@ Protocol:
       -c, --community <community>       default community is public; for others community 
                                         choose a name your community;	 
    -q, --quiet                          silent mode or quiet; 
-Soucer:
-  -a, --ip-address <ip>                 input IP number;
-  -f, --filename <filename>             define filename for IP list;
-Output:
-  -x, --xml                             output format xml file;
-  -t, --text                            output format text file;
-Exemplos:
-         $APPNAME -p -a 192.168.0.1 -x  > output.txt    
-         $APPNAME -s --community private -f iplist.txt  -t      
-         $APPNAME -p -q -f iplist           
-         $APPNAME --snmp-get-info --community public --test --filename iplist.txt       
-         $APPNAME --ping-test --quiet --ip-address 192.168.0.1 --xml                     
+ Soucer:
+   -a, --ip-address <ip>                input IP number;
+   -f, --filename <filename>            define soucer filename IP list;
+  Output:
+    -x, --xml                           output format xml file;
+    -t, --text                          output format text file;
+Example:
+       $APPNAME -p -a 192.168.0.1 -x  > output.txt         # Redirect for output.xml file
+       $APPNAME -s --community private -f iplist.txt  -t   # Get SNMP information from iplist.txt                   
+       $APPNAME --snmp-get-info --community public --test --filename iplist.txt       
+       $APPNAME --ping-test --quiet --ip-address 192.168.0.1 --xml                     
 
 $CONTACT"
       exit 0
@@ -123,11 +118,9 @@ PIDexec=$(pgrep $APPNAME)
 DATEpid=$(date "+%b %d %T")
 logs_simbadr=$(echo "$DATEpid, PID ($PIDexec), exec_file --> $APPNAME, ping_test_enable --> $ping_test_enable, snmp_get_info_enable --> $snmp_get_info_enable, snmp_get_info_enable --> $snmp_get_info_enable, community_get_info_enable --> $community_get_info_enable, community_get --> $community_get, ip_address_enable --> $ip_address_enable, ip_address_get --> $ip_address_get, file_name_enable --> $file_name_enable, file_name_get --> $file_name_get, xml_output_enable --> $xml_output_enable, text_output_enable --> $text_output_enable")
 }
-
 #
 
-function debug_console ()
-{
+function debug_console () {
 if [ $debugVerbose = true ] 
 	then
 		echo ""	
@@ -174,8 +167,6 @@ function networkVerify () {
 #
 	
 info_oid () {
-
-
 echo "
 SNMP 
 
@@ -191,31 +182,20 @@ Root-Node.iso.org.dod.internet.mgmt.mib-2
  hrSystemNumUsers.0 = .1.3.6.1.2.1.25.1.5.0 = iso.org.dod.internet.mgmt.mib-2.25.hrSystemNumUsers.0
 hrSystemProcesses.0 = .1.3.6.1.2.1.25.1.6.0 = iso.org.dod.internet.mgmt.mib-2.25.hrSystemProcesses.0
 "
-
 }
 #
 
-
-
-
+#
 createFileXml () {
-
- 
 	echo '<?xml version="1.0" encoding="UTF-8" ?>'
-	
-
-
 }
 
 
 export_xml () {
-
  option=$1
 
 #headXml=$2
-
 #if test headXml = "createFileXml"
-
 #file_type_out=$2
 
 if [ $option = "snmp" ]
@@ -238,34 +218,19 @@ if [ $option = "snmp" ]
 		echo "</device>"
 fi
 
-#if [ $option = "ping" ]
-#	then
-#		echo "<device>"
-#		echo "   <network>"
-#		echo "       <ipadress>$ipDevice</ipadress>"
-#		echo "   </network>"		 
-#		echo "	<status_now>$status_text</status_now>"
-#		echo "	<time_now>$just_time</time_now>"
-#		echo "</device>"
-#fi
-
 if [ $option = "ping" ]
 	then
-	
 
       #dbxml_full_="../var/log/simbadr/blocks/01/010.xml";	   
 	   find_ip_for_perl="/group/host[@id="'"'"$ipDevice"'"'"]"
 	   
 	   #print "$find_ip_for_perl"
-	   
-	   
+   
       #select_script_perl=$(./simbadr-tr.pl  "$find_ip_for_perl"  | cut -d ":" -f "2-5")
 		status_conection=$(echo "$ipDevice:$status_text:$just_time"":")	
   
-
 	   hostname_=$(xpath -q -e $find_ip_for_perl -e 'hostname' $localDBXML$filenameDBXML) 
-	   
-	   
+ 	   
 if [ $status_text = "ON" ]
 	then	 
 	   setupimg_status_=$(xpath -q -e $find_ip_for_perl -e 'setupimg/@img_status_on' $localDBXML$filenameDBXML)
@@ -318,7 +283,6 @@ if test -z $setup_img_device
 				
 						echo "     <setupimg"  $setup_img_os $setup_img_device img_status="$setup_img_status" "/>"
 		fi 
-
 
  echo "</host>"     
 fi
@@ -438,12 +402,6 @@ fi
 }
 #
 
-
-
-
-
-
-
 info_device () {
 
 #Formato da funcao
@@ -451,7 +409,6 @@ info_device () {
 #
 # Ex1.: info_device_test xml file iplist.txt 
 # Ex2.: info_device txt ip 192.168.0.100
-
 
 	 exportFormat=$1
 		  ipSource=$2
@@ -589,8 +546,6 @@ done <  $filename_ip_list
 fi								
 }
 #
-
-
 
 info_device_workstation () {
 
@@ -758,34 +713,24 @@ done
 #
 
 
-
-
-
 # Begin
-
 # Possíveis testes  
 # "snmpget" "snmptranslate" "snmpbulkwalk" "snmpbulkget" "snmpgetnext"
 
 	testbinario "snmpwalk" 
 	testbinario "snmpget"
 
-
 choose $argumentos
-
-
 
 # Apresenta as variáveis habilitadas ou atribuídas
 	
 	debug_console
-
-
 
 # Teste de exclusividade e concorrencia de opções
 
 # more_information_enable --> peso 5
 #     version_view_enable --> peso 0         
 #             help_enable --> peso 10
-
 
 if test $help_enable -eq 1 
 	then   
@@ -963,7 +908,6 @@ test -z $file_name_get && test $xml_output_enable -eq 1 && test $text_output_ena
 fi	
 
 
-
 # Teste opção --> PING ou SNMP
 ###
 if test 	$ping_test_enable -eq 1 && test $snmp_get_info_enable -eq 1 
@@ -1002,8 +946,6 @@ if test $ping_test_enable -eq 1 || test 	$snmp_get_info_enable -eq 1
 			fi								
 	fi	
 	
-	
-	
 
 if test $snmp_get_info_enable -eq 1 && test $ping_test_enable -eq 0
 	then   
@@ -1023,7 +965,6 @@ fi
 
 ###
 
-	
 if test 	$ping_test_enable -eq 1 && test $snmp_get_info_enable -eq 0
 	then
 		if test $ip_address_enable -eq 0

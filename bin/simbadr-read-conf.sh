@@ -1,13 +1,13 @@
 #!/bin/bash
 ##################################################################
-#  File: simbadr-read-conf.sh	       Built: 201905161239
-#  Version: 1.0.2
+#  File: simbadr-read-conf.sh     Built: 201905161239
+#  Version: 1.0.3                 Update 202312062029
 #
 #  Function: Read config file for Simbadr system.
 #
 ##################################################################
 #                   ---------------------------
-#  Copyright (c)2019-2022 Eduardo M. Araujo.
+#  Copyright (c)2019-2023 Eduardo M. Araujo.
 #
 #  This file is part the simbadr scripts tools collections.
 #
@@ -15,16 +15,14 @@
 #
 #  Note: Old filename is rinfoconf.sh
 #  
-#                   ---------------------------
-#
 # created by manual script
 ##################################################################
  
    APPNAME=$(basename $0)
-   VERSION="1.0.0"
+   VERSION="1.0.2"
      BUILT="2019Mai16"
     AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2021 Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2023."
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG="/var/log/log_$$.log"
 
@@ -45,33 +43,31 @@ baseDIR=/etc/simbadr/
 # Manual de uso do script
 help_manual() {
   echo "$APPNAME version $VERSION $COPYRIGHT
+ * Display config directory for ../config.xml *
 
- * Retorna o diretório de configuração em config.xml *
+Use: $APPNAME <option>
 
-Uso: $APPNAME <opções>
+OPTION:
+  -h, --help                   show this is information;
+  -V, --version                show version number;
+  -s, --setup                  display path from setup;
+  -x, --exec                   display path from exec;      
+  -l, --library                display path from lib;
+  -b, --backup                 display path from backup;
+  -f, --front-end              display path from front-end;
+  -m, --xml-files              display path from Symbolic Link; 
+  -y, --history                display path from history;
+  -q, --qr-codes               display path from qrcode;  
+  -r, --reports                display path from Reports;   
+  -d, --images-device          display path from Devices images or icons default;
+  -n, --images-network         display path from Network images or icons ;
+  -e, --images-enterprise      display path from Enterprise imagens or icons customized;
+  -H, --helper                 display path from help;
+  -g, --global                 display path from config device global; 
+  -X, --group[X]               display path from X group,(ex.:-1 or --group01/-32 ou group32);
+  -99 | --group99              display path from group temp 99;
 
-OPÇÕES:
-  -h, --help                   apresenta esta informação para ajuda e finaliza;
-  -V, --version                mostra a versão atual;
-  -s, --setup                  retorna o diretório para o setup;
-  -x, --exec                   retorna o diretório dos executáveis;      
-  -l, --library                retorna o diretório das bibliotecas;
-  -b, --backup                 retorna o diretório para backup;
-  -f, --front-end              retorna o diretório do front-end;
-  -m, --xml-files              retorna o diretório de destino para LinkSimbolicos; 
-  -y, --history                retorna o diretório do history para relatórios;
-  -q, --qr-codes               retorna o diretório de deposito do qrcode;  
-  -r, --reports                retorna o diretório de deposito de Reposts;   
-  -d, --images-device          retorna o diretório de imagens;
-  -n, --images-network         retorna o diretório de imagens;
-  -e, --images-enterprise      retorna o diretório de imagens;
-  -H, --helper                 retorna o diretório de ajuda;
-  -g, --global                 retorna o diretório global dos dispositivos; 
-  -X, --group[X]               retorna o diretório para o grupo X,
-                               (ex.: -1 ou --group01 até -32 ou group32);
-  -99 | --group99              retorna o diretório do grupo temporário 99;
-
- Exemplos:
+ Example:
        $APPNAME  --setup
        $APPNAME  -14
        $APPNAME  --group09
@@ -83,14 +79,10 @@ $CONTACT"
 
 #
 function pathGroupConfig () {
-  	
-	numberGroup=$1
-	
+  	numberGroup=$1
 	grep  \<group"$numberGroup"\>  "$baseDIR"config.xml  | cut -d">" -f2 | cut -d"<" -f1
-
 }
 #
-
 
 # Argumentos de linha de comando
 choose () {
@@ -103,7 +95,6 @@ case "$options" in
      -V | --version )
       echo "versão: $VERSION" ;;
 
-  
      -s | --setup )
       
       	grep  \<setup\>  "$baseDIR"config.xml  | cut -d">" -f2 | cut -d"<" -f1;;
@@ -332,7 +323,6 @@ case "$options" in
 esac
 }
 #
-
 
 # Begin
 choose $argumentos
