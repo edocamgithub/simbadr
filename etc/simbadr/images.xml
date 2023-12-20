@@ -1,97 +1,90 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- file setup images.xml for Simbadr serial=1634525756 -->
+<!-- file setup images.xml for Simbadr serial=1703033438 -->
 <imageStandard>
 
-   <deviceHost status="0" content="image/png" description="Imagem com status indefinido">device.png</deviceHost>
-   <deviceHost status="1" content="image/png" description="Imagem com status desligado (black)">statusOFF.png</deviceHost>
-   <deviceHost status="2" content="image/png" description="Imagem com status ligado (green)">statusON.png</deviceHost>
-   <deviceHost status="3" content="image/png" description="Imagem com status Games1 (green)">game.png</deviceHost>
-   <deviceHost status="4" content="image/png" description="Imagem com status Games2 (yellow)">game2.png</deviceHost>
-   <deviceHost status="5" content="image/png" description="Imagem com status OK (green)">statusOK.png</deviceHost>
+   <deviceHost status="0" content="image/png" description="Unknown device">device.png</deviceHost>
+   <deviceHost status="1" content="image/png" description="Black color Off-line status icon">statusOFF.png</deviceHost>
+   <deviceHost status="2" content="image/png" description="Green color On-line status icon">statusON.png</deviceHost>
+   <deviceHost status="3" content="image/png" description="Green color Games1 status icon">game.png</deviceHost>
+   <deviceHost status="4" content="image/png" description="Yellow color Games2 status icon">game2.png</deviceHost>
+   <deviceHost status="5" content="image/png" description="Green color status OK icon">statusOK.png</deviceHost>
 
-   <devicePrinter status="0" content="image/png" description="Imagem com status StandBy">printer0.png</devicePrinter>
-   <devicePrinter status="1" content="image/png" description="Imagem com status Tonner 100%">printer100t.png</devicePrinter>
-   <devicePrinter status="2" content="image/png" description="Imagem com status Tonner 50%">printer50t.png</devicePrinter>
-   <devicePrinter status="3" content="image/png" description="Imagem com status Alert (yellow)">printer00t.png</devicePrinter>
-   <devicePrinter status="4" content="image/gif" description="Animação com status Alert GIF">printer_st2.gif</devicePrinter>
-   <devicePrinter status="5" content="image/gif" description="Animação com status Working GIF">a_printer2.gif</devicePrinter>
+   <devicePrinter status="0" content="image/png" description="StandBy Printer status icon">printer0.png</devicePrinter>
+   <devicePrinter status="1" content="image/png" description="Tonner or Ink 100% Printer status icon">printer100t.png</devicePrinter>
+   <devicePrinter status="2" content="image/png" description="Tonner or Ink 50% Printer status icon">printer50t.png</devicePrinter>
+   <devicePrinter status="3" content="image/png" description="Yellow color Alert Printer status icon">printer00t.png</devicePrinter>
+   <devicePrinter status="4" content="image/gif" description="GIF Animation Alert Printer status">printer_st2.gif</devicePrinter>
+   <devicePrinter status="5" content="image/gif" description="GIF Animation Working Printer status">a_printer2.gif</devicePrinter>
 
-   <deviceSwitch status="0" content="image/png" description="Imagem com status desligado (gray)">switch0.png</deviceSwitch>
-   <deviceSwitch status="1" content="image/png" description="Imagem com status ligado (gray)">switch1.png</deviceSwitch>
-   <deviceSwitch status="2" content="image/png" description="Imagem com status desligado (black)">switch_.png</deviceSwitch>
-   <deviceSwitch status="3" content="image/png" description="Imagem com status ligado (black)">switch.png</deviceSwitch>
+   <deviceSwitch status="0" content="image/png" description="Gray color Off-line Switch status icon">switch0.png</deviceSwitch>
+   <deviceSwitch status="1" content="image/png" description="Gray color On-line Switch status icon">switch1.png</deviceSwitch>
+   <deviceSwitch status="2" content="image/png" description="Black color Off-line Switch status icon">switch_.png</deviceSwitch>
+   <deviceSwitch status="3" content="image/png" description="Black color On-line Switch status icon">switch.png</deviceSwitch>
 
-   <deviceCam status="0" content="image/png" description="Imagem com status da camera ligada">cam0.png</deviceCam>
-   <deviceCam status="1" content="image/png" description="Imagem com status da camera desligada">cam1.png</deviceCam>
-   <deviceCam status="2" content="image/gif" description="Animação com status da camera Working GIF">cam2.gif</deviceCam>
+   <deviceCam status="0" content="image/png" description="Security CAM On-line status icon">cam0.png</deviceCam>
+   <deviceCam status="1" content="image/png" description="Security CAM Off-line status icon">cam1.png</deviceCam>
+   <deviceCam status="2" content="image/gif" description="GIF Animation Working Security CAM status">cam2.gif</deviceCam>
 
-   <hostLaptop status="0" content="image/png" description="Imagem com status Conectado">laptop_0.png</hostLaptop>
-   <hostLaptop status="1" content="image/png" description="Imagem com status Desconectado">laptop_1.png</hostLaptop>
-   <hostLaptop status="2" content="image/gif" description="Imagem com status OS Windows">laptop_2.png</hostLaptop>
-   <hostLaptop status="3" content="image/png" description="Imagem com status OS BSD/Unix">laptop_3.png</hostLaptop>
-   <hostLaptop status="4" content="image/png" description="Imagem com status OS MACOSX">laptop_4.png</hostLaptop>
-   <hostLaptop status="5" content="image/gif" description="Imagem com status OS Linux">laptop_5.png</hostLaptop>
-   <hostLaptop status="6" content="image/png" description="Imagem com status OS MAC Classic">laptop_6.png</hostLaptop>
-   <hostLaptop status="7" content="image/png" description="Animação com status Working GIF">laptop_7.gif</hostLaptop>
+   <hostLaptop status="0" content="image/png" description="Connecting Laptop status icon">laptop_0.png</hostLaptop>
+   <hostLaptop status="1" content="image/png" description="Desconneting Laptop status icon">laptop_1.png</hostLaptop>
+   <hostLaptop status="2" content="image/gif" description="Laptop with System Windows">laptop_2.png</hostLaptop>
+   <hostLaptop status="3" content="image/png" description="Laptop with System BSD/Unix">laptop_3.png</hostLaptop>
+   <hostLaptop status="4" content="image/png" description="Laptop with System MACOSX">laptop_4.png</hostLaptop>
+   <hostLaptop status="5" content="image/gif" description="Laptop with System GNU/Linux">laptop_5.png</hostLaptop>
+   <hostLaptop status="6" content="image/png" description="Laptop with System MACos Classic">laptop_6.png</hostLaptop>
+   <hostLaptop status="7" content="image/png" description="GIF Animation Working Laptop status">laptop_7.gif</hostLaptop>
 
-   <hostRetired status="0" content="image/png" description="Imagem com status Removido">desativado1.png</hostRetired>
-   <hostRetired status="1" content="image/png" description="Imagem com status Removido">desativado2.png</hostRetired>
-   <hostRetired status="2" content="image/png" description="Imagem com status Removido">desativado3.png</hostRetired>
-   <hostRetired status="3" content="image/png" description="Imagem com status Removido">desativado4.png</hostRetired>
+   <hostRetired status="0" content="image/png" description="Removed 0 status">desativado1.png</hostRetired>
+   <hostRetired status="1" content="image/png" description="Removed 1 status">desativado2.png</hostRetired>
+   <hostRetired status="2" content="image/png" description="Removed 2 status">desativado3.png</hostRetired>
+   <hostRetired status="3" content="image/png" description="Removed 3 status">desativado4.png</hostRetired>
 
-   <hostWorkstation status="0" content="image/png" description="Imagem com status old Workstation (gray)">workstation0.png</hostWorkstation>
-   <hostWorkstation status="1" content="image/png" description="Imagem com status Workstation Desconectado (gray)">workstation1.png</hostWorkstation>
-   <hostWorkstation status="2" content="image/png" description="Imagem com status Workstation Conectado (gray)">workstation2.png</hostWorkstation>
-   <hostWorkstation status="3" content="image/png" description="Imagem com status Workstation Conectado (black)">workstation3.png</hostWorkstation>
-   <hostWorkstation status="4" content="image/png" description="Animaçãocom status Working (GIF)">workstation4.gif</hostWorkstation>
+   <hostWorkstation status="0" content="image/png" description="Gray color Old Workstation status icon">workstation0.png</hostWorkstation>
+   <hostWorkstation status="1" content="image/png" description="Gray color Desconected Workstation status icon">workstation1.png</hostWorkstation>
+   <hostWorkstation status="2" content="image/png" description="Gray color Conected Workstation status icon">workstation2.png</hostWorkstation>
+   <hostWorkstation status="3" content="image/png" description="Black color Conected Workstation status icon">workstation3.png</hostWorkstation>
+   <hostWorkstation status="4" content="image/png" description="GIF Animation Workstation status">workstation4.gif</hostWorkstation>
 
-   <hostDeny status="0" content="image/gif" description="Animação com status Deny (bloqueado)">a_deny.gif</hostDeny>
-   <hostAlert status="0" content="image/png" description="Imagem com status desligado (red)">statusOFF_2.png</hostAlert>
-   <hostAlert status="1" content="image/png" description="Imagem com status Alerta ">warning.png</hostAlert>
+   <hostDeny status="0" content="image/gif" description="GIF Animation Deny status">a_deny.gif</hostDeny>
+   <hostAlert status="0" content="image/png" description="Red color Off-line status icon">statusOFF_2.png</hostAlert>
+   <hostAlert status="1" content="image/png" description="Alert status icon">warning.png</hostAlert>
 
-   <hostServer status="0" content="image/png" description="Imagem com status desligado (black)">serverOFF.png</hostServer>
-   <hostServer status="1" content="image/png" description="Imagem com status ligado (white)">serverON.png</hostServer>
-   <hostServer status="2" content="image/png" description="Imagem com status Working (gray)">serverworkbusy.png</hostServer>
-   <hostServer status="3" content="image/png" description="Imagem com status VirtualServerOn ">serverworkON.png</hostServer>
-   <hostServer status="4" content="image/png" description="Imagem com status VirtualServerOff ">serverworkOFF.png</hostServer>
+   <hostServer status="0" content="image/png" description="Black color Off-line Server status icon">serverOFF.png</hostServer>
+   <hostServer status="1" content="image/png" description="White color On-line Server status icon">serverON.png</hostServer>
+   <hostServer status="2" content="image/png" description="Gray color Busy Server status icon">serverworkbusy.png</hostServer>
+   <hostServer status="3" content="image/png" description="Virtual Machine Server On-line status icon">serverworkON.png</hostServer>
+   <hostServer status="4" content="image/png" description="Virtual Server Off-line status icon">serverworkOFF.png</hostServer>
 
-   <hostWeb status="0" content="image/png" description="Imagem com status Site WWW (black)">w3black.png</hostWeb>
-   <hostWeb status="1" content="image/png" description="Imagem com status Site WWW (white)">w3white.png</hostWeb>
-   <hostWeb status="2" content="image/png" description="Imagem com status Site WWW (red)">w3red.png</hostWeb>
+   <hostWeb status="0" content="image/png" description="Black color Server Web or Intranet status icon">w3black.png</hostWeb>
+   <hostWeb status="1" content="image/png" description="White color Server Web or Intranet status icon">w3white.png</hostWeb>
+   <hostWeb status="2" content="image/png" description="Red color Server Web or Intranet status icon">w3red.png</hostWeb>
 
-   <hostLinux status="0" content="image/png" description="Imagem com status Linux ON (white)">os_linux.png</hostLinux>
-   <hostLinux status="1" content="image/png" description="Imagem com status Linux On (green)">os_linux2.png</hostLinux>
-   <hostLinux status="2" content="image/gif" description="Animação com status Linux Working">a_os_linux.gif</hostLinux>
+   <hostLinux status="0" content="image/png" description="White color GNU/Linux ON status icon">os_linux.png</hostLinux>
+   <hostLinux status="1" content="image/png" description="Green color GNU/Linux ON status icon">os_linux2.png</hostLinux>
+   <hostLinux status="2" content="image/gif" description="GIF Animation GNU/Linux status">a_os_linux.gif</hostLinux>
 
-   <hostBsd status="0" content="image/png" description="Imagem com status Bsd OFF (green)">os_openbsd_0.png</hostBsd>
-   <hostBsd status="1" content="image/png" description="Imagem com status Bsd ON (red)">os_openbsd.png</hostBsd>
-   <hostBsd status="2" content="image/gif" description="Animação com status Bsd (GIF)">a_os_openbsd.gif</hostBsd>
+   <hostBsd status="0" content="image/png" description="Green color BSD OFF status icon">os_openbsd_0.png</hostBsd>
+   <hostBsd status="1" content="image/png" description="Red color BSD ON status icon">os_openbsd.png</hostBsd>
+   <hostBsd status="2" content="image/gif" description="GIF Animation BSD status">a_os_openbsd.gif</hostBsd>
 
-   <hostWindows status="0" content="image/png" description="Imagem com status Windows ON (blue)">os_windows.png</hostWindows>
-   <hostWindows status="1" content="image/gif" description="Animação com status Windows (GIF)">a_os_windows.gif</hostWindows>
+   <hostWindows status="0" content="image/png" description="Blue color Windows ON status icon">os_windows.png</hostWindows>
+   <hostWindows status="1" content="image/gif" description="GIF Animation Windows status icon">a_os_windows.gif</hostWindows>
 
-   <hostMac status="0" content="image/png" description="Imagem com status Mac OFF (black)">macOFF.png</hostMac>
-   <hostMac status="1" content="image/png" description="Imagem com status Mac ON (yellow)">macTYPE2.png</hostMac>
-   <hostMac status="2" content="image/gif" description="Animação com status Mac Working (GIF)">a_macTYPE2.gif</hostMac>
+   <hostMac status="0" content="image/png" description="Black color MacOS OFF status icon">macOFF.png</hostMac>
+   <hostMac status="1" content="image/png" description="Yellow color MacOS ON status icon">macTYPE2.png</hostMac>
+   <hostMac status="2" content="image/gif" description="GIF Animation MacOS status">a_macTYPE2.gif</hostMac>
 
-   <hostPhoneIP status="0" content="image/png" description="Imagem com status IP phone Conectado (white)">phoneip.png</hostPhoneIP>
-   <hostPhoneIP status="1" content="image/png" description="Imagem com status IP phone Desconectado (red cross)">phoneip2.png</hostPhoneIP>
-   <hostPhoneIP status="2" content="image/gif" description="Animação com status IP phone (GIF)">phoneip.gif</hostPhoneIP>
+   <hostPhoneIP status="0" content="image/png" description="White color Conected IP Phone status icon">phoneip.png</hostPhoneIP>
+   <hostPhoneIP status="1" content="image/png" description="Red color Desconeted IP Phone status icon">phoneip2.png</hostPhoneIP>
+   <hostPhoneIP status="2" content="image/gif" description="GIF Animation IP Phone status">phoneip.gif</hostPhoneIP>
 
-   <deviceXbox status="0" content="image/png" description="Imagem com status Xbox Conectado">xbox0.png</deviceXbox>
-   <deviceXbox status="1" content="image/png" description="Imagem com status Xbox Desconectado">xbox1.png</deviceXbox>
+   <deviceXbox status="0" content="image/png" description="Conected Xbox status icon">xbox0.png</deviceXbox>
+   <deviceXbox status="1" content="image/png" description="Desconected Xbox status icon">xbox1.png</deviceXbox>
 
-   <devicePlaystation status="0" content="image/png" description="Imagem com status PlayStation Conectado">ps0.png</devicePlaystation>
-   <devicePlaystation status="1" content="image/png" description="Imagem com status PlayStation Desconectado">ps1.png</devicePlaystation>
+   <devicePlaystation status="0" content="image/png" description="Conected PlayStation status icon">ps0.png</devicePlaystation>
+   <devicePlaystation status="1" content="image/png" description="Desconected PlayStation status icon">ps1.png</devicePlaystation>
 
-   <deviceWii status="0" content="image/gif" description="Imagem com status Nintendo Wii Conectado">wii0.png</deviceWii>
-   <deviceWii status="1" content="image/gif" description="Imagem com status Nintendo Wii Desconectado">wii1.png</deviceWii>
-
-   <deviceAp status="0" content="image/png" description="Imagem com status antena desligado">antena1.png</deviceAp>
-   <deviceAp status="1" content="image/png" description="Imagem com status antena ligado">antena1_0.png</deviceAp>
-   <deviceAp status="2" content="image/gif" description="Animação com status antena Working GIF">antena1.gif</deviceAp>
-   
-   <firewall status="0" content="image/png" description="Imagem do firewall">firewall.png</firewall>
-   <firewall status="1" content="image/gif" description="Imagem animada do firewall (GIF)">firewall.gif</firewall>
+   <deviceWii status="0" content="image/gif" description="Conected Wii status icon ">wii0.png</deviceWii>
+   <deviceWii status="1" content="image/gif" description="Desconected Wii status icon">wii1.png</deviceWii>
 
 </imageStandard>
