@@ -20,8 +20,8 @@
    APPNAME=$(basename $0)
    VERSION="0.0.2"
      BUILT="2023mai28"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (C)2019-2023 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (C)2019-2023 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG_=$(simbadr-read-conf.sh -y)
    AUTHLOG=$AUTHLOG_"00/log_$$.log"

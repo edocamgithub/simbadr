@@ -20,8 +20,8 @@
    APPNAME=$(basename $0)
    VERSION="1.0.1"
      BUILT="2021out14"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (C)2019-2023 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (C)2019-2023 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG_=$(simbadr-read-conf.sh -y)
    AUTHLOG=$AUTHLOG_"00/log_$$.log"
@@ -67,8 +67,8 @@ simbadr_group=$(cat $baseDIR_etc/$group_enable_list | grep -w group_enable | cut
 
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
-
+  echo "$APPNAME version $VERSION 
+$COPYRIGHT $AUTHOR
 Uso: $APPNAME <group or list of groups>
 
 OPÇÕES:
@@ -147,23 +147,12 @@ export_infodash () {
    #Get XML format information for Panel On and OFF 
 # "$baseDIR_LIB"infodash.sh "$list_group" | tail -n13 > "$grouplocal"infodash.xml
  "$baseDIR_LIB"infodash.sh "$simbadr_group" | tail -n13 > "$grouplocal"infodash.xml
- 
- #cat "$grouplocal"infodash.xml
 
-#cat "$grouplocal"infodash.xml
+ "$baseDIR_LIB"grpinfor.sh -a > "$TEMP_LOCAL_SIMBADR/"statusinfo.xml
 
-#total_g16=$("$baseDIR_LIB"infodash.sh 27 | head -n2 | grep -v "#" | cut -d "," -f 6 | cut -d" " -f2) && echo "    <voip>"$total_g16"</voip>" > /tmp/infodash_01.xml
-#total_g15=$("$baseDIR_LIB"infodash.sh 26 | head -n2 | grep -v "#" | cut -d "," -f 6 | cut -d" " -f2) && echo "    <printer>"$total_g15"</printer>" > /tmp/infodash_02.xml
-
-# Begin
-  #"$baseDIR_LIB"infodash.sh "$number" | tail -9 | head -n5 > /tmp/infodash_head.xml
-# End
-  #"$baseDIR_LIB"infodash.sh "$number" | tail -4 > /tmp/infodash_toes.xml
-# Merge
-  #cat /tmp/infodash_head.xml /tmp/infodash_01.xml /tmp/infodash_02.xml /tmp/infodash_toes.xml >  "$grouplocal"infodash.xml
-
-#"$baseDIR_LIB"grpinfor.sh -a > "$grouplocal"statusinfo.xml
-"$baseDIR_LIB"grpinfor.sh -a > "$TEMP_LOCAL_SIMBADR/"statusinfo.xml
+echo "<lastupdate>" > "$TEMP_LOCAL_SIMBADR/"lastupdate.xml
+grep lastTime "$grouplocal"infodash.xml >>  "$TEMP_LOCAL_SIMBADR/"lastupdate.xml
+echo "</lastupdate>" >> "$TEMP_LOCAL_SIMBADR/"lastupdate.xml
 
 }
 
@@ -189,6 +178,6 @@ echo "$number" >>  "$TEMP_LOCAL_SIMBADR/"number.txt
 
 	export_infodash
 	cp "$TEMP_LOCAL_SIMBADR/"statusinfo.xml "$grouplocal"statusinfo.xml  
-   
+   cp "$TEMP_LOCAL_SIMBADR/"lastupdate.xml "$grouplocal"lastupdate.xml
 exit
 # End

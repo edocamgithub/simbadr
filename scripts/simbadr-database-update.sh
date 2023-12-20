@@ -20,8 +20,8 @@
    APPNAME=$(basename $0)
    VERSION="0.0.1"
      BUILT="2022Mar07"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2022 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2022-2023 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG="/var/log/log_$$.log"
    
