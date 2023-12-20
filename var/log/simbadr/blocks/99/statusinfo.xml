@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="../xsl/info.xsl" ?>
+<!-- grpinfor.sh output file statusinfo.xml for Simbadr serial=1703030467 -->
+<status>
+<group>
+     <information groupnumber="01" groupname="DTIC" percentage="0">alert</information>
+     <grouplink>../xml/01.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="02" groupname="GABINETE" percentage="0">alert</information>
+     <grouplink>../xml/02.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="03" groupname="DAM" percentage="8">alert</information>
+     <grouplink>../xml/03.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="04" groupname="APGI" percentage="0">alert</information>
+     <grouplink>../xml/04.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="05" groupname="SAPCE" percentage="30">warning</information>
+     <grouplink>../xml/05.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="06" groupname="SAMI_LAMI" percentage="0">alert</information>
+     <grouplink>../xml/06.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="07" groupname="SAUDE" percentage="0">alert</information>
+     <grouplink>../xml/07.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="08" groupname="S_TESTE" percentage="0">alert</information>
+     <grouplink>../xml/08.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="09" groupname="DA_SALC" percentage="0">alert</information>
+     <grouplink>../xml/09.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="10" groupname="S1" percentage="0">alert</information>
+     <grouplink>../xml/10.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="11" groupname="S2_SEG" percentage="0">alert</information>
+     <grouplink>../xml/11.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="12" groupname="S3" percentage="0">alert</information>
+     <grouplink>../xml/12.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="13" groupname="S4_RP" percentage="0">alert</information>
+     <grouplink>../xml/13.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="14" groupname="SAMEN" percentage="25">warning</information>
+     <grouplink>../xml/14.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="15" groupname="SSEO" percentage="0">alert</information>
+     <grouplink>../xml/15.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="16" groupname="GARAGEM" percentage="0">alert</information>
+     <grouplink>../xml/16.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="17" groupname="CIA" percentage="0">alert</information>
+     <grouplink>../xml/17.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="18" groupname="L4_BALISTICA" percentage="0">alert</information>
+     <grouplink>../xml/18.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="19" groupname="LAB" percentage="0">alert</information>
+     <grouplink>../xml/19.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="20" groupname="ALMOX" percentage="0">alert</information>
+     <grouplink>../xml/20.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="21" groupname="APROV" percentage="0">alert</information>
+     <grouplink>../xml/21.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="22" groupname="FISCALIZACAO" percentage="0">alert</information>
+     <grouplink>../xml/22.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="23" groupname="SPP" percentage="0">alert</information>
+     <grouplink>../xml/23.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="24" groupname="SSPC" percentage="0">alert</information>
+     <grouplink>../xml/24.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="25" groupname="SUBTENENCIA" percentage="0">alert</information>
+     <grouplink>../xml/25.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="26" groupname="PRINTERS" percentage="0">alert</information>
+     <grouplink>../xml/26.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="27" groupname="VoIP" percentage="0">alert</information>
+     <grouplink>../xml/27.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="28" groupname="Switch" percentage="0">alert</information>
+     <grouplink>../xml/28.xml</grouplink>
+</group>
+<group>
+     <information groupnumber="29" groupname="Security" percentage="0">alert</information>
+     <grouplink>../xml/29.xml</grouplink>
+</group>
+</status>
