@@ -26,7 +26,7 @@ echo "
          <title>Icons for SIMBA(DR)</title>
     </head>
 <body>
-<h1>Graphical icons of network devices / PNG and GIF / SIMBADR </h1>
+<h1>Network devices graphical icons for SIMBADR </h1>
 <br><br><br><br>
 <table>
 " > $tmp_file
@@ -36,7 +36,7 @@ function html_footer {
 echo "
 </table>
 <br><br><br>
-<h4>(C)2019-2023 Designer by Eduardo Macedo Araujo -</h4>
+<h4>(C)2019-2024 Designer by Eduardo Macedo Araujo -</h4>
 </body>
 </html>
 " >> $tmp_file
@@ -167,6 +167,46 @@ for i in 0 1 2 3 4 5 6 7; do
 	img_desc=$("$baseDIR"getimage.sh --hostLaptop "$i" | cut -d":" -f2 )
 		html_tdtr "--hostLaptop"
 done
+
+for i in 0 1; do
+	img_file=$("$baseDIR"getimage.sh --systemFlow "$i" | cut -d":" -f3 )
+	img_desc=$("$baseDIR"getimage.sh --systemFlow "$i" | cut -d":" -f2 )
+		html_tdtr "--systemFlow"
+done
+
+for i in 0 1 2 3; do
+	img_file=$("$baseDIR"getimage.sh --hostFw "$i" | cut -d":" -f3 )
+	img_desc=$("$baseDIR"getimage.sh --hostFw "$i" | cut -d":" -f2 )
+		html_tdtr "--hostFw"
+done
+
+for i in 0 1 2 3 4 5 6 7 8 9; do
+	img_file=$("$baseDIR"getimage.sh --deviceUPS "$i" | cut -d":" -f3 )
+	img_desc=$("$baseDIR"getimage.sh --deviceUPS "$i" | cut -d":" -f2 )
+		html_tdtr "--deviceUPS"
+done
+
+for i in 0 1; do
+	img_file=$("$baseDIR"getimage.sh --deviceWii "$i" | cut -d":" -f3 )
+	img_desc=$("$baseDIR"getimage.sh --deviceWii "$i" | cut -d":" -f2 )
+		html_tdtr "--deviceWii"
+done
+
+for i in 0 1; do
+	img_file=$("$baseDIR"getimage.sh --devicePs "$i" | cut -d":" -f3 )
+	img_desc=$("$baseDIR"getimage.sh --devicePs "$i" | cut -d":" -f2 )
+		html_tdtr "--devicePs"
+done
+
+for i in 0 1; do
+	img_file=$("$baseDIR"getimage.sh --deviceXbox "$i" | cut -d":" -f3 )
+	img_desc=$("$baseDIR"getimage.sh --deviceXbox "$i" | cut -d":" -f2 )
+		html_tdtr "--deviceXbox"
+done
+
+
+
+
 
 html_footer
 
