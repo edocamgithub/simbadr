@@ -17,8 +17,7 @@ function loadPanel() {
    		if (this.readyState == 4 && this.status == 200) {
 					celsiusupdate(this);    				   				
     			}
-		}	
-		
+		}		
 	xhttp.open("GET", "xml/celsius.xml", true);
 	xhttp.send();
 }
