@@ -1,0 +1,164 @@
+body {margin 10em; padding:0; font-size:20px; background-color: black; }
+
+div {
+	width: 80%;
+	margin: 2px 1px 1px 200px;
+	padding: 1px 1px 1px 1px;
+}
+
+div#device_pc {
+	
+}
+
+div#device_printer {
+	
+}
+
+img {
+
+
+}
+
+#infoextra {
+	width: 192px;
+   height: 129px;
+	margin: 10px 1px 1px 0px;
+	border-color: black;
+	padding: 1px;
+	background-color: green;
+	float: left;
+}
+
+#netpanel {
+	width: 15%;
+   height: 659px;
+	margin: 4px 1px 1px 1px;
+	border-color: greenyellow;
+	padding: 1px;
+	background-color: black;
+	float: left;
+}
+
+#nettitle {
+	width: 100%;
+   height: 45px;
+	margin: 0;
+	padding: 0px;
+	background-color: blue;
+	}
+
+#nettitleoff {
+	width: 100%;
+   height: 45px;
+	margin: 0;
+	padding: 0px;
+	background-color: red;
+	}
+
+
+
+#workstation {
+	width:79px;
+	height: 74px;
+	margin: 2px;
+	bottom: 1px 1px 1px 1px;
+	padding: 1px 1px 1px 1px;
+	background: black; 
+	float: left;
+	font-weight: bold;
+}
+
+
+#sites {
+	width:280px;
+	height: 89px;
+	margin: 40px;
+	bottom: 1px 1px 1px 1px;
+	padding: 1px 1px 1px 1px;
+	background: green; 
+	float: left;
+	font-weight: bold;
+	font-size: 130%;
+}
+
+span {
+	font-size: 45%;
+	height: 1px;
+}
+.central {
+   text-align: center;
+	background: #fff;
+	margin: 1px 1px 1px 1px;
+	padding: 1px 1px 1px 1px;
+	top: 2px;
+   }
+
+span.bottom {
+	vertical-align: text-bottom;
+	
+	font-family: arial;
+	align-content: center;
+	
+}
+
+span.top {
+	vertical-align: text-top;
+	font-family: arial;
+	align-content: center;
+	
+}
+
+a  {
+ 	text-decoration: none;
+ l
+}
+
+.nome {
+   text-align: center;
+	font-size: 50%;
+}
+
+.titulo {
+   text-align: center;
+	font-size: 150%;
+	vertical-align: text-bottom;
+	}
+
+
+br {
+	color: red;
+	white-space: 10px;
+	height: 10px;
+}
+
+
+
+
+#nav, #nav * { margin: 0; padding: 0;}
+
+#nav {
+	font: bold 0.8em Verdana, Arial, Helvetica, sans-serif;
+width: 12em;
+background: #ccc;
+padding: 0 1px 1px;
+list-style: none;}
+
+
+#nav li { border-top: 1px solid #ccc;}
+
+#nav li a {
+display: block;
+text-decoration: none;
+color: #fff;
+padding: 0.25em 0.5em 0.25em 0.75em;
+border-left: 1em solid #069;
+background: #09c;
+}
+
+#nav li a:visited {color:  #ccc;}
+
+#nav li a:hover {
+color: #2eacd5;
+background: #fff;
+border-left: 1em solid #a2c7da;
+}

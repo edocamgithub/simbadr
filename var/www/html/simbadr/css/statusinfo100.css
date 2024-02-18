@@ -1,0 +1,67 @@
+body {background-color:  black;
+      align-content: center;
+      align-self: center;
+      text-align: center;
+      align-items: center;
+}
+
+
+#body_info {
+	height: 50px;
+	width: 100px;
+	float: left;
+	margin: 10px;
+	margin-left:5%;
+   align-content: center;
+	background-color: yellow;
+	
+}
+
+
+#body_info_70 {
+	height: 100px;
+	width: 200px;
+	float: left;
+	margin: 10px;
+	margin-left:5%;
+   align-content: center;
+	background-color: red;
+	
+}
+
+
+
+status_alert {
+
+
+}
+
+status_normal {
+background-color: whitesmoke;
+}
+
+status_warning {
+	information warning
+
+}
+
+#status_info {
+font-size: 180%;
+font-family: ariel;
+letter-spacing: 0.3em;
+padding-top: 1%;
+
+}
+
+#name_info {
+font-size: 100%;
+padding-top: 0%;
+}
+
+#number_info {
+padding-top: 0%;	
+font-size: 150%;
+font-weight: bold;
+
+}
+

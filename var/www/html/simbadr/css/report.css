@@ -1,0 +1,69 @@
+body {background-color:  white;
+      align-content: center;
+      align-self: center;
+}
+
+#groupname {
+	height: 20px;
+	color: black;
+	font-size: 100%;
+	font-family: arial;
+	font-weight: bold;
+	font-weight: bolder;
+	text-align: left;
+	background-color: yellow;
+}
+
+.corpo {
+	align-content: center;
+	color: green;
+	margin-left: 20px;
+	text-align: center;
+		
+}
+
+
+td {
+	border-bottom-style: none;
+	background-color: transparent;
+	border-bottom-width: thin;
+}
+
+
+#grouptime {
+	height: 40px;
+	color: black;
+	font-size: 100%;
+	font-family: arial;
+	font-weight: bold;
+	font-weight: bolder;
+	text-align: left;
+	margin-top: 20px;
+	background-color: white;
+   padding-left: 20px;
+}
+
+.blocktext {
+	margin-left: 30px;
+}
+
+#caixa {
+	width: 100px;
+	height: 74px;
+	background-color: transparent;
+	float: left;
+	margin-left: 5px;
+	margin-top: 5px;
+	align-content: center;
+}
+
+.ipaddress {
+	font-family: arial;
+	font-size: 80%;
+}
+
+#imagens {
+	align-content: center;
+}
+
+

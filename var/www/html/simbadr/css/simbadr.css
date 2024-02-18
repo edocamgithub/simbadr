@@ -1,0 +1,304 @@
+body {background-color:  black;
+      align-content: center;
+      align-self: center;
+}
+
+
+/* JANELA PRINCIPAL  */
+#principal {
+	width: 1210px;
+	height: 400px;
+	padding: 1px;
+	margin: auto;
+	align-content: center;
+}
+
+#cabecalho {
+	width: 1190px;
+	height: 20px;
+	padding: 10px;
+	background-color: black;
+	align-content: center;
+	margin-top: -10px;
+}
+
+
+/* Cabecalho do SIMBA(DR) */
+.titulo {
+	text-align: center;
+	color: white;
+	font-size: 80%;
+	font-family: arial;
+	float: left;
+	padding-top: 1px;
+	font-style: italic;	
+}
+
+img {
+	float: left;
+	padding: 1px;		
+}
+
+.marca {
+	font-weight: bold;
+	margin-right: 10px;
+	margin-left: 10px;
+	font-style: normal;
+}
+
+.janela {
+	width: 200px;
+	height: 200px;
+	background-color: green;
+}
+
+
+/*PAINEL COM NUMERO */
+#painel {
+	width: 1208px;
+	height: 170px;
+	padding: 1px;
+	margin-top: -10px;
+	margin-bottom: 5px;
+	background-color: gray;
+}
+
+
+.titulodevice {
+	width: 250px;
+   height: 20px;
+	background-color: black;
+   margin-left: 10px;
+   	text-align: center;
+	align-content: center;
+	background-color: black;
+	margin-top: 4px;
+}
+
+.nomedevice {
+	font-family: arial;
+	color: white;
+	font-weight: bold;
+	margin-top: 1px;
+}
+
+
+.totalstatus {
+	width: 120px;
+   height: 130px;
+   margin: 0px;
+   padding: 0px;
+   margin-left: 10px;   
+   float: left;
+}
+
+.deviceon {
+  	font-size: 400%;
+ 	text-align: center;
+	align-content: center;
+	font-family: arial;
+	float: left;
+	width: 120px;
+	height: 90px;
+	background-color: greenyellow;
+	
+	margin-right: 12px;
+	padding-top: 10px;
+}
+
+.titulodeviceon {
+	margin: 1px 12px 0px 0px;
+  	font-size: 100%;
+ 	text-align: center;
+	align-content: center;
+	font-family: arial;
+	float: left;
+	width: 120px;
+	height: 30px;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	padding: 0px;
+	padding-top: 10px;
+}
+
+.titulodeviceoff {
+	margin: 1px 2px 0px 0px;
+  	font-size: 100%;
+ 	text-align: center;
+	align-content: center;
+	font-family: arial;
+	float: left;
+	width: 120px;
+	height: 30px;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	padding: 0px;
+	padding-top: 10px;
+}
+
+.deviceoff {
+  	font-size: 400%;
+ 	text-align: center;
+	align-content: center;
+	font-family: arial;
+	float: left;
+	width: 120px;
+	height: 90px;
+	background-color: red;
+	padding: 0px;
+	color: white;
+	margin-right: 12px;
+	padding-top: 10px;
+}
+
+#information {
+	width: 240px;
+   height: 161px;
+	background-color: whitesmoke;
+	float: left;
+	margin-top: 4px;
+	padding-right: 1px;
+	padding-left: 1px;
+}
+
+#warning {
+	width: 240px;
+   height: 161px;
+	background-color: white;
+	float: left;
+	margin-top: 4px;
+	padding-right: 1px;
+	padding-left: 1px;
+	align-content: center;
+	text-align: center;
+}
+
+.tituloinfo {
+	margin: 0px 12px 0px 0px;
+  	font-size: 100%;
+ 	text-align: center;
+	align-content: center;
+	font-family: arial;
+	float: left;
+	width: 240px;
+	height: 30px;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	padding: 0px;
+	padding-top: 10px;
+}
+
+.nomeinfo {
+	font-family: arial;
+	color: white;
+	font-weight: bold;
+	margin-top: 0px;
+}
+
+.textos {
+	margin-right: 2px;
+	text-align: justify;
+	padding-left: 10px;
+   margin-top: 20%;
+	#font-size: 100%;
+}
+
+p {
+	font-family: sans-serif;
+	#color: green;
+}
+
+.copyright {
+	font-family: arial;
+	color: white;
+	font-size: 100%;
+
+}
+
+p.middleTime {
+	font-family: sans-serif;
+	color: green;
+	font-size: 300%
+	margin-top: -30px;
+
+}
+.watch {
+	font-size: 100%;
+	align-content: center;
+	text-align: center;
+	color: yellow;
+	margin-top: 10px;	
+}
+
+.time {
+	font-size: 280%;
+	margin-top: 20px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	align-content: center;
+	text-shadow: #999999 5px 1px 1px;
+}
+
+
+#lastupdateTitle {
+	font-size: 250%;
+	color: yellow;
+	padding-right:10px; 
+	align-content: center;
+	text-align: center;
+	margin-top: 10px;
+}
+
+
+#lastTimeHtml {
+	font-size: 200%;
+	color: white;
+	font-weight: normal;
+   margin-right: 2px;
+   align-content:center; 
+}
+
+
+.lastUpdateTime {
+	font-size: 150%;
+	color: yellow;
+	font-weight: normal;
+   margin-right: 2px;
+   margin-top: 10px;
+   align-content:center;
+   
+}
+
+
+
+
+#numericos {
+	width: 300px;
+	height: 170px;
+	float: left;
+}
+
+
+
+/* CORPO */
+iframe {
+	width:1206px;
+	height:500px; 
+}
+
+.coluna1 {
+	#margin: 10px;
+	color: blue;
+	font-family: arial;
+	font-size: 80%;
+}
+.coluna2 {
+	#margin: 50px;
+	color: green;
+	font-family: arial;
+	font-size: 100%;
+}
