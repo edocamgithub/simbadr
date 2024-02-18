@@ -1,7 +1,7 @@
 #!/bin/bash
 ##################################################################
-#  File: grpinfor.sh 	       Built: 201910101331
-#  Version: 1.0.0
+#  File: grpinfor.sh 	    Built: 201910101331
+#  Version: 1.2.0           Update 202312062029
 #
 #  Function: Information group status for front-end
 #
@@ -9,25 +9,34 @@
 #
 ##################################################################
 #                   ---------------------------
-#  Copyright (c)2019-2022 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo
 #
 #   This file is part the  simbadr scripts tools collections.
 #
-#  Required: simbadr-read-conf.sh;rinfogrp.sh;infodash.sh; group_enable on simbadr file
+#  Required: simbadr-read-conf.sh;rinfogrp.sh;infodash.sh; group_enable on etc/simbadr/simbadr file
 #
 # created by template_bash.sh
 ##################################################################
  
    APPNAME=$(basename $0)
-   VERSION="1.0.1"
+   VERSION="1.2.0"
      BUILT="2019Out10"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2022 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
-   baseLOG=$(simbadr-read-conf.sh --backup)
+
+# Diretorio de base
+    baseLOG=$(simbadr-read-conf.sh --backup)
+baseDIR_etc=$(simbadr-read-conf.sh --setup)
+baseDIR_LIB=$(simbadr-read-conf.sh --library)
+
    AUTHLOG="$baseLOG"simbadr.log
    #OUTPUT="grpinfor.xml"
+
    OUTPUT="statusinfo.xml"
+   group_enable_list="simbadr"
+     
+
 
 # Habilita a impressao de variaveis
 debugVisible=false
@@ -41,14 +50,12 @@ all_enable=0
 
 
 # Status e porcentagem
-normal=51
+   full=99
+ normal=51
 warning=10
-alert=0
+  alert=0
 
-# Diretorio de base
 
-baseDIR_LIB=$(simbadr-read-conf.sh --library)
-baseDIR=$(simbadr-read-conf.sh --setup)
 #
 # Log de variaveis
 function log_ () {
@@ -61,16 +68,17 @@ logs_simbadr=$(echo "$DATEpid, PID ($PIDexec), exec_file --> $APPNAME, output_fi
 
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
+  echo "$APPNAME version $VERSION
+$COPYRIGHT $AUTHOR
   
-  Uso: $APPNAME [opções] <argumentos>  
+  Usage: $APPNAME --all 
   
-  OPÇÕES:
-   -h, --help         apresenta esta informação para ajuda e finaliza;
-   -V, --version      mostra a versão atual;
-   -a, --all          gera a lista completa;
+  OPTION:
+   -h, --help         show this is;
+   -V, --version      show script version;
+   -a, --all          export XML for front-end;
   
-   Exemplos:
+   Example:
          $APPNAME  -a           
          $APPNAME  -h            
 
@@ -166,7 +174,8 @@ just=$(date "+%s")
 
 #all="01 02"
 # Read file /etc/simbadr/simbadr with term "group_enable"
-all=$( grep group_enable "$baseDIR"simbadr | cut -d"=" -f2)
+all=$(grep group_enable "$baseDIR_etc""$group_enable_list" | cut -d"=" -f2)
+
 
 
 if test $no_test_grep -eq 0

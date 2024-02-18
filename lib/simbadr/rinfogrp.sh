@@ -1,34 +1,26 @@
 #!/bin/bash
 ##################################################################
-#  File: rinfogrp.sh 	       Built: 201906082334
-#  Version: 1.0.1
+#  File: rinfogrp.sh 	     Built: 201906082334
+#  Version: 1.2.0            Update 202312062029
 #
 #  Function: Read XML file for Groups Names
-#
-#  Written by Eduardo M. Araujo.
-#
 ##################################################################
-#                   ---------------------------
-#  Copyright (c)2019-2021 Eduardo M. Araujo..
+#  Copyright (c)2020-2024 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
-#
 #
 #  Required: groups.xml
 #
 #  Note: version 0.0.2 add -l for all groups
 #  
-#
-#                   ---------------------------
-#
 # created by template_bash.sh
 ##################################################################
  
    APPNAME=$(basename $0)
-   VERSION="1.0.1"
+   VERSION="1.2.0"
      BUILT="2020Out09"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2021 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2020-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    baseLOG=$(simbadr-read-conf.sh --backup)
    AUTHLOG="$baseLOG"simbadr.log
@@ -45,22 +37,21 @@ baseDIR=$(simbadr-read-conf.sh -s)
 
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION  $COPYRIGHT
+  echo "$APPNAME version $VERSION  
+$COPYRIGHT $AUTHOR
+     * Display Groupname *
   
-   * Retorna o nome do grupo  *
+  Usage: $APPNAME <options> 
   
-  Uso: $APPNAME <opções> 
-  
-  OPÇÕES:
-    -h, --help         apresenta esta informação para ajuda e finaliza;
-    -V, --version      mostra a versão atual;
-    -l, --all          mostra todos os grupos;
-    -X, --group0       retorna o nome para o grupo X,
-                       (ex.: -1 ou --group1 até -32 ou group32);
-  Exemplos:
-         $APPNAME -0             # retorna o nome do grupo 00
-         $APPNAME --group01      # retorna o nome do grupo 01
-         $APPNAME -14           # retorna o nome do grupo 14
+  OPTION:
+    -h, --help         show this is information;
+    -V, --version      show version number;
+    -l, --all          display all groups;
+    -X, --group0       display static groupname, ex.: -1 ou --group1 até -32 ou group32;
+  Example:
+         $APPNAME -0          # display groupname 00
+         $APPNAME --group01   # display groupname 01
+         $APPNAME -14         # display groupname 14
     
   $CONTACT"
       exit 0
@@ -69,8 +60,7 @@ help_manual() {
 
 #
 function translateNumberforGroup () {
-  	
-	numberGroup=$1
+ 	numberGroup=$1
 	#baseDIR=/etc/simbadr/
 	grep alias "$baseDIR"groups.xml | grep "$numberGroup"  | cut -d">" -f2 | cut -d"<" -f1 
 }
@@ -227,6 +217,5 @@ case "$options" in
 #
 
 # Begin
-
 choose $argumentos
 # End

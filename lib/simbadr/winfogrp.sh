@@ -6,28 +6,22 @@
 #  Writer/Edit group
 #
 #  Written by Eduardo M. Araujo.
-#
 ##################################################################
-#                   ---------------------------
-#  Copyright (c)2019-2023 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
 #
-#
 #  Required: 
 #
-#  Note:
-#  
-#                   ---------------------------
-#
+#  Note: 
 # created by template_bash.sh
 ##################################################################
  
    APPNAME=$(basename $0)
    VERSION="1.0.1"
      BUILT="2019Out10"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (C)2019-2021 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (C)2019-2024"
    CONTACT="Contact for email: <edocam@outlook.com>"
    baseLOG=$(simbadr-read-conf.sh --backup)
    AUTHLOG="$baseLOG"simbadr.log
@@ -59,8 +53,8 @@ output_enable=0
 
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
-   
+  echo "$APPNAME version $VERSION 
+$COPYRIGHT $AUTHOR   
   Uso: $APPNAME [opções] --input nome --output nome [-c]
   
   OPÇÕES:
@@ -156,10 +150,7 @@ done
 
 # Begin
 choose_ $argumentos
-
-
 debug_console
-
 
 	if test $commit_enable -eq 0
 		then
@@ -168,7 +159,6 @@ debug_console
 	
 		DIR=$(simbadr-read-conf.sh -s)			
 	 	
-
 	if test $commit_enable -eq 1  && test $input_enable -eq 1 && test $output_enable -eq 1
 		then
 		 	file_commit_tmp=$(mktemp "$TEMP_LOCAL_SIMBADR"committmp.XXXXXXXX)
@@ -177,8 +167,7 @@ debug_console
 			debug_log	 	   
 	   	   exit
     	fi       
-    
-
+   
 	if test $input_enable -eq 1 && test $output_enable -eq 1
 		then
 	      cat "$DIR"groups.xml | sed "s/$old_group_name/$new_group_name/" | tail -n47 

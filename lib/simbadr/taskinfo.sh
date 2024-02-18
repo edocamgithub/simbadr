@@ -9,7 +9,7 @@
 #
 ##################################################################
 #                   ---------------------------
-#  Copyright (c)2019-2021 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
 #
@@ -24,8 +24,8 @@
    APPNAME=$(basename $0)
    VERSION="1.0.1"
      BUILT="2019Out13"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2021 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG="/var/log/log_$$.log"
 
@@ -40,8 +40,8 @@ argumentos=$@
 
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
-  
+  echo "$APPNAME version $VERSION 
+$COPYRIGHT $AUTHOR  
    * Carrega o perfil de configuração  *
   
   Uso: $APPNAME [opções] <argumentos> {alvo} 

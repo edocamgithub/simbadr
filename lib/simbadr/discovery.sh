@@ -1,13 +1,12 @@
 #!/bin/bash
 ##################################################################
 #  File: discovery.sh 	       Built: 201909240925
-#  Version: 1.0.2
+#  Version: 1.0.2              Update 202312062029
 #
 #  Function: list host with status ON    
 #
 ##################################################################
-#                   ---------------------------
-#  Copyright (c)2019-2023 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo..
 #
 #  This file is part the  simbadr scripts tools collections.
 #
@@ -23,8 +22,8 @@
    APPNAME=$(basename $0)
    VERSION="1.0.1"
      BUILT="2019Set24"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c) 2019-2023 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    baseLOG=$(simbadr-read-conf.sh --backup)
    AUTHLOG="$baseLOG"simbadr.log
@@ -37,8 +36,6 @@ debugVisible=false
 # Habilita as opcoes
 argumentos=$@
 #
-
-
 
 # Diretorio de base
 baseDIR=$(simbadr-read-conf.sh --global)
@@ -59,24 +56,21 @@ logs_simbadr=$(echo "PID ($PIDexec), exec_file --> $APPNAME, file_in_discovery_t
 }
 #
 
-
-
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
-  
-* Procura por IP host na rede definida *
+  echo "$APPNAME version $VERSION 
+$COPYRIGHT $AUTHOR
+    * Find Host list IP named  *
 
-Uso: $APPNAME  <network>  
+Usage: $APPNAME  <network>  
 
-OPÇÕES:
-  -h, --help        apresenta esta informação para ajuda e finaliza;
-  -V, --version     mostra a versão atual;
+OPTION:
+  -h, --help        show this is information;
+  -V, --version     show version number;
   
-Exemplos:
-   $APPNAME                # ira solicitar a rede
-   $APPNAME 192.168.0.     # ira fazer a procura na sequencia 1..254
-                             ex.: 192.168.0.1...192.168.0.2... 
+Example:
+   $APPNAME                # 
+   $APPNAME 192.168.0.     # for sequence 192.168.0.1..254                             
                              
 $CONTACT"
       exit 0

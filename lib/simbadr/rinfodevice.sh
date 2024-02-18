@@ -1,18 +1,15 @@
 #!/bin/bash
 ##################################################################
-#  File: rinfodevice.sh 	       Built: 201905161412
-#  Version: 1.0.2
+#  File: rinfodevice.sh 	     Built: 201905161412
+#  Version: 1.2.0               Update 202312062029
 #
 #  Function: Read devices.xml
 #
 #  Written by Eduardo M. Araujo.
-#
 ##################################################################
-#                   ---------------------------
-#  Copyright (c)2019-2023 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
-#
 #
 #  Required: devices.xml
 #
@@ -20,16 +17,14 @@
 #           24 set 2019 - +ipphone
 #           14 nov 2023 +Any devices
 #
-#                   ---------------------------
-#
 # created by template_bash.sh
 ##################################################################
  
    APPNAME=$(basename $0)
-   VERSION="1.0.1"
+   VERSION="1.2.0"
      BUILT="2019Mai16"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2021 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    baseLOG=$(simbadr-read-conf.sh --backup)
    AUTHLOG="$baseLOG"simbadr.log
@@ -54,28 +49,28 @@ baseDIR_LIB=$(simbadr-read-conf.sh --library)
 
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
+  echo "$APPNAME version $VERSION 
+$COPYRIGHT $AUTHOR
+    * Query devices.xml file and return fullname  *
   
-   * Consulta o arquivo devices.xml e retorna a nome completo  *
+  Usage: $APPNAME <options> 
   
-  Uso: $APPNAME <opções> 
+  OPTIONS:
+    -h, --help            show help information;
+    -V, --version         show version;
+    -w, --workstation     return workstation fullname;
+    -s, --server          return server fullname;
+    -p, --printer         return printer fullname;
+    -c, --switch          return switch or hub fullname;
+    -a, --access-point    return AP or router fullname;
+    -t, --site            return site or homepage;
+    -m, --mobile          return mobile or cellphone fullname;
+    -f, --smartphone      return smartphone fullname;
+    -b, --tablet          return tablet fullname;
+    -v, --voip-phone      return voip phone fullname;
+    -d, --everything      return all;
   
-  OPÇÕES:
-    -h, --help            apresenta esta informação para ajuda e finaliza;
-    -V, --version         mostra a versão atual;
-    -w, --workstation     retorna o nome padrão ou marca;
-    -s, --server          retorna o nome padrão ou marca;
-    -p, --printer         retorna o nome padrão ou marca;
-    -c, --switch          retorna o nome padrão ou marca;
-    -a, --access-point    retorna o nome padrão ou marca;
-    -t, --site            retorna o nome padrão ou marca;
-    -m, --mobile          retorna o nome padrão ou marca;
-    -f, --smartphone      retorna o nome padrão ou marca;
-    -b, --tablet          retorna o nome padrão ou marca;
-    -v, --voip phone      retorna o nome padrão ou marca;
-    -d, --any devices      retorna o nome padrão ou marca;
-  
-   Exemplos:
+   Example:
          $APPNAME  -f
          $APPNAME  --access-point
          $APPNAME  -c
@@ -138,9 +133,8 @@ case "$options" in
      -b | --table )
 			grep \"tb\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;;
 
-
--d | --any devices )
-			grep \"ad\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;; 
+		-d | --everything )
+			grep \"ev\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;;
    
 	*)
 		exit 0;;

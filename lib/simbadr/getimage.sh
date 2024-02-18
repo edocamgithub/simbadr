@@ -1,14 +1,12 @@
 #!/bin/bash
 ##################################################################
 #  File: getimage.sh 	       Built: 201906101120
-#  Version: 1.0.1
+#  Version: 1.1.0              Update 202312062029
 #
 #  Function: Show a image path for Status file
-#
-#
 ##################################################################
 #                   ---------------------------
-#  Copyright (c)2019-2021 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo..
 #
 #  This file is part the  simbadr scripts tools collections.
 #
@@ -17,8 +15,6 @@
 #
 #  Note: 31jan2021 add security cameras, 23fev2021 add mobile, 20ago2021 add new workstation  
 #  
-#                   ---------------------------
-#
 # created by template_bash.sh
 ##################################################################
  
@@ -26,7 +22,7 @@
    VERSION="1.0.1"
      BUILT="2019Jun10"
     AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c) 2019-2021 Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
   baseLOG=$(simbadr-read-conf.sh --backup)
    AUTHLOG="$baseLOG"simbadr.log  
@@ -56,48 +52,51 @@ logs_simbadr=$(echo "$DATEpid, PID ($PIDexec), exec_file --> $APPNAME, descripti
 }
 #
 
-
-
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
+  echo "$APPNAME version $VERSION 
+$COPYRIGHT $AUTHOR
+* Read and display file ../image.xml *
   
-   * Retorna o nome do arquivo em image.xml  *
+Use: $APPNAME <device> <status[0..x]> 
   
-  Uso: $APPNAME <device> <status[0..x]> 
-  
-  OPÇÕES:
-    -h, --help         apresenta esta informação para ajuda e finaliza;
-    -V, --version      mostra a versão atual;
-    --deviceAp         dispositivo Access Point;
-    --deviceHost       dispositivo Host comum;
-    --devicePrinter    dispositivo de Impressão;
-    --deviceSwitch     dispositivo HUB/Switch;
-    --deviceCam        dispositivo CAMera de segurança;
-    --hostLaptop       host móvel;
-    --hostAlert        host em alerta;
-    --hostRetired      host destivado;
-    --hostDeny         host bloqueado ou sem comunicação;
-    --hostBsd          host com S.O. FreeBSD/OpenBSD;
-    --hostLinux        host com S.O. GNU/Linux ou Unix like;
-    --hostWindows      host com S.O. Windows (Microsoft);
-    --hostMac          host com S.O. MacOS (Apple);
-    --hostServer       host com S.O. para Servidor;
-    --hostWeb          host com WebServer habilitado;
-    --hostWorkstation  host Workstation (any O.S.);
-    --hostPhoneIP      dispositivo IP phone(VoIP);
+  OPTION:
+    -h, --help         show this is information;
+    -V, --version      show version number;
+    --deviceAp         Access Point device;
+    --deviceHost       Host default ;
+    --devicePrinter    Printer device;
+    --deviceSwitch     HUB/Switch device;
+    --deviceCam        Security Cam device;
+    --hostLaptop       Host movel;
+    --hostAlert        Host alert;
+    --hostRetired      Host retired;
+    --hostDeny         Host droping or deny;
+    --hostBsd          Host with FreeBSD/OpenBSD;
+    --hostLinux        Host with GNU/Linux ou Unix like;
+    --hostWindows      Host with Windows (Microsoft(R));
+    --hostMac          Host with MacOS (Apple(R));
+    --hostServer       Server;
+    --hostWeb          Webserver enable;
+    --hostWorkstation  Workstation (any O.S.);
+    --hostPhoneIP      IP phone(VoIP);
+    --deviceUPS        No-Break UPS;
+    --hostFw           Firewall System; 
+    --devicePs         Playstation any versions;
+    --deviceXbox       XBox any versions ;  
+    --deviceWii        Wii any versions;
+    --systemFlow       Some system flow tasks OK;
     
-   Exemplos:
-         $APPNAME  -V                   # apresenta a versão atual.
-         $APPNAME  --hostWorkstation 0  # retorna o nome do arquivo para
-                                          hostWorkstation com o Status 0.
+   Example:
+         $APPNAME  -V                   #
+         $APPNAME  --hostWorkstation 0  # display hostWorkstation Status 0 images.
+  
   $CONTACT"
       exit 0
 }
 #
 
 # Debug print
-
 function debug_log () {
 
 log_
@@ -110,7 +109,6 @@ if [ $debugVisible = true ]
 			echo $logs_simbadr  >> $AUTHLOG 2>> $AUTHLOG
 fi
 }
-
 
 # Debug print
 function debug_console () {
@@ -288,9 +286,56 @@ while test -n "$1"
 		     verstatus $1
 	   descr=$(grep hostPhoneIP  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
       this=$(grep hostPhoneIP "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
-      echo "$dirrelative$this:$descr:$this";;   
-
+      echo "$dirrelative$this:$descr:$this";; 
       
+      --deviceUPS )
+     	     shift 
+		     numberstatus=$1  
+		     verstatus $1
+	   descr=$(grep deviceUPS  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep deviceUPS "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+      echo "$dirrelative$this:$descr:$this";;
+      
+      --hostFw )
+     	     shift 
+		     numberstatus=$1  
+		     verstatus $1
+	   descr=$(grep hostFw  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep hostFw "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+      echo "$dirrelative$this:$descr:$this";; 
+      
+      --devicePs )
+     	     shift 
+		     numberstatus=$1  
+		     verstatus $1
+	   descr=$(grep devicePlaystation  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep devicePlaystation "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+      echo "$dirrelative$this:$descr:$this";; 
+       
+      --deviceXbox )
+     	     shift 
+		     numberstatus=$1  
+		     verstatus $1
+	   descr=$(grep deviceXbox  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep deviceXbox "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+      echo "$dirrelative$this:$descr:$this";;
+      
+      --deviceWii )
+     	     shift 
+		     numberstatus=$1  
+		     verstatus $1
+	   descr=$(grep deviceWii  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep deviceWii "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+      echo "$dirrelative$this:$descr:$this";;
+      
+      --systemFlow )
+     	     shift 
+		     numberstatus=$1  
+		     verstatus $1
+	   descr=$(grep systemFlow  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep systemFlow "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+      echo "$dirrelative$this:$descr:$this";;
+                    
 	*)
 
 	if test -n "$1"
@@ -310,7 +355,5 @@ while test -n "$1"
 # Begin
 choose $argumentos
 debug_log
-
-
 #debug_console
 # End

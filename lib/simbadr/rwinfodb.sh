@@ -9,7 +9,7 @@
 #
 ##################################################################
 #                   ---------------------------
-#  Copyright (c)2019-2021 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
 #
@@ -19,17 +19,14 @@
 #  Note: new option -l for locate IP on database file and 
 #        -e for exhibit all register on database 
 #  
-#
-#                   ---------------------------
-#
 # created by template_bash.sh
 ##################################################################
  
    APPNAME=$(basename $0)
    VERSION="1.0.1"
      BUILT="2019Jun22"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2021 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    baseLOG=$(simbadr-read-conf.sh --backup)
    AUTHLOG="$baseLOG"simbadr.log
@@ -73,7 +70,8 @@ numberdb_enable=0
 
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
+  echo "$APPNAME version $VERSION 
+$COPYRIGHT $AUTHOR
   
    * Manipula dados em um arquivo de banco de dados textual *
   

@@ -1,33 +1,27 @@
 #!/bin/bash
 ##################################################################
-#  File: infodash.sh 	       Built: 201907110940
-#  Version: 1.0.1
+#  File: infodash.sh 	    Built: 201907110940
+#  Version: 1.2.0           Update 202312062029
 #
 #  Function: Device calculator
 #
 #  Written by Eduardo M. Araujo.
-#
 ##################################################################
-#                   ---------------------------
-#  Copyright (c)2019-2022 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo
 #
 #  This file is part the simbadr scripts tools collections.
-#
 #
 #  Required: simbadr-read-conf.sh; Access all XML files
 #
 #  Note: Output % and total devices on infodash.xml
 # 
-#                   ---------------------------
-#
 # created by template_bash.sh
 ##################################################################
- 
    APPNAME=$(basename $0)
-   VERSION="1.0.2"
+   VERSION="1.2.0"
      BUILT="2019Jul11"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2022 Eduardo M.Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    #AUTHLOG="/var/log/log_$$.log"
    baseLOG=$(simbadr-read-conf.sh --backup)
@@ -62,17 +56,17 @@ somaoffdevice=0
 
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
+  echo "$APPNAME version $VERSION 
+$COPYRIGHT $AUTHOR
+   * SUM all devices *
   
-   * Totaliza a quantidade de dispositivos  *
+  Usage: $APPNAME <GRUPOS>
   
-  Uso: $APPNAME <GRUPOS>
-  
-  OPÇÕES:
+  OPTION:
     -h, --help         apresenta esta informação para ajuda e finaliza;
     -V, --version      mostra a versão atual;
   
-   Exemplos:
+   Example:
          $APPNAME 01
          $APPNAME 01 02 03 04 05 06 07
   
@@ -175,11 +169,9 @@ do
 number=$t
 totalON=$(grep -w "on=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f6 | cut -d"\"" -f2)
   totalOFF=$(grep -w "off=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f7 | cut -d"\"" -f2)
-
   
   sumON=$(echo $((totalON + sumON)))
  sumOFF=$(echo $((totalOFF + sumOFF)))
- 
 done
  
 for i in $@ 

@@ -1,15 +1,13 @@
 #!/bin/bash
 ##################################################################
-#  File: blocksxml.sh 	       Built: 201904101436
-#  Version: 1.0.1
+#  File: blocksxml.sh    Built: 201904101436
+#  Version: 1.0.2        Update 202312062029
 #
 #  Function: Export IPlist for XML file (status)
 #
-#  Written by Eduardo M. Araujo.
-#
 ##################################################################
 #                   ---------------------------
-#  Copyright (c)2019-2023 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo..
 #
 #  This file is part the  Simbadr scripts tools collections.
 #
@@ -17,19 +15,19 @@
 #
 #  Note: All files with IP list in blocks/00 
 #
-#                   ---------------------------
-#
 # created by template_bash.sh
 ##################################################################
  
    APPNAME=$(basename $0)
-   VERSION="1.0.1"
+   VERSION="1.0.2"
      BUILT="2020Out4"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (C)2019-2023 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (C)2019-2024"
    CONTACT="Contact for email: <edocam@outlook.com>"
    baseLOG=$(simbadr-read-conf.sh --backup)
+    baseDIR_LIB=$(simbadr-read-conf.sh --library)
    AUTHLOG="$baseLOG"simbadr.log
+
       TEMP_LOCAL_SIMBADR="/tmp/simbadr"
 
 # Verifica a existenica do DIR=tmp/simbadr/
@@ -41,12 +39,13 @@ if test -d $TEMP_LOCAL_SIMBADR
 	fi
 
 
-#	file_list_name=$1
-	   # group_name=$2
-	    # type_name=$3
-		    # folder=$1
+	file_list_name=$1
+	    group_name=$2
+	     type_name=$3
+		     folder=$1
 
-
+# group_name=$("$baseDIR_LIB"rinfogrp.sh -"$folder")
+ 
 # Habilita a impressao de variaveis
 debugVisible=false
 #
@@ -72,18 +71,18 @@ logs_simbadr=$(echo "$DATEpid, PID ($PIDexec), exec_file --> $APPNAME, file_list
 
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
- 
-* Gera arquivos XML *
+  echo "$APPNAME version $VERSION 
+$COPYRIGHT $AUTHOR
+  * Export XMLfiles *
 
-Uso: $APPNAME <group number> <group name> <device type> 
+Usage: $APPNAME <groupnumber> <groupname> <devicetype> 
 
-OPÇÕES:
-  -h, --help       apresenta esta informação para ajuda e finaliza;
-  -V, --version    mostra a versão atual;
+OPTION:
+  -h, --help       show this is information;
+  -V, --version    show number version;
 
-Exemplo:
-   $APPNAME  00 SALA00 workstation  # Gera uma saíde em XML com o nome do grupo  
+Example:
+   $APPNAME  00 LOCAL00 workstation  # Export a output XML on groupname  
   
 $CONTACT"
       exit 0
@@ -150,8 +149,11 @@ function exportListForXml () {
 	    group_name=$2
 	     type_name=$3
 		     folder=$1
+	  group_number=$1    
+		     
+		     echo $1,$2,$3 > /tmp/simbadr/head.tmp.debug
 	         
-"$baseExec"infodevice.sh -p -f "$baseDIR"$file_list_name -x > "$TEMP_LOCAL_SIMBADR/"$file_list_name.xml && "$baseDIR_LIB"headxml.sh "$TEMP_LOCAL_SIMBADR/"$file_list_name.xml $group_name $type_name > $baseDIR_barra/$folder/$file_list_name.xml  
+"$baseExec"infodevice.sh -p -f "$baseDIR"$file_list_name -x > "$TEMP_LOCAL_SIMBADR/"$file_list_name.xml && "$baseDIR_LIB"headxml.sh "$TEMP_LOCAL_SIMBADR/"$file_list_name.xml $group_number $type_name > $baseDIR_barra/$folder/$file_list_name.xml  
 #echo ""$baseExec"infodevice.sh -p -f "$baseDIR"$file_list_name -x > "$TEMP_LOCAL_SIMBADR/"$file_list_name.xml && "$baseDIR_LIB"headxml.sh "$TEMP_LOCAL_SIMBADR/"$file_list_name.xml $group_name $type_name > $baseDIR_barra/$folder/$file_list_name.xml  "
 
 
@@ -162,6 +164,7 @@ function exportListForXml () {
 	choose $argumentos
 	debug_log
 	sortListUniq $file_list_name
+	#exportListForXml $file_list_name $group_name $type_name
 	exportListForXml $file_list_name $group_name $type_name
 	
 	debug_log

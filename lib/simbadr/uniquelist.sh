@@ -8,8 +8,7 @@
 #  Written by Eduardo M. Araujo.
 #
 ##################################################################
-#                   ---------------------------
-#  Copyright (c)2019-2021 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
 #
@@ -23,8 +22,8 @@
    APPNAME=$(basename $0)
    VERSION="1.0.1"
      BUILT="2019Abr20"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2021 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2024"
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG="/var/log/log_$$.log"
 TEMP_LOCAL_SIMBADR="/tmp/simbadr/"
@@ -39,8 +38,8 @@ argumentos=$@
 
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
-  
+  echo "$APPNAME version $VERSION 
+$COPYRIGHT $AUTHOR
    * Unifica todas as lista de IP's  *
   
   Uso: $APPNAME
@@ -49,7 +48,6 @@ help_manual() {
   
   OPÇÕES:
     -h, --help         apresenta esta informação para ajuda e finaliza;
-  
     -V, --version      mostra a versão atual;
   
    Exemplos:

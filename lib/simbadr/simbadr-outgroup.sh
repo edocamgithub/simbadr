@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#issue
+#Writer Eduardo M. Araujo (c)2024
 
 
 while IFS="." read -r IPAddress 

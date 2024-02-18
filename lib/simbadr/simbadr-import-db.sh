@@ -2,22 +2,26 @@
 ##################################################################
 #  File: simbadr-import-db.sh 	        
 #  Version: 1.1.0					 
+#
 #  Function: Import list csv for database XML 
 #                   ---------------------------
 #  Required: hostname.list, contact.list, inventory.list 
 #            network.list, system.list, vendor.list      
 #
 #  Note: RUN lib/simbadr/simbadr-import-db.sh /opt/simbadr/var/log/simbadr/blocks/00/92
+#	
 #                 ---------------------------
+#
 #  Written by Eduardo M. Araujo. - versão 0.0.1
-#  Copyright (c)2022-2023 
+#  Copyright (c)2022-2024 Eduardo M. Araujo..
+#
 ##################################################################
  
    APPNAME=$(basename $0)
-   VERSION="0.0.2"
+   VERSION="1.1.0"
      BUILT="2022Mar07"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2022 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2022-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG="/var/log/log_$$.log"
    TEMP_LOCAL_SIMBADR="/tmp/simbadr"
@@ -39,21 +43,21 @@ baseDIR_DB=$(simbadr-read-conf.sh -92)
 #
 baseDIR_LIB=$(simbadr-read-conf.sh -l)
 	baseDIR_=$(echo $baseDIR_LIB | cut -d "/" -f "1-3")
- baseSCRIPT=$baseDIR_"/scripts"
+		baseSCRIPT=$baseDIR_"/scripts"
 
 baseDIR_OSList=$(simbadr-read-conf.sh -s)
-    filenameOS=$baseDIR_OSList"oslist.db"
+filenameOS=$baseDIR_OSList"oslist.db"
 
 baseDIR_LIB_=$(simbadr-read-conf.sh -l | cut -d "/" -f "1-5")
-   backupDIR=$(simbadr-read-conf.sh -b)
+
+backupDIR=$(simbadr-read-conf.sh -b)
 
 echo_TEST_VARIABLES (){
-	echo >/dev/null
+echo >/dev/null
 }
 
 echo_TEST_VARIABLES_ () {
 #
-
 # lines for variables call HOST
 echo "+++++++++++++++++++++++++" 
 echo "#selected line with grep command, used IP for reference on finder!  "
@@ -419,7 +423,7 @@ echo "</group>" > "$TEMP_LOCAL_SIMBADR/"simbadrdb.footer
 
 export_XML_DataBase () { 
 
-echo " <host id="'"'$ipaddress_'"'">" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
+echo "   <host id="'"'$ipaddress_'"'">" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
 echo "   <hostname>$hostname_</hostname>
    <device>$devicetype_</device>
    <identity>$equipment_id_</identity>        
@@ -467,7 +471,7 @@ echo "   <hostname>$hostname_</hostname>
       </bluetooth>          
       <dhcp>$network_dhcp_enable_</dhcp>
    </network>" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
-    echo "   <setupimg img_os="'"'$setup_img_os'"' "img_device="'"'$setup_img_device'"' "img_status_on="'"'$setupimg_on_'"'  "img_status_off="'"'$setupimg_off_'"'       "/>" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
+    echo "<setupimg img_os="'"'$setup_img_os'"' "img_device="'"'$setup_img_device'"' "img_status_on="'"'$setupimg_on_'"'  "img_status_off="'"'$setupimg_off_'"'       "/>" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
   echo " </host>" >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
  
 }
@@ -475,6 +479,7 @@ echo "   <hostname>$hostname_</hostname>
 
 while IFS="," read -r hostIPAddress 
 do
+
 #
 #172.16.255.22,caex255-2,Server
 #172.16.0.73,caex73,Desktop
@@ -484,10 +489,12 @@ do
 #172.16.1.203,caex1-203,Notebook
 #172.16.0.11,caex11,Workstation
 #172.16.255.31,caex255-031,All-in-on
-echo "$hostIPAddress"  >> /tmp/simbadr/list.ip
+
+
 ipaddress_=$hostIPAddress
 
 #ipaddress_="172.16.251.79"
+
 select_HOST
 	select_HOSTNAME
 select_VENDOR
@@ -504,31 +511,17 @@ done < $1
 
 
 export_XML_header 
-	echo "...$TEMP_LOCAL_SIMBADR/""simbadrdb.header"
+echo "...$TEMP_LOCAL_SIMBADR/""simbadrdb.header"
 export_XML_footer 
-	echo "...$TEMP_LOCAL_SIMBADR/""simbadrdb.footer"
-
-
+echo "...$TEMP_LOCAL_SIMBADR/""simbadrdb.footer"
 cat "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.header && cat "$TEMP_LOCAL_SIMBADR/"simbadrdb.footer >> "$TEMP_LOCAL_SIMBADR/"simbadrdb.header 
-
 mv "$TEMP_LOCAL_SIMBADR/"simbadrdb.header "$TEMP_LOCAL_SIMBADR/"simbadrdb.xml 
-
 echo "...merge simbadrdb.header + simbadrdb.tmp + simbadrdb.footer "
 echo "rename simbadrdb.header for simbadrdb.xml"
-# verificar
 rm "$TEMP_LOCAL_SIMBADR/"simbadrdb.tmp
-
 echo "$TEMP_LOCAL_SIMBADR/""simbadrdb.tmp and simbadrdb.footer removed ! "
-# verificar
 rm "$TEMP_LOCAL_SIMBADR/"simbadrdb.footer
-
-reg_host_total=$(grep "id=" "$TEMP_LOCAL_SIMBADR/"simbadrdb.xml | wc -l)
-echo "Imported $reg_host_total registers." 
-
- 
-
-
-read -p 'would you like to update the database now (yes or no)? ' choice
+read -p 'would you like to update the database now (yes or no)?' choice
 
 if [ $choice = "yes" ]
 	then
@@ -540,6 +533,8 @@ if [ $choice = "yes" ]
    	exit
    fi	
 
+#grep "host id=" /tmp/simbadrdb.xml 
+#| wc -l 
 
 
 

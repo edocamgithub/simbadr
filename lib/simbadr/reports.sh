@@ -1,33 +1,28 @@
 #!/bin/bash
 ##################################################################
-#  File: reports.sh 	       Built: 201906160820
-#  Version: 1.0.1
+#  File: reports.sh 	     Built: 201906160820
+#  Version: 1.2.0         Update 202312062029
 #
 #  Function: Manager for Print Reports
 #
 #  Written by Eduardo M. Araujo.
 #
 ##################################################################
-#                   ---------------------------
-#  Copyright (c)2019-2021 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo.
 #
 #  This file is part the templates scripts tools collections.
-#
-#
+
 #  Required: 
 #
 #  Note:
-#  
-#                   ---------------------------
-#
 # created by template_bash.sh
 ##################################################################
  
    APPNAME=$(basename $0)
-   VERSION="1.0.1"
+   VERSION="1.2.0"
      BUILT="2019Jun16"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (C)2019-2021 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (C)2019-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    baseLOG=$(simbadr-read-conf.sh --backup)
    AUTHLOG="$baseLOG"simbadr.log
@@ -47,8 +42,6 @@ baseDIR=$(simbadr-read-conf.sh --global)
 baseDIR_barra=$(echo $baseDIR | cut -d"/" -f1-7)
 grouplocal=$(simbadr-read-conf.sh --group99)
 baseDIR_LIB=$(simbadr-read-conf.sh --library)
-
-
 #
     
 # Log de variaveis
@@ -59,22 +52,21 @@ logs_simbadr=$(echo "$DATEpid, PID ($PIDexec), exec_file --> $APPNAME, date_reg.
 }
 #
 
-
 # Manual de uso do script
 help_manual() {
-  echo "$APPNAME version $VERSION $COPYRIGHT
-  
- * Armazena o arquivo XML para relatório *
+  echo "$APPNAME version $VERSION 
+$COPYRIGHT $AUTHOR
+   * Storage XMLfile for Reports *
 
-Uso: $APPNAME [opções] <grupo>
+Usage: $APPNAME [options] <group>
 
-OPÇÕES:
-  -h, --help         apresenta esta informação para ajuda e finaliza;
-  -V, --version      mostra a versão atual;
+OPTION:
+  -h, --help         show this is information;
+  -V, --version      show version number;
 
- Exemplos:
-       $APPNAME 01            # armazena no arquivo histórico
-                                para consulta posterior.
+ Example:
+       $APPNAME 01            # storage in history file
+                                
 $CONTACT"
       exit 0
 }
@@ -113,7 +105,6 @@ if [ $debugVisible = true ]
 }
 #
 
-
 # Argumentos de linha de comando
 choose () {
         options=$argumentos
@@ -132,10 +123,7 @@ esac
 
 
 # Begin
-
 choose $argumentos
-
-
 
 	if test -z $1 
 		then 
@@ -180,20 +168,15 @@ compress=$(echo "$getserial".tar.gz)
 				echo "nao exite"
 				exit 1 # echo "nao existe!"	
 		fi
-#
 
 #tar -zcf "$getserial".tar.gz blocks/"$numbergroup"/"$numbergroup".xml 
 
 tar -zcf "$outputhistory$numbergroup"/"$compress"  "$db" 2>/dev/null
 
-
 debug_console $getserial $numbergroup $db $devicenumber $groupname $filename $compress $outputhistory$numbergroup"/"
 debug_log
 
 exit 0
-
-
-
 # End
 
 

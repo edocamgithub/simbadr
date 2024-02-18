@@ -1,6 +1,6 @@
 
-
 #!/bin/bash
+# Writer Eduardo M. Araujo (c)2021-2024
 while IFS="," read -r hostIPAddress 
 do
 

@@ -1,34 +1,29 @@
 #!/bin/bash
 ##################################################################
-#  File: oslist.sh 	       Built: 201904280929
-#  Version: 1.0.1
+#  File: oslist.sh 	   Built: 201904280929
+#  Version: 1.2.0       Update 202312062029
 #
 #  Function: Make OS names for sequential 
 #
 #  Written by Eduardo M. Araujo.
 #
 ##################################################################
-#                   ---------------------------
-#  Copyright (c)2019-2021 Eduardo M. Araujo..
+#  Copyright (c)2019-2024 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
-#
 #
 #  Required: oslist.db
 #
 #  Note: Only add new OS names. 
 #  
-#
-#                   ---------------------------
-#
 # created by template_bash.sh
 ##################################################################
  
    APPNAME=$(basename $0)
-   VERSION="1.0.1"
+   VERSION="1.2.0"
      BUILT="2019Abr28"
-    AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2021 Eduardo M. Araujo."
+    AUTHOR="Eduardo M. Araujo."
+ COPYRIGHT="Copyright (c)2019-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    #AUTHLOG="/var/log/log_$$.log"
       baseLOG=$(simbadr-read-conf.sh --backup)
@@ -46,15 +41,14 @@ argumentos=$@
 # Manual de uso do script
 help_manual() {
   echo "$APPNAME version $VERSION
-$COPYRIGHT
+$COPYRIGHT $AUTHOR
+ * Register New OS name for use in Database *
 
- * Cadastra na base de dados oslist um novo objeto *
+Usage: $APPNAME
 
-Uso: $APPNAME
-
-OPÇÕES:
-  -h, --help         apresenta esta informação para ajuda e finaliza;
-  -V, --version      mostra a versão atual;
+OPTION:
+  -h, --help         show this is information;
+  -V, --version      show version number;
 
 $CONTACT"
       exit 0

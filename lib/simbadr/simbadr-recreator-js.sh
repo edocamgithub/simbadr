@@ -9,7 +9,7 @@
 #
 ##################################################################
 #                   ---------------------------
-#  Copyright (C)2021 Eduardo M. Araujo..
+#  Copyright (C)2021-2024 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
 #
@@ -34,6 +34,12 @@ groupsN=$(grep group_enable "$baseCONF"simbadr | cut -d"=" -f2)
 
 
 function writeCarrossel.js (){
+
+echo "
+function stopCarrossel() {
+     clearInterval(StartCarrossel);	
+}
+"
 echo	"
 function carrosselFrames() {
         var numberGroup =  sequenceGroup;
@@ -41,7 +47,7 @@ function carrosselFrames() {
 echo	"	if (globalVar > "$totalGroup") {
 				globalVar = 0;
 			}"
-		
+	
 #document.getElementById("janela").innerHTML = '<iframe scrolling="auto" src="xml/' + numberGroup[globalVar] + '" />' ;
 
 echo -n "     document.getElementById("
@@ -63,7 +69,7 @@ echo "	  	}
 var globalVar;
 	 globalVar = -1;
 
-var StartCarrossel = setInterval(carrosselFrames, 5000, globalVar);"
+var StartCarrossel = setInterval(carrosselFrames, 2000, globalVar);"
 }
 
 
