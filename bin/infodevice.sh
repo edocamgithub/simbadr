@@ -10,7 +10,7 @@
 #           
 #  Note: snmpd, IPv4 enable, Network configured
 #
-#  Copyright(c)2019-2023 Eduardo M. Araujo
+#  Copyright(c)2019-2024 Eduardo M. Araujo
 #
 # created by template_bash3.sh 
 ##################################################################
@@ -19,7 +19,7 @@
    VERSION="1.2.1"
      BUILT="2019Fev06"
     AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2023"
+ COPYRIGHT="Copyright (c)2019-2024"
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG="/var/log/log_$$.log"
    TEMP_LOCAL_SIMBADR="/tmp/simbadr"

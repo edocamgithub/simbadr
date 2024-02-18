@@ -7,7 +7,7 @@
 #
 ##################################################################
 #                   ---------------------------
-#  Copyright (c)2019-2023 Eduardo M. Araujo.
+#  Copyright (c)2019-2024 Eduardo M. Araujo.
 #
 #  This file is part the simbadr scripts tools collections.
 #
@@ -22,7 +22,7 @@
    VERSION="1.0.2"
      BUILT="2019Mai16"
     AUTHOR="Written by Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2019-2023."
+ COPYRIGHT="Copyright (c)2019-2024."
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG="/var/log/log_$$.log"
 
