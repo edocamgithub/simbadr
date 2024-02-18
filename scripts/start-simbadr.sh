@@ -9,7 +9,7 @@
 #
 ##################################################################
 #                   ---------------------------
-#  Copyright (c)2019-2023 Eduardo M. Araujo..
+#  Copyright (c)2021-2024 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
 #
@@ -18,10 +18,10 @@
 ##################################################################
  
    APPNAME=$(basename $0)
-   VERSION="1.0.1"
+   VERSION="1.0.2"
      BUILT="2021out14"
     AUTHOR="Eduardo M. Araujo."
- COPYRIGHT="Copyright (C)2019-2023 "
+ COPYRIGHT="Copyright (C)2021-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG_=$(simbadr-read-conf.sh -y)
    AUTHLOG=$AUTHLOG_"00/log_$$.log"

@@ -1,6 +1,6 @@
 #!/usr/bin/wish 
 # Created 1 mar 2023 1119
-# Write by Eduardo M. Araujo 
+# Write by Eduardo M. Araujo (c)2023-2024
 # Function: Add new IP in selected database group.  
 
 proc insert_license {} {

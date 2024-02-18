@@ -5,7 +5,7 @@
 #
 #  This file is part the simbadr scripts tools collections.
 #
-#  Written by Eduardo M. Araujo.
+#  Written by Eduardo M. Araujo (c) 2021-2024
 #
 ##################################################################
 

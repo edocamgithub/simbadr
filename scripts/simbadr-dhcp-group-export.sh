@@ -1,6 +1,6 @@
 #!/bin/bash
 # Created 15 mar 2023 1613
-# Write by Eduardo M. Araujo 
+# Write by Eduardo M. Araujo (c)2023-2024
 # Function: 
 
 

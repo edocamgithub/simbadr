@@ -1,4 +1,5 @@
 #!/bin/bash
+#Writer by Eduardo M. Araujo (c)2024
 
   TEMP_LOCAL_SIMBADR="/tmp/simbadr"
 

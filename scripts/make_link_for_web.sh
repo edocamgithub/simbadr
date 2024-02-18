@@ -1,27 +1,25 @@
 #!/bin/bash
 ##################################################################
 #  File: make_link_for_web.sh 	       Built: 202305282009
-#  Version: 0.0.1				      
+#  Version: 1.0.0				      
 #  
 #  Function: Maker link for web.
 #
 #  Written by Eduardo M. Araujo.
 #
 ##################################################################
-#                   ---------------------------
-#  Copyright (c)2019-2023 Eduardo M. Araujo..
+#  Copyright (c)2023-2024 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
 #
 #  Required: 
-#
 ##################################################################
  
    APPNAME=$(basename $0)
-   VERSION="0.0.2"
+   VERSION="1.0.0"
      BUILT="2023mai28"
     AUTHOR="Eduardo M. Araujo."
- COPYRIGHT="Copyright (C)2019-2023 "
+ COPYRIGHT="Copyright (C)2023-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG_=$(simbadr-read-conf.sh -y)
    AUTHLOG=$AUTHLOG_"00/log_$$.log"

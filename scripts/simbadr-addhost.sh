@@ -1,6 +1,6 @@
 #!/bin/bash
 # Created 3 may 2023 1617 update 05 jun 2023
-# Write by Eduardo M. Araujo 
+# Write by Eduardo M. Araujo (c)2023-2024
 # Function: Add new IP in selected database group.
 
 simbadr_Lib=$(simbadr-read-conf.sh -l)

@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Writer by Eduardo M. Araujo (c)2024 
 
 baseDIR=$(simbadr-read-conf.sh -l)
 soma1=0

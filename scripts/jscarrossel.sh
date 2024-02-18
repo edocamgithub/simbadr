@@ -6,7 +6,7 @@
 #  Function: Recreator list for Carrossel.js
 #
 ##################################################################
-#  Copyright (c)2021-2023 Eduardo M. Araujo..
+#  Copyright (c)2021-2024 Eduardo M. Araujo..
 #
 #  This file is part the templates scripts tools collections.
 #

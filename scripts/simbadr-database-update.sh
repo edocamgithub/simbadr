@@ -21,7 +21,7 @@
    VERSION="0.0.1"
      BUILT="2022Mar07"
     AUTHOR="Eduardo M. Araujo."
- COPYRIGHT="Copyright (c)2022-2023 "
+ COPYRIGHT="Copyright (c)2022-2024 "
    CONTACT="Contact for email: <edocam@outlook.com>"
    AUTHLOG="/var/log/log_$$.log"
    
