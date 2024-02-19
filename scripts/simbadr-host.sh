@@ -36,34 +36,24 @@ choose_Device () {
 	case "$hostname_device_n" in 
 			"1" )
 				hostname_device="AccessPoint"	;;
-			
 			"2" )
 				hostname_device="Desktop" 		;;
-			
 			"3" )
 				hostname_device="Workstation"	;;
-			
 			"4" )
 				hostname_device="Phone"			;;
-			
 			"5" )
 				hostname_device="Web"			;;
-			
 			"6" )
 				hostname_device="Server"		;;
-			
 			"7" )
 				hostname_device="Printer"		;;
-			
 			"8" )
 				hostname_device="Switch"		;;
-			
 			"9" )
 				hostname_device="Cam"			;;
-				
 			"0" )
 				hostname_device="Notebook"		;;						
-			
 			*)
 				hostname_device="Host"			;;
 esac			
@@ -164,9 +154,6 @@ $lib_DIR"rwinfodb.sh" --exhibit $db_DIR"$hostname_group_number"
 echo "IP devices registred"
 $lib_DIR"rwinfodb.sh" --numberdb $db_DIR"$hostname_group_number"
 $lib_DIR"sum-device-92.sh"
-
-
-
 
 }
 
@@ -349,18 +336,70 @@ echo "Reading database... "
 }
 
 
+addSystemList () {
+echo -e "\n\t\t\t\t\t [   Select the Operational System:   ] \n"
+echo -e "\t (1)Linux (2)Windows (3)FreeBSD (4)MACOS (5)Without System or Embedded System \n"
+echo "---- System conf"
+read -p " Operational System: " system_osname_n
+ choose_OS
+
+ 
+echo "---------------------------------------"
+echo " # Operational System and Release -->( $system_osname ) ( $system_release )"
+if [  $system_osname_n = 2 ] 
+	then
+	echo " # Product Key --> ( $system_product_key )  ID Product Key or another --> ( $system_id_product_key ) "
+fi 
+echo "---------------------------------------"
+
+}
+
+addNetworkList (){
+echo "---- Network conf"
+echo -e " Ethernet IP Address: $hostname_ip" 
+	network_mac_ethernet=$(arp -a "$hostname_ip" | cut -d " " -f "4")
+ 
+
+if echo "$network_mac_ethernet" | egrep '\:' >/dev/null
+	then
+			echo "        MAC Address: $network_mac_ethernet"	
+   	else
+			read -p "        MAC Address: " network_mac_ethernet   		
+	fi
 
 
-#	
-addnew_host () {	
-	
-# filename: hostname.list 
-# TEMPLATE
-# IP Address, HostName, DeviceType
-# e.g.
-# 192.168.0.1, Desktop_Adryelle, Desktop
-# 192.168.0.10, Note1-1, Notebook
-# 172.16.0.1, ABC, Printer
+read -p " Wireless IP Address: "  network_ip_wireless
+read -p "         MAC Address: " network_mac_wireless
+read -p "Bluetooth IP Address: " network_ip_bluetooth
+read -p "        MAC Address : " network_mac_bluetooth
+read -p " DHCP Client Enabled (y/n)?: " network_dhcp
+echo "---------------------------------------"
+echo " # Ethernet IP and MAC Address -->( $hostname_ip ) ( $network_mac_ethernet )  Wireless IP and MAC Address -->( $network_ip_wireless ) ( $network_mac_wireless )"
+echo " # Bluetooth IP and MAC Address --> ( $network_ip_bluetooth ) ( $network_mac_bluetooth )  DHCP Client Enabled --> ( $network_dhcp ) "
+echo "---------------------------------------"
+
+}
+
+addInventoryList () {
+echo "---- Document and Inventory "
+read -p " Register: " inventory_register
+read -p " Note: " inventory_note
+read -p " Accountable: " inventory_accountable
+read -p " Invoice: " inventory_invoice
+read -p " Description: " inventory_description
+
+}
+
+addVendorList () {
+echo "---- Vendor"
+read -p " Manufacturer: " vendor_manufacturer
+read -p " Serial Number: " vendor_serial_number
+read -p " Model: " vendor_model
+
+}
+
+addHostnameList () {
+
 echo
 
 	read -p " Hostname: " hostname_hostname
@@ -384,92 +423,65 @@ echo "---------------------------------------"
 echo  "# IP Address -->( $hostname_ip ) # Hostname --> ( $hostname_hostname ) # Device Type --> ( $hostname_device ) # Group Number --> ( $hostname_group_number ) # Group Name --> ( $group_number_select ) # Equipment_id --> ( $equipment_id )"
 echo "---------------------------------------"
 
-# filename: network.list
-# TEMPLATE
-#IP Address, MAC Address, Interface Ethernet, IP Address, MAC Address, Interface Wifi, IP Address, MAC Address, Interface Bluetooth, Setup DHCP (yes|no)
-# e.g:
-# 192.16.0.1,00:90:f5:94:5f:69,eth0,192.168.1.1,48:5d:60:0c:fa:d8,wlan0,0,9,8,yes
+}
 
-echo "---- Network conf"
-echo -e " Ethernet IP Address: $hostname_ip" 
-	network_mac_ethernet=$(arp -a "$hostname_ip" | cut -d " " -f "4")
-
-   
-
-if echo "$network_mac_ethernet" | egrep '\:' >/dev/null
-	then
-			echo "        MAC Address: $network_mac_ethernet"	
-   	else
-			read -p "        MAC Address: " network_mac_ethernet   		
-	fi
-
-
-read -p " Wireless IP Address: "  network_ip_wireless
-read -p "         MAC Address: " network_mac_wireless
-read -p "Bluetooth IP Address: " network_ip_bluetooth
-read -p "        MAC Address : " network_mac_bluetooth
-read -p " DHCP Client Enabled (y/n)?: " network_dhcp
-echo "---------------------------------------"
-echo " # Ethernet IP and MAC Address -->( $hostname_ip ) ( $network_mac_ethernet )  Wireless IP and MAC Address -->( $network_ip_wireless ) ( $network_mac_wireless )"
-echo " # Bluetooth IP and MAC Address --> ( $network_ip_bluetooth ) ( $network_mac_bluetooth )  DHCP Client Enabled --> ( $network_dhcp ) "
-echo "---------------------------------------"
-
-# filename: system.list
-# TEMPLATE
-# IP Address, Operational System FullName, Release, ProductKey, barcode
-# 172.16.1.17,Microsoft Windows 10 Pro,10.0.19042, GGFKKR-LLKKIU-HMMGFT-UMMYTF, 09o9i8u7uy6t5
-
-echo -e "\n\t\t\t\t\t [   Select the Operational System:   ] \n"
-echo -e "\t (1)Linux (2)Windows (3)FreeBSD (4)MACOS (5)Without System or Embedded System \n"
-echo "---- System conf"
-read -p " Operational System: " system_osname_n
- choose_OS
-
- 
-echo "---------------------------------------"
-echo " # Operational System and Release -->( $system_osname ) ( $system_release )"
-if [  $system_osname_n = 2 ] 
-	then
-	echo " # Product Key --> ( $system_product_key )  ID Product Key or another --> ( $system_id_product_key ) "
-fi 
-echo "---------------------------------------"
-
-
-# filename: inventory.list
-# TEMPLATE
-# IP Address, Register, Note, Accountable, Invoice, Description
-# 172.16.1.35, 0987654, RegANe098, Marco Flavio, Not Fiscal 09898989098, NoNoNoNoNoNoNoNoNoNo
-
-echo "---- Document and Inventory "
-read -p " Register: " inventory_register
-read -p " Note: " inventory_note
-read -p " Accountable: " inventory_accountable
-read -p " Invoice: " inventory_invoice
-read -p " Description: " inventory_description
-
-
-# filename: vendor.list
-# TEMPLATE
-# IP Address, Manufacturer, Serial Number, Model 
-# 172.16.255.34, Xerox Inc., 1234567890, A001C.
-
-echo "---- Vendor"
-read -p " Manufacturer: " vendor_manufacturer
-read -p " Serial Number: " vendor_serial_number
-read -p " Model: " vendor_model
-
-# filename: contact.list  
-# TEMPLATE
-# IP Address, Owner Name, Telephone, Dept., e-mail  
-# 172.16.0.2, joaoluis, (55) 55-5555-5555, Public , joao@xyz.com.br
-
+addContactList () {
 echo "---- Contact"
 read -p " Owner/User: " contact_user
 read -p " Phone Number: " contact_phone
 #read -p " Depto.: " contact_depto
 echo " Depto.: " $group_number_select
 read -p " e-Mail: " contact_email
+}
 
+#	
+addnew_host () {	
+	
+# filename: hostname.list 
+# TEMPLATE
+# IP Address, HostName, DeviceType
+# e.g.
+# 192.168.0.1, Desktop_Adryelle, Desktop
+# 192.168.0.10, Note1-1, Notebook
+# 172.16.0.1, ABC, Printer
+
+	addHostnameList
+
+# filename: network.list
+# TEMPLATE
+#IP Address, MAC Address, Interface Ethernet, IP Address, MAC Address, Interface Wifi, IP Address, MAC Address, Interface Bluetooth, Setup DHCP (yes|no)
+# e.g:
+# 192.16.0.1,00:90:f5:94:5f:69,eth0,192.168.1.1,48:5d:60:0c:fa:d8,wlan0,0,9,8,yes
+
+	addNetworkList
+
+# filename: system.list
+# TEMPLATE
+# IP Address, Operational System FullName, Release, ProductKey, barcode
+# 172.16.1.17,Microsoft Windows 10 Pro,10.0.19042, GGFKKR-LLKKIU-HMMGFT-UMMYTF, 09o9i8u7uy6t5
+
+	addSystemList
+	   
+# filename: inventory.list
+# TEMPLATE
+# IP Address, Register, Note, Accountable, Invoice, Description
+# 172.16.1.35, 0987654, RegANe098, Marco Flavio, Not Fiscal 09898989098, NoNoNoNoNoNoNoNoNoNo
+
+	addInventoryList 
+
+# filename: vendor.list
+# TEMPLATE
+# IP Address, Manufacturer, Serial Number, Model 
+# 172.16.255.34, Xerox Inc., 1234567890, A001C.
+
+	addVendorList
+	
+# filename: contact.list  
+# TEMPLATE
+# IP Address, Owner Name, Telephone, Dept., e-mail  
+# 172.16.0.2, joaoluis, (55) 55-5555-5555, Public , joao@xyz.com.br
+
+	addContactList
 
 # filename: /etc/simbadr/oslist.db
 # TEMPLATE
@@ -477,6 +489,7 @@ read -p " e-Mail: " contact_email
 # Ubuntu:18.04 LTS:Bionic Beaver:GNU/Linux:Ubuntu 18.04 LTS:x86:Canonical
 # Windows:10:Titanium:Windows Plataform:Microsoft Windows 10 Pro:x86_64:Microsoft 
 # FreeBSD:10.2:BSD:BSD/Unix:FreeBSD Server:x64:FreeBSD
+
 
 
 if  [[ $network_dhcp = Y* ]]  ||  [[ $network_dhcp = y* ]]    
@@ -512,6 +525,137 @@ show_data_db
 }
 #_
 
+allUpdatingData () {
+$lib_DIR"rwinfodb.sh" --delete $hostname_ip --filename $db_DIR"$hostname_group_number"
+$lib_DIR"rwinfodb.sh" --compile $db_DIR"$hostname_group_number"
+#$lib_DIR"sum-device-92.sh"
+
+$lib_DIR"rwinfodb.sh" --add $hostname_ip --filename $db_DIR"$hostname_group_number"
+$lib_DIR"rwinfodb.sh" --compile $db_DIR"$hostname_group_number"
+$lib_DIR"rwinfodb.sh" --exhibit $db_DIR"$hostname_group_number"
+echo "IP devices registred"
+$lib_DIR"rwinfodb.sh" --numberdb $db_DIR"$hostname_group_number"
+$lib_DIR"sum-device-92.sh"
+}
+
+showDeviceConfig_1 (){
+echo -e "
+#1[ Device Config ]
+	IP Address: $hostname_ip\t   Hostname: $hostname_hostname\t Device Type: $hostname_device\t   Identity: $equipment_id
+"
+ addHostnameList
+ # filename:hostname.list 
+# IP Address, HostName, DeviceType
+sed -i '/'$hostname_ip'/d' $simbadr_update_dblist_DIR"hostname.list"
+echo "$hostname_ip,$hostname_hostname,$hostname_device,$equipment_id" >> $simbadr_update_dblist_DIR"hostname.list"   
+allUpdatingData
+}
+
+showContact_2 (){
+echo -e "
+#2[ Contact ]
+  User/Owner: $contact_user\t 	 Phone Number: $contact_phone\t  E-mail: $contact_email
+  Depto.: $group_number_select\t  Group Number: $gnumber	
+" 
+addContactList
+# filename:contact.list  
+# IP Address, Owner Name, Telephone, Dept., e-mail  
+# 172.16.0.2, joaoluis, (55) 55-5555-5555, Public , joao@xyz.com.br
+sed -i '/'$hostname_ip'/d' $simbadr_update_dblist_DIR"contact.list"
+echo "$hostname_ip,$contact_user,$contact_phone,$group_number_select,$contact_email" >> $simbadr_update_dblist_DIR"contact.list" 
+allUpdatingData
+}
+
+showNetworkConfig_3 (){
+echo -e  "
+#3[ Network Config ]
+   Ethernet IP: $hostname_ip\t            MAC Address: $network_mac_ethernet 
+   Wireless IP: $network_ip_wireless\t    MAC Address: $network_mac_wireless
+   Bluetooth IP: $network_ip_bluetooth\t  MAC Address: $network_mac_bluetooth 
+   DHCP Client: $network_dhcp_complete
+" 
+addNetworkList
+# filename:network.list
+#IP Address, MAC Address, Interface Ethernet, IP Address, MAC Address, Interface Wifi, IP Address, MAC Address, Interface Bluetooth, Setup DHCP (yes|no)
+sed -i '/'$hostname_ip'/d' $simbadr_update_dblist_DIR"network.list"
+echo "$hostname_ip,$network_mac_ethernet,"eth0",$network_ip_wireless,$network_mac_wireless,"wlan0",$network_ip_bluetooth,$network_mac_bluetooth,"bluetooth",$network_dhcp" >> $simbadr_update_dblist_DIR"network.list"
+allUpdatingData
+}
+
+showOperationalSystem_4 (){
+echo -e "
+#4[ Operational System ]    
+  Name: $system_osname  Release: $system_release 
+  Windows Key: $system_product_key   ID Product Key or another: $system_id_product_key 
+" 
+addSystemList
+# filename:system.list
+# IP Address, Operational System FullName, Release, ProductKey, barcode
+sed -i '/'$hostname_ip'/d' $simbadr_update_dblist_DIR"system.list"
+echo "$hostname_ip,$system_osname,$system_release,$system_product_key,$system_id_product_key" >> $simbadr_update_dblist_DIR"system.list"
+allUpdatingData
+}
+
+showVendor_5 (){
+echo -e "
+#5[ Vendor ] 
+  Manufacturer:  $vendor_manufacturer 	Model: $vendor_model   Serial Number: $vendor_serial_number
+" 
+addVendorList
+# filename: vendor.list
+# IP Address, Manufacturer, Serial Number, Model 
+sed -i '/'$hostname_ip'/d' $simbadr_update_dblist_DIR"vendor.list"
+echo "$hostname_ip,$vendor_manufacturer,$vendor_serial_number,$vendor_model" >> $simbadr_update_dblist_DIR"vendor.list"
+allUpdatingData
+
+}
+
+showInventory_6 (){
+echo -e "
+#6[ Inventory ] 
+  Register: $inventory_register
+  Note: $inventory_note
+  Accountable: $inventory_accountable
+  Invoice: $inventory_invoice
+  Description: $inventory_description
+" 
+addInventoryList 
+
+# filename:inventory.list
+# IP Address, Register, Note, Accountable, Invoice, Description
+# 172.16.1.35, 0987654, RegANe098, Marco Flavio, Not Fiscal 09898989098, NoNoNoNoNoNoNoNoNoNo
+sed -i '/'$hostname_ip'/d' $simbadr_update_dblist_DIR"inventory.list"
+echo "$hostname_ip,$inventory_register,$inventory_note,$inventory_accountable,$inventory_invoice,$inventory_description" >> $simbadr_update_dblist_DIR"inventory.list"
+
+allUpdatingData
+}
+
+data_updating_number () {
+
+case "$data_updating" in
+		"1" )
+			showDeviceConfig_1 ;;
+		"2" )
+			showContact_2 ;;
+		"3" )
+			showNetworkConfig_3 ;;
+		"4" )
+			showOperationalSystem_4 ;;
+		"5" )
+			showVendor_5 ;;
+		"6" )
+			showInventory_6 ;;
+		"0" )
+			addnew_host ;;
+			*)
+			exit 
+			;;			
+esac		
+
+
+}
+
+
 
 
 #Begin
@@ -521,7 +665,13 @@ show_data_db
    read -p "Do you want updating information above (yes/no)?: " confirmed_update	
 	if [[ $confirmed_update = yes ]]
 		then
-			addnew_host
+			#addnew_host
+			
+			read -p "What is number for data updating (1/2/3/4/5/6 or 0 for all)?: " data_updating
+			
+         data_updating_number  $data_updating			
+         
+		
 			else
 				exit 0
 			fi	
