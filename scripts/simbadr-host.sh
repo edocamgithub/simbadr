@@ -3,7 +3,6 @@
 # Write by Eduardo M. Araujo (c)2023-2024
 # Function: Add new IP in selected database group.
 
-
  simbadr_export_dhcpd_conf_DIR=$(simbadr-read-conf.sh --group93)
 simbadr_export_dhcpd_conf_FILE=$simbadr_export_dhcpd_conf_DIR"dhcpd.conf_list"
  simbadr_update_dblist_DIR=$(simbadr-read-conf.sh --group92)
@@ -11,13 +10,11 @@ simbadr_export_dhcpd_conf_FILE=$simbadr_export_dhcpd_conf_DIR"dhcpd.conf_list"
    db_DIR=$(simbadr-read-conf.sh -g)
   lib_DIR=$(simbadr-read-conf.sh -l)
 setup_DIR=$(simbadr-read-conf.sh -s)
- 
   
   TEMP_LOCAL_SIMBADR="/tmp/simbadr"
 
-
 # Banco de Dado em XML 
-   localDBXML=$(simbadr-read-conf.sh -92)
+   localDBXML=$(simbadr-read-conf.sh dd92)
 filenameDBXML="simbadrdb.xml"
 #
 
@@ -90,9 +87,8 @@ choose_OS () {
 				
 			;;
 esac			
-
 }
-
+#
 
 export_dhcpd_conf () {
 	echo "# ----------------------------------------------------------------------------------------------"
@@ -100,9 +96,8 @@ export_dhcpd_conf () {
 	echo -e "# host $hostname_hostname\t   {hardware ethernet "$network_mac_ethernet"; fixed-address    "$hostname_ip";}"
 	echo -e "# host $hostname_hostname"w"\t   {hardware ethernet "$network_mac_wireless"; fixed-address    "$network_ip_wireless";}"
 	echo "# ----------------------------------------------------------------------------------------------"
-
 }
-
+#
 
 update_db_simbadr_list () {
 
@@ -156,9 +151,7 @@ $lib_DIR"rwinfodb.sh" --numberdb $db_DIR"$hostname_group_number"
 $lib_DIR"sum-device-92.sh"
 
 }
-
-
-
+#
 
 translate_group_name () {
 	group_number_select=$($lib_DIR/rinfogrp.sh -"$hostname_group_number")
@@ -185,7 +178,7 @@ translate_group_name () {
 			
 			;;			
 esac		
-}
+}#
 
 show_data_db () {
 echo -e "\n\n\n"
@@ -221,7 +214,7 @@ echo -e "-----------------------------------------------------------------------
  
 -----------------------------------------------------------------------------------------------------------------------"
 }
-
+#
 
 valid_host () {
 
@@ -241,9 +234,8 @@ if test -z $output_locator
 	locator_host_db $ip_locator_host_db
 	
 	fi
-
 }
-
+#
 
 locator_host_db () {
 	ipDevice=$1
@@ -341,32 +333,31 @@ echo -e "\n\t\t\t\t\t [   Select the Operational System:   ] \n"
 echo -e "\t (1)Linux (2)Windows (3)FreeBSD (4)MACOS (5)Without System or Embedded System \n"
 echo "---- System conf"
 read -p " Operational System: " system_osname_n
+ 
  choose_OS
 
- 
 echo "---------------------------------------"
 echo " # Operational System and Release -->( $system_osname ) ( $system_release )"
-if [  $system_osname_n = 2 ] 
-	then
-	echo " # Product Key --> ( $system_product_key )  ID Product Key or another --> ( $system_id_product_key ) "
-fi 
-echo "---------------------------------------"
 
+	if [  $system_osname_n = 2 ] 
+		then
+			echo " # Product Key --> ( $system_product_key )  ID Product Key or another --> ( $system_id_product_key ) "
+		fi 
+echo "---------------------------------------"
 }
+#
 
 addNetworkList (){
 echo "---- Network conf"
 echo -e " Ethernet IP Address: $hostname_ip" 
 	network_mac_ethernet=$(arp -a "$hostname_ip" | cut -d " " -f "4")
  
-
-if echo "$network_mac_ethernet" | egrep '\:' >/dev/null
-	then
+	if echo "$network_mac_ethernet" | egrep '\:' >/dev/null
+		then
 			echo "        MAC Address: $network_mac_ethernet"	
-   	else
-			read -p "        MAC Address: " network_mac_ethernet   		
-	fi
-
+   		else
+				read -p "        MAC Address: " network_mac_ethernet   		
+		fi
 
 read -p " Wireless IP Address: "  network_ip_wireless
 read -p "         MAC Address: " network_mac_wireless
@@ -377,8 +368,8 @@ echo "---------------------------------------"
 echo " # Ethernet IP and MAC Address -->( $hostname_ip ) ( $network_mac_ethernet )  Wireless IP and MAC Address -->( $network_ip_wireless ) ( $network_mac_wireless )"
 echo " # Bluetooth IP and MAC Address --> ( $network_ip_bluetooth ) ( $network_mac_bluetooth )  DHCP Client Enabled --> ( $network_dhcp ) "
 echo "---------------------------------------"
-
 }
+#
 
 addInventoryList () {
 echo "---- Document and Inventory "
@@ -387,21 +378,19 @@ read -p " Note: " inventory_note
 read -p " Accountable: " inventory_accountable
 read -p " Invoice: " inventory_invoice
 read -p " Description: " inventory_description
-
 }
+#
 
 addVendorList () {
 echo "---- Vendor"
 read -p " Manufacturer: " vendor_manufacturer
 read -p " Serial Number: " vendor_serial_number
 read -p " Model: " vendor_model
-
 }
+#
 
 addHostnameList () {
-
-echo
-
+echo 
 	read -p " Hostname: " hostname_hostname
 echo -e "\n\t\t\t\t\t [   Choose the number device:   ] \n"
 echo -e "\t (1)AccessPoint (2)Desktop (3)Workstation (4)Phone (5)Web (6)Server (7)Printer (8)Switch (9)Cam (0)Notebook  \n"
@@ -422,8 +411,8 @@ echo
 echo "---------------------------------------"
 echo  "# IP Address -->( $hostname_ip ) # Hostname --> ( $hostname_hostname ) # Device Type --> ( $hostname_device ) # Group Number --> ( $hostname_group_number ) # Group Name --> ( $group_number_select ) # Equipment_id --> ( $equipment_id )"
 echo "---------------------------------------"
-
 }
+#
 
 addContactList () {
 echo "---- Contact"
@@ -431,12 +420,12 @@ read -p " Owner/User: " contact_user
 read -p " Phone Number: " contact_phone
 #read -p " Depto.: " contact_depto
 echo " Depto.: " $group_number_select
+translate_group_name
 read -p " e-Mail: " contact_email
 }
-
-#	
-addnew_host () {	
+#
 	
+addnew_host () {	
 # filename: hostname.list 
 # TEMPLATE
 # IP Address, HostName, DeviceType
@@ -490,42 +479,42 @@ addnew_host () {
 # Windows:10:Titanium:Windows Plataform:Microsoft Windows 10 Pro:x86_64:Microsoft 
 # FreeBSD:10.2:BSD:BSD/Unix:FreeBSD Server:x64:FreeBSD
 
-
-
-if  [[ $network_dhcp = Y* ]]  ||  [[ $network_dhcp = y* ]]    
-then
-   network_dhcp_complete="Enable"
-   network_dhcp="yes"
-	else
-	network_dhcp_complete="Disable"
-	network_dhcp="no"
-fi
-
-
+	if  [[ $network_dhcp = Y* ]]  ||  [[ $network_dhcp = y* ]]    
+		then
+   		network_dhcp_complete="Enable"
+   		network_dhcp="yes"
+			else
+				network_dhcp_complete="Disable"
+				network_dhcp="no"
+		fi
 echo "----"
 echo  
 read -p "Is this correct information (yes/no)?: " confirmed_information
 read -p "You really have sure (yes/no)?: " confirmed_information_sure 
 
-if  [[ $confirmed_information = yes ]]  &&  [[ $confirmed_information_sure = yes ]]    
-then
-    	update_db_simbadr_list
-
-	if  [[ $network_dhcp = Y* ]]  ||  [[ $network_dhcp = y* ]]    
+	if  [[ $confirmed_information = yes ]]  &&  [[ $confirmed_information_sure = yes ]]    
 		then
-			export_dhcpd_conf >> $simbadr_export_dhcpd_conf_FILE
-			echo "exported $simbadr_export_dhcpd_conf_FILE"
-	fi
+    		update_db_simbadr_list
 
+			if  [[ $network_dhcp = Y* ]]  ||  [[ $network_dhcp = y* ]]    
+				then
+					export_dhcpd_conf >> $simbadr_export_dhcpd_conf_FILE
+					echo "exported $simbadr_export_dhcpd_conf_FILE"
+				fi
 		else
-	exit
-fi
+			exit
+			fi
 
-show_data_db
+	show_data_db
 }
 #_
 
 allUpdatingData () {
+
+	translate_group_name
+echo $hostname_group_number
+exit
+
 $lib_DIR"rwinfodb.sh" --delete $hostname_ip --filename $db_DIR"$hostname_group_number"
 $lib_DIR"rwinfodb.sh" --compile $db_DIR"$hostname_group_number"
 #$lib_DIR"sum-device-92.sh"
@@ -537,6 +526,7 @@ echo "IP devices registred"
 $lib_DIR"rwinfodb.sh" --numberdb $db_DIR"$hostname_group_number"
 $lib_DIR"sum-device-92.sh"
 }
+#
 
 showDeviceConfig_1 (){
 echo -e "
@@ -548,7 +538,8 @@ echo -e "
 # IP Address, HostName, DeviceType
 sed -i '/'$hostname_ip'/d' $simbadr_update_dblist_DIR"hostname.list"
 echo "$hostname_ip,$hostname_hostname,$hostname_device,$equipment_id" >> $simbadr_update_dblist_DIR"hostname.list"   
-allUpdatingData
+	
+	allUpdatingData
 }
 
 showContact_2 (){
@@ -563,7 +554,8 @@ addContactList
 # 172.16.0.2, joaoluis, (55) 55-5555-5555, Public , joao@xyz.com.br
 sed -i '/'$hostname_ip'/d' $simbadr_update_dblist_DIR"contact.list"
 echo "$hostname_ip,$contact_user,$contact_phone,$group_number_select,$contact_email" >> $simbadr_update_dblist_DIR"contact.list" 
-allUpdatingData
+
+	allUpdatingData
 }
 
 showNetworkConfig_3 (){
@@ -574,7 +566,7 @@ echo -e  "
    Bluetooth IP: $network_ip_bluetooth\t  MAC Address: $network_mac_bluetooth 
    DHCP Client: $network_dhcp_complete
 " 
-addNetworkList
+	addNetworkList
 # filename:network.list
 #IP Address, MAC Address, Interface Ethernet, IP Address, MAC Address, Interface Wifi, IP Address, MAC Address, Interface Bluetooth, Setup DHCP (yes|no)
 sed -i '/'$hostname_ip'/d' $simbadr_update_dblist_DIR"network.list"
@@ -651,26 +643,20 @@ case "$data_updating" in
 			exit 
 			;;			
 esac		
-
-
 }
-
-
-
 
 #Begin
    echo -e "---- SIMBADR Database version 0.1.0 --- \n"
 	read -p " Insert IP Address: " hostname_ip
 	valid_host $hostname_ip
    read -p "Do you want updating information above (yes/no)?: " confirmed_update	
+	
 	if [[ $confirmed_update = yes ]]
 		then
 			#addnew_host
-			
 			read -p "What is number for data updating (1/2/3/4/5/6 or 0 for all)?: " data_updating
-			
-         data_updating_number  $data_updating			
-         
+	      data_updating_number  $data_updating			
+    
 		
 			else
 				exit 0
