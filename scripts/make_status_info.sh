@@ -13,6 +13,6 @@ baseDIR_LIB=$(simbadr-read-conf.sh --library)
 #
 
 
-"$baseDIR_LIB"grpinfor.sh -a > /tmp/statusinfo.tmp
-cp /tmp/statusinfo.tmp  "$grouplocal"statusinfo.xml
+"$baseDIR_LIB"grpinfor.sh -a > /tmp/simbadr/statusinfo.tmp
+cp /tmp/simbadr/statusinfo.tmp  "$grouplocal"statusinfo.xml
 

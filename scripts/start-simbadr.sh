@@ -35,14 +35,9 @@ if test -d $TEMP_LOCAL_SIMBADR
   		mkdir $TEMP_LOCAL_SIMBADR
 	fi
 
-
-
-
 # Habilita a impressao de variaveis
 debugVerbose=false
 #
-
-
 
 # Habilita as opcoes
 argumentos=$@
@@ -57,13 +52,9 @@ argumentos=$@
         #  etc_DIR=$(simbadr-read-conf.sh -s)
 group_enable_list="simbadr"
       baseDIR_etc=$(simbadr-read-conf.sh --setup)
-
 #
 
-
 simbadr_group=$(cat $baseDIR_etc/$group_enable_list | grep -w group_enable | cut -d "=" -f "2" )
-
-
 
 # Manual de uso do script
 help_manual() {
@@ -105,7 +96,7 @@ esac
 
 startLog () {
 	datelog=$(date "+%h %d-%m-%Y %H:%M:%S")
-	pidlog=$(pgrep $APPNAME | tail -n1 )
+	pidlog=$(pgrep -f $APPNAME | tail -n1 )
 
 echo "<warning>
     <line1>'>'</line1>
@@ -137,10 +128,6 @@ echo "<warning>
 </warning>" > "$grouplocal"warning.xml
 }
 #
-
-
-
-
 
 export_infodash () {
 

@@ -34,10 +34,12 @@ echo "
 }
 
 function html_footer {
+
+creator_file=$(date)
 echo "
 </table>
 <br><br><br>
-<h4>(C)2019-2024 Designer by Eduardo Macedo Araujo -</h4>
+<h4>(C)2019-2024 Designer by Eduardo Macedo Araujo - "$creator_file"</h4>
 </body>
 </html>
 " >> $tmp_file
