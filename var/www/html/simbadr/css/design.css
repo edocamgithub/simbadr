@@ -1,17 +1,17 @@
-body {background-color:  white;
+body {background-color: whitesmoke;
       align-content: center;
       align-self: center;
 }
 
 #groupname {
 	height: 20px;
-	color: black;
+	color: yellow;
 	font-size: 100%;
 	font-family: arial;
 	font-weight: bold;
 	font-weight: bolder;
 	text-align: center;
-	background-color: white;
+	background-color: black;
 }
 
 .corpo {
@@ -27,19 +27,20 @@ td {
 	border-bottom-style: none;
 	background-color: transparent;
 	border-bottom-width: thin;
+	
 }
 
 
 #grouptime {
 	height: 40px;
-	color: black;
+	color: #497fb7;
 	font-size: 100%;
 	font-family: arial;
 	font-weight: bold;
 	font-weight: bolder;
 	text-align: left;
 	margin-top: 10px;
-	background-color: white;
+	background-color: green #white;
    padding-left: 20px;
 }
 
