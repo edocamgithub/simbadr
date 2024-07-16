@@ -63,7 +63,7 @@ baseExec=$(simbadr-read-conf.sh --exec)
 
 # Log de variaveis
 function log_ () {
-PIDexec=$(pgrep $APPNAME)
+PIDexec=$(pgrep -f $APPNAME)
 DATEpid=$(date "+%b %d %T")
 logs_simbadr=$(echo "$DATEpid, PID ($PIDexec), exec_file --> $APPNAME, file_list_name --> $file_list_name, file_sort_list --> $file_list_name, group_name --> $group_name, type_name --> $type_name, folder --> $folder, base_DIR --> $baseDIR, base_DIR_barra --> $baseDIR_barra")
 }

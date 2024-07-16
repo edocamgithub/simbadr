@@ -2,6 +2,7 @@
 ##################################################################
 #  File: rinfodevice.sh 	     Built: 201905161412
 #  Version: 1.2.0               Update 202312062029
+#										  lastUpdate 202402252008
 #
 #  Function: Read devices.xml
 #
@@ -29,7 +30,10 @@
    baseLOG=$(simbadr-read-conf.sh --backup)
    AUTHLOG="$baseLOG"simbadr.log
 
+#Export tempfiles  
+	TEMP_LOCAL_SIMBADR="/tmp/simbadr"
 
+	
 # Habilita a impressao de variaveis
 debugVerbose=false
 #
@@ -58,17 +62,19 @@ $COPYRIGHT $AUTHOR
   OPTIONS:
     -h, --help            show help information;
     -V, --version         show version;
-    -w, --workstation     return workstation fullname;
-    -s, --server          return server fullname;
-    -p, --printer         return printer fullname;
-    -c, --switch          return switch or hub fullname;
+    -i                    for interactive question;
+    -w, --workstation     return Workstation fullname;
+    -s, --server          return Server fullname;
+    -p, --printer         return Printer fullname;
+    -c, --switch          return Switch or hub fullname;
     -a, --access-point    return AP or router fullname;
-    -t, --site            return site or homepage;
-    -m, --mobile          return mobile or cellphone fullname;
-    -f, --smartphone      return smartphone fullname;
-    -b, --tablet          return tablet fullname;
-    -v, --voip-phone      return voip phone fullname;
-    -d, --everything      return all;
+    -t, --site            return Site or homepage;
+    -l, --laptop          return laptop and Notebook fullname;
+    -f, --smartphone      return Smartphone fullname;
+    -b, --tablet          return Tablet fullname;
+    -v, --voip-phone      return VoIP phone fullname;
+    -d, --everything      return everything or an IoT;
+    -y, --security-cam	  return Security Cam;
   
    Example:
          $APPNAME  -f
@@ -90,6 +96,28 @@ if [ $debugVerbose = true ]
 fi
 }
 #
+
+
+interactive_List () {
+echo -e " 
+What is your device? 
+
+         s          c            a               w             v        t 
+    [ Server ] [ Switch ] [ Access Point ] [ Workstation ] [ VoIP ] [ Site ]
+
+         b         p             l               f            u
+    [ Tablet ] [Printer ] [Laptop/Notebook] [ Smartphone  ] [ UPS ]
+
+         e             *             y
+    [ Everything ] [ Unknown ] [Security CAM]
+
+"
+read -p "->" device_selected
+
+argumentos="-"$device_selected
+
+choose $argumentos > $TEMP_LOCAL_SIMBADR/rinfodevice_interactive  
+}
 
 
 # Argumentos de linha de comando
@@ -124,8 +152,8 @@ case "$options" in
      -t | --site )
 			grep \"st\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;;
 
-     -m | --mobile )
-			grep \"ms\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;;
+     -l | --laptop )
+			grep \"ln\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;;
     
      -f | --smartphone )
 			grep \"sp\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;;
@@ -133,11 +161,21 @@ case "$options" in
      -b | --table )
 			grep \"tb\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;;
 
-		-d | --everything )
+	  -e | --everything )
 			grep \"ev\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;;
-   
-	*)
-		exit 0;;
+		
+	  -u | --ups )
+			grep \"up\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;;
+			
+	  -y |  --security-cam )	
+	  	  grep \"sc\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1;;
+		
+	  -i | --interactive )
+	   	interactive_List ;;	
+
+	  * )
+			grep \"uk\"  "$config"devices.xml | cut -d">" -f2 | cut -d"<" -f1
+			exit 0;;
 esac
 }
 #

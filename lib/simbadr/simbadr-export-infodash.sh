@@ -45,7 +45,7 @@ group_enable_list="simbadr"
 output_total_device_group="92"
 #
 
-totalforsum=$(grep -w "group_enable" /etc/simbadr/simbadr | cut -d"=" -f"2")
+totalforsum=$(grep -wF "group_enable" /etc/simbadr/simbadr | cut -d"=" -f"2")
 
 #Default numbers for variables reading xml files at web interface 
  somaondevice=0
@@ -134,13 +134,13 @@ echo ""
 choose $argumentos
 
 #seq_group_list=$(echo $etc_DIR$group_enable_list)
- # t_group_list=$(cat $seq_group_list |  grep -w group_enable | cut -d"=" -f2) 
+ # t_group_list=$(cat $seq_group_list |  grep -wF group_enable | cut -d"=" -f2) 
 
 listvar=$(echo $@)
 
 #totalvar=$(echo $#) # contabilize total var
 
-totalvar=$(cat "$etc_DIR""$group_enable_list" | grep -w group_enable | cut -d"=" -f2 | wc -w)
+totalvar=$(cat "$etc_DIR""$group_enable_list" | grep -wF group_enable | cut -d"=" -f2 | wc -w)
 
 #selectgroup=$(echo $#) 
 
@@ -167,8 +167,8 @@ echo  "#Group Name Device ON OFF Sum"
 for t in $totalforsum
 do
 number=$t
-totalON=$(grep -w "on=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f6 | cut -d"\"" -f2)
-  totalOFF=$(grep -w "off=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f7 | cut -d"\"" -f2)
+totalON=$(grep -wF "on=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f6 | cut -d"\"" -f2)
+  totalOFF=$(grep -wF "off=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f7 | cut -d"\"" -f2)
   
   sumON=$(echo $((totalON + sumON)))
  sumOFF=$(echo $((totalOFF + sumOFF)))
@@ -181,9 +181,9 @@ number=$i
 
      device=$(grep typedevice "$baseDIR_barra"/$number/$number.xml | cut -d "=" -f5 | cut -d\" -f2)
       group=$("$baseDIR_LIB"rinfogrp.sh -"$number")
-   ondevice=$(grep -w "on=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f6 | cut -d"\"" -f2)
-  offdevice=$(grep -w "off=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f7 | cut -d"\"" -f2)
-totaldevice=$(grep -w "total=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f8 | cut -d"\"" -f2)
+   ondevice=$(grep -wF "on=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f6 | cut -d"\"" -f2)
+  offdevice=$(grep -wF "off=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f7 | cut -d"\"" -f2)
+totaldevice=$(grep -wF "total=" "$baseDIR_barra"/$number/$number.xml | cut -d"=" -f8 | cut -d"\"" -f2)
 
 
 echo $number, $group, $device, $ondevice, $offdevice, $totaldevice

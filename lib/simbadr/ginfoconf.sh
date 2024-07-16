@@ -96,14 +96,16 @@ echo '<list>
 <device alias="sr">Server</device>
 <device alias="pr">Printer</device>
 <device alias="sw">Switch</device>
-<device alias="ap">Access Point</device>
+<device alias="ap">AccessPoint</device>
 <device alias="st">Site</device>
-<device alias="ms">Mobile Station</device>
+<device alias="ln">Laptop</device>
 <device alias="sp">Smartphone</device>
 <device alias="tb">Tablet</device>
-<device alias="ph">VoIP phone</device>
+<device alias="ph">VoIP</device>
 <device alias="uk">Unknown</device>
 <device alias="ev">Everything</device>
+<device alias="up">UPS</device>
+<device alias="sc">SecurityCAM</device>
 </list>'
 ;;
 

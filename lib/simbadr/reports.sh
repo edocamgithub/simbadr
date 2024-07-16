@@ -46,7 +46,7 @@ baseDIR_LIB=$(simbadr-read-conf.sh --library)
     
 # Log de variaveis
 function log_ () {
-PIDexec=$(pgrep $APPNAME)
+PIDexec=$(pgrep -f $APPNAME)
 DATEpid=$(date "+%b %d %T")
 logs_simbadr=$(echo "$DATEpid, PID ($PIDexec), exec_file --> $APPNAME, date_reg. --> $datereg, serial --> $getserial , name_group --> $groupname, number_group --> $numbergroup, directory --> $3, filename --> $filename, total_last_devices --> $devicenumber, output_file --> $compress, ouptut -- > $outputhistory$numbergroup"/" ")
 }
@@ -146,13 +146,13 @@ name_file=$(echo "$db""$numbergroup")
 devicenumber=$(grep ipadress "$db"/"$numbergroup".xml | wc -l)
 
 # Recupera o nome atribuído no Grupo
-groupname=$(grep -w name "$db"/"$numbergroup".xml | cut -d"\"" -f2)
+groupname=$(grep -wF name "$db"/"$numbergroup".xml | cut -d"\"" -f2)
 
 # Define o nome do arquvio padrão XML
 filename=$(echo "$numbergroup".xml)
 
 # Recupera a Serial do arquivo XML
-getserial=$(grep -w serial "$db""$numbergroup".xml | cut -d"\"" -f4)
+getserial=$(grep -wF serial "$db""$numbergroup".xml | cut -d"\"" -f4)
 
 # Atribuí um nome para o arquivo a ser compactado
 compress=$(echo "$getserial".tar.gz)

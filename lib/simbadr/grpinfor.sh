@@ -59,7 +59,7 @@ warning=10
 #
 # Log de variaveis
 function log_ () {
-PIDexec=$(pgrep $APPNAME)
+PIDexec=$(pgrep -f $APPNAME)
 DATEpid=$(date "+%b %d %T")
 logs_simbadr=$(echo "$DATEpid, PID ($PIDexec), exec_file --> $APPNAME, output_file --> $OUTPUT, serial_file --> $just, export_all_groups --> $all")
 }

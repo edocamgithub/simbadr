@@ -50,7 +50,7 @@ globalFile="00"
 # Log de variaveis
 
 function log_ () {
-PIDexec=$(pgrep $APPNAME)
+PIDexec=$(pgrep -f $APPNAME)
 DATEpid=$(date "+%b %d %T")
 logs_simbadr=$(echo "PID ($PIDexec), exec_file --> $APPNAME, file_in_discovery_tmp --> $file_in_discovery_tmp, file_in_discovery_tmp_grep --> $file_in_discovery_tmp_grep, globalDir --> $globalDir, globalFile --> $globalFile")  
 }
@@ -224,7 +224,7 @@ for i in {1..254}
 	done
 #  
 
-cat $file_in_discovery_tmp >> $baseDIR"90"
+
 
 debug_log
 
@@ -235,6 +235,9 @@ grep "ON" $file_in_discovery_tmp_grep | cut -d":" -f1  >> $globalDir$globalFile
 waitupdateLog
 
 #cat $file_in_discovery_tmp > $globalDir$globalFile
+
+cat $file_in_discovery_tmp_grep >> $baseDIR"90" 
+
  
 rm -f "$file_in_discovery_tmp_grep"
 rm -f "$file_in_discovery_tmp"

@@ -41,7 +41,7 @@ argumentos=$@
 baseDIR_LIB=$(simbadr-read-conf.sh -l)
 
 # Log de variaveis
-PIDexec=$(pgrep $APPNAME)
+PIDexec=$(pgrep -f $APPNAME)
 DATEpid=$(date "+%b %d %T")
 logs_simbadr=$(echo "$DATEpid, PID ($PIDexec), exec_file --> $APPNAME, old_group_name --> $old_group_name, new_group_name --> $new_group_name, commit_enable  --> $commit_enable")
 #

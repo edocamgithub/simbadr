@@ -8,7 +8,7 @@ do
 
 #echo $IPAddress
 
-k=$(grep -w "$IPAddress" /opt/simbadr/var/log/simbadr/blocks/00/92)
+k=$(grep -wF "$IPAddress" /opt/simbadr/var/log/simbadr/blocks/00/92)
 
 if test -z $k
 then
