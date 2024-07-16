@@ -114,7 +114,7 @@ function testbinario () {
 
 # Log de variaveis
 function log_ () {
-PIDexec=$(pgrep $APPNAME)
+PIDexec=$(pgrep -f $APPNAME)
 DATEpid=$(date "+%b %d %T")
 logs_simbadr=$(echo "$DATEpid, PID ($PIDexec), exec_file --> $APPNAME, ping_test_enable --> $ping_test_enable, snmp_get_info_enable --> $snmp_get_info_enable, snmp_get_info_enable --> $snmp_get_info_enable, community_get_info_enable --> $community_get_info_enable, community_get --> $community_get, ip_address_enable --> $ip_address_enable, ip_address_get --> $ip_address_get, file_name_enable --> $file_name_enable, file_name_get --> $file_name_get, xml_output_enable --> $xml_output_enable, text_output_enable --> $text_output_enable")
 }
@@ -246,9 +246,9 @@ if [ $status_text = "ON" ]
 
 #problem of hostname and contact not found
 
-if test -z $depto
+if [ -z "$depto" ]
 	then
-			depto="<owner>null</owner>"
+			depto="<depto>null</depto>"
 		fi
 #        
 	   echo "<host>"
@@ -273,10 +273,10 @@ if test -z $setup_img_device
 	
 		if test $status_text = "OFF"
 			then 
-	      	echo '     <setupimg img_os="" img_device="../images/devices/device.png" img_status="../images/devices/warning.png" />'
+	      	echo '     <setupimg img_os="device.png" img_device="../images/devices/device.png" img_status="../images/devices/warning.png" />'
  		 		elif test $status_text = "ON"			
 					then				
-						echo '     <setupimg img_os="" img_device="../images/devices/device.png" img_status="../images/devices/device.png" />'	
+						echo '     <setupimg img_os="device.png" img_device="../images/devices/statusOFF.png" img_status="../images/devices/cam0.png" />'	
 					fi
 									
 				else
