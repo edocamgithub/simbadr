@@ -5,6 +5,9 @@
 <html>
 	<head>
 		<title>Lista de Workstation</title>
+		<meta http-equiv="refresh" content="30"/>
+        	<meta http-equiv="chache-control" content="max-age=0"/>
+        	<meta http-equiv="pragma" content="no-cache"/>
 			<link href="../css/design.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
