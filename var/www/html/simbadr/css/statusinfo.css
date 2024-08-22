@@ -26,8 +26,13 @@ body {background-color:  black;
 	font-weight: bold;
 }
 
+#block_info_good {
+	background-color: greenyellow;
+	font-weight: bold;
+}
+
 #block_info_normal {
-	background-color: white;
+	background-color: ghostwhite;
 	font-weight: bold;
 	
 }
