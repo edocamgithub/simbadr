@@ -22,12 +22,12 @@ body {background-color:  black;
 }
 
 #block_info_warning {
-	background-color: yellow;
+	background-color: #FFD700;
 	font-weight: bold;
 }
 
 #block_info_good {
-	background-color: greenyellow;
+	background-color: #00FF00;
 	font-weight: bold;
 }
 
