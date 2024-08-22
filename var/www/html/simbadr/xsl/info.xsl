@@ -22,7 +22,29 @@
      
      <div id="body_info"> 
        <xsl:choose>
-        
+
+             <xsl:when test="information = 'good'" >
+                  	   <xsl:value-of select="grouplink" />  
+           	  	  
+	    	   <div id="block_info_good">
+	    	   <a  target="_blank" rel="noopener noreferrer"  href="{grouplink}"> 
+	    	    
+            	<xsl:value-of select="information"/>
+              
+            	<span id="number_info" > 
+            		<p><xsl:value-of select="information/@groupnumber"/></p>
+         	   </span>    
+       			
+       			<span id="name_info" >
+      				<xsl:value-of select="information/@groupname"/>
+    				</span> 	    
+      	      	  </a>    	
+      	    	</div>
+
+        </xsl:when>
+
+
+	       
          <xsl:when test="information = 'normal'" >
                   	   <xsl:value-of select="grouplink" />  
            	  	  
