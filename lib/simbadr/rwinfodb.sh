@@ -258,7 +258,7 @@ if test $add_enable -eq 1
 if test $compile_enable -eq 1
    then
       TEMPFILEDIR=$(mktemp $TEMPNAME)
-      cat $compile_file | sort -n -u  > $TEMPFILEDIR && cat $TEMPFILEDIR > $compile_file
+      cat $compile_file | sort -n -u -t '.' -k 1,1 -k 2,2 -k 3,3 -k 4,4  > $TEMPFILEDIR && cat $TEMPFILEDIR > $compile_file
       rm $TEMPFILEDIR
       exit 0
    fi   
@@ -295,7 +295,7 @@ if test $locate_enable -eq 1
 if test $sort_enable -eq 1
    then
       TEMPFILEDIR=$(mktemp $TEMPNAME)
-      cat $sort_file | sort -d > $TEMPFILEDIR && cat $TEMPFILEDIR > $sort_file
+      cat $sort_file | sort -n -u -t '.' -k 1,1 -k 2,2 -k 3,3 -k 4,4 > $TEMPFILEDIR && cat $TEMPFILEDIR > $sort_file
       rm $TEMPFILEDIR                  
       exit 0 
    fi
