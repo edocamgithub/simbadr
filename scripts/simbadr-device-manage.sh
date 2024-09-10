@@ -2,7 +2,7 @@
 # Created 25 feb 2024 1937 mofifyed in 20224 jun 22 1819
 # (c)2024 Eduardo M. Araujo 
 # Function: Add new Device for database group.
-
+# Lastupdating 2024set922:27
 #Set up for init varibles to simbadr system 
  simbadr_export_dhcpd_conf_DIR=$(simbadr-read-conf.sh --group93)
 
@@ -19,9 +19,7 @@ setup_DIR=$(simbadr-read-conf.sh -s)
 #folder ../95/idhost/default.php
 initScript_DIR=$(simbadr-read-conf.sh -95)
 
-
-
-  
+ 
 #Setup local XML file   
    localDBXML=$(simbadr-read-conf.sh -92)
 filenameDBXML="simbadrdb.xml"
@@ -55,6 +53,15 @@ what_is_your_Device (){
   $lib_DIR"/rinfodevice.sh" --interactive
   hostname_device=$(cat $TEMP_LOCAL_SIMBADR/rinfodevice_interactive)  
 }
+
+where_are_your_Device (){
+ #Old call choose_Device()
+  
+  lat=$(cat $TEMP_LOCAL_SIMBADR/iamhere | cut -d"," -f"1" )
+  lon=$(cat $TEMP_LOCAL_SIMBADR/iamhere | cut -d"," -f"2" )
+  igps=$(cat $TEMP_LOCAL_SIMBADR/iamhere | cut -d"," -f"3" )  
+}
+
 
 valid_IPhost () {
 valid_ip=$1
@@ -110,6 +117,7 @@ echo -n "."
 		hostname_hostname=$(echo $hostname_list | cut -d "," -f "2")
    	  hostname_device=$(echo $hostname_list | cut -d "," -f "3")
            equipment_id=$(echo $hostname_list | cut -d "," -f "4")
+                   
 echo -n "..."
 #vendor           
 	manufacturer_list=$(grep -wF "$ipDevice" $localDBXML"/vendor.list")
@@ -124,6 +132,9 @@ echo -n "...."
 	   	inventory_accountable=$(echo $register_ | cut -d "," -f "4" )
 			    inventory_invoice=$(echo $register_ | cut -d "," -f "5" )  
 			inventory_description=$(echo $register_ | cut -d "," -f "6" )
+			                  lat=$(echo $register_ | cut -d "," -f "7")
+                           log=$(echo $register_ | cut -d "," -f "8")
+                          igps=$(echo $register_ | cut -d "," -f "9")
 			#inventory_others=$(echo $register_ | cut -d "," -f "3" ) 	     	     
 echo -n "....."
 #system
@@ -362,8 +373,30 @@ hostname_hostname=$( printf "%.11s" $hostname_hostname__)
 echo  -e "--------------------------------------- \n$colorFontInclude
 #addHostnameList
 # IP Address -->( $hostname_ip ) # Device Type --> ( $hostname_device ) 
-# Hostname --> ( $hostname_hostname )  # Equipment_id --> ( $equipment_id )\e[m
-\n---------------------------------------"
+# Hostname --> ( $hostname_hostname )  # Equipment_id --> ( $equipment_id )"
+
+
+if test -e  "$TEMP_LOCAL_SIMBADR"/iamhere
+	then
+		where_are_your_Device
+	
+
+case "$hostname_device" in
+				"Switch" )
+					echo -e "# Switch Position ---> ( $lat,$lon,$igps ) \e[m" 	;;
+				
+				"AccessPoint" )
+				  echo -e "# AccessPoint Position ---> ( $lat,$lon,$igps ) \e[m" 	;;
+				
+				"SecurityCAM" )
+				  echo -e "# SecurityCAM Position ---> ( $lat,$lon,$igps ) \e[m" 	;;
+				
+				*)
+				;;
+esac
+fi
+echo -e "\e[m\n---------------------------------------"				
+
 
 whatIsYourOption "Hostname"
 }
@@ -647,7 +680,7 @@ UpdateAddInventoryList () {
 # filename:inventory.list
 # IP Address, Register, Note, Accountable, Invoice, Description
 # 172.16.1.35, 0987654, RegANe098, Marco Flavio, Not Fiscal 09898989098, NoNoNoNoNoNoNoNoNoNo
-echo "$hostname_ip,$inventory_register,$inventory_note,$inventory_accountable,$inventory_invoice,$inventory_description" >> $simbadr_update_dblist_DIR"inventory.list"
+echo "$hostname_ip,$inventory_register,$inventory_note,$inventory_accountable,$inventory_invoice,$inventory_description, $lat, $lon, $igps" >> $simbadr_update_dblist_DIR"inventory.list"
   
 }
 
