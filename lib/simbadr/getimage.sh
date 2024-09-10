@@ -156,184 +156,184 @@ while test -n "$1"
    			shift 
 				numberstatus=$1  
 			   verstatus $1
-		descr=$(grep deviceAp  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	   
-      this=$(grep deviceAp  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+		descr=$(grep deviceAp  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	   
+      this=$(grep deviceAp  "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this"      ;;     
       
      --deviceHost )
    			shift 
 				numberstatus=$1 
 				verstatus $1   
-		descr=$(grep deviceHost  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)			
-      this=$(grep deviceHost "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1) 
+		descr=$(grep deviceHost  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)			
+      this=$(grep deviceHost "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1) 
 		echo "$dirrelative$this:$descr:$this";;            
       
      --devicePrinter )
      		   shift 
 		      numberstatus=$1
 		      verstatus $1
-		descr=$(grep devicePrinter  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	        
-      this=$(grep devicePrinter "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1) 
+		descr=$(grep devicePrinter  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	        
+      this=$(grep devicePrinter "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1) 
       echo "$dirrelative$this:$descr:$this";;     
 
      --deviceSwitch )
      	      shift 
 		      numberstatus=$1 
 		      verstatus $1 
-	   descr=$(grep deviceSwitch  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
-      this=$(grep deviceSwitch "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep deviceSwitch  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
+      this=$(grep deviceSwitch "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;  
          
      --hostAlert )
      			shift 
 		      numberstatus=$1  
 		      verstatus $1
-	   descr=$(grep hostAlert  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
-      this=$(grep hostAlert "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep hostAlert  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
+      this=$(grep hostAlert "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;        
 
      --hostRetired )
      	      shift 
 		      numberstatus=$1
 		      verstatus $1  
-	   descr=$(grep hostRetired  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
-      this=$(grep hostRetired "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep hostRetired  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
+      this=$(grep hostRetired "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;        
              
      --hostDeny )
      	     shift 
 		     numberstatus=$1 
 		     verstatus $1 
-	   descr=$(grep hostDeny  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
-      this=$(grep hostDeny "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep hostDeny  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
+      this=$(grep hostDeny "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;        
        
      --hostBsd )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep hostBsd  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
-      this=$(grep hostBsd  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep hostBsd  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
+      this=$(grep hostBsd  "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;        
        
      --hostLinux )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep hostLinux  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
-      this=$(grep hostLinux "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep hostLinux  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
+      this=$(grep hostLinux "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;
         
      --hostMac )
      	     shift 
 		     numberstatus=$1   
 		     verstatus $1
-	   descr=$(grep hostMac  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
-      this=$(grep hostMac  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep hostMac  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
+      this=$(grep hostMac  "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;        
        
      --hostServer )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep hostServer  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	
-      this=$(grep hostServer "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep hostServer  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	
+      this=$(grep hostServer "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;        
 
      --hostWeb )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep hostWeb  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
-      this=$(grep hostWeb "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)    
+	   descr=$(grep hostWeb  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
+      this=$(grep hostWeb "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)    
       echo "$dirrelative$this:$descr:$this";;  
       
      --hostWindows )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep hostWindows  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
-      this=$(grep hostWindows "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep hostWindows  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep hostWindows "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;   
       
      --hostWorkstation )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep hostWorkstation  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
-      this=$(grep hostWorkstation "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)    
+	   descr=$(grep hostWorkstation  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
+      this=$(grep hostWorkstation "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)    
       echo "$dirrelative$this:$descr:$this";;  
 
      --deviceCam )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep deviceCam  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
-      this=$(grep deviceCam "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)    
+	   descr=$(grep deviceCam  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
+      this=$(grep deviceCam "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)    
       echo "$dirrelative$this:$descr:$this";; 
       
       --hostLaptop )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep hostLaptop  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
-      this=$(grep hostLaptop "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)    
+	   descr=$(grep hostLaptop  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	      
+      this=$(grep hostLaptop "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)    
       echo "$dirrelative$this:$descr:$this";;  
 
      --hostPhoneIP )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep hostPhoneIP  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
-      this=$(grep hostPhoneIP "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep hostPhoneIP  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep hostPhoneIP "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";; 
       
       --deviceUPS )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep deviceUPS  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
-      this=$(grep deviceUPS "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep deviceUPS  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep deviceUPS "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;
       
       --hostFw )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep hostFw  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
-      this=$(grep hostFw "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep hostFw  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep hostFw "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";; 
       
       --devicePs )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep devicePlaystation  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
-      this=$(grep devicePlaystation "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep devicePlaystation  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep devicePlaystation "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";; 
        
       --deviceXbox )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep deviceXbox  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
-      this=$(grep deviceXbox "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep deviceXbox  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep deviceXbox "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;
       
       --deviceWii )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep deviceWii  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
-      this=$(grep deviceWii "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep deviceWii  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep deviceWii "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;
       
       --systemFlow )
      	     shift 
 		     numberstatus=$1  
 		     verstatus $1
-	   descr=$(grep systemFlow  "$dirconfig"images.xml | grep -wF $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
-      this=$(grep systemFlow "$dirconfig"images.xml | grep -wF $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
+	   descr=$(grep systemFlow  "$dirconfig"images.xml | grep -w $numberstatus | cut -d"=" -f4 | cut -d">" -f1 | cut -d"\"" -f2)	  
+      this=$(grep systemFlow "$dirconfig"images.xml | grep -w $numberstatus | cut -d">" -f2 | cut -d"<" -f1)
       echo "$dirrelative$this:$descr:$this";;
                     
 	*)

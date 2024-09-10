@@ -146,13 +146,13 @@ name_file=$(echo "$db""$numbergroup")
 devicenumber=$(grep ipadress "$db"/"$numbergroup".xml | wc -l)
 
 # Recupera o nome atribuído no Grupo
-groupname=$(grep -wF name "$db"/"$numbergroup".xml | cut -d"\"" -f2)
+groupname=$(grep -w name "$db"/"$numbergroup".xml | cut -d"\"" -f2)
 
 # Define o nome do arquvio padrão XML
 filename=$(echo "$numbergroup".xml)
 
 # Recupera a Serial do arquivo XML
-getserial=$(grep -wF serial "$db""$numbergroup".xml | cut -d"\"" -f4)
+getserial=$(grep -w serial "$db""$numbergroup".xml | cut -d"\"" -f4)
 
 # Atribuí um nome para o arquivo a ser compactado
 compress=$(echo "$getserial".tar.gz)

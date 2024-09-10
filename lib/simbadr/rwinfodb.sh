@@ -244,7 +244,7 @@ choose_ $argumentos
 if test $delete_enable -eq 1 
    then   
       TEMPFILEDIR=$(mktemp $TEMPNAME)
-      grep -v -wF "$delete_ip" $name_file > $TEMPFILEDIR && cat $TEMPFILEDIR > $name_file
+      grep -v -w "$delete_ip" $name_file > $TEMPFILEDIR && cat $TEMPFILEDIR > $name_file
       rm $TEMPFILEDIR      
       exit 0
    fi
@@ -285,7 +285,7 @@ if test $locate_enable -eq 1
 						string_zero=""
 		 			fi
 		 
-    search=$(grep -wF $locate_ip $dirDB"$string_zero$i") && groupName=$("$path"rinfogrp.sh -"$string_zero$i") && echo $search":$string_zero$i"":"$groupName
+    search=$(grep -w $locate_ip $dirDB"$string_zero$i") && groupName=$("$path"rinfogrp.sh -"$string_zero$i") && echo $search":$string_zero$i"":"$groupName
 
   done
                      
@@ -295,7 +295,8 @@ if test $locate_enable -eq 1
 if test $sort_enable -eq 1
    then
       TEMPFILEDIR=$(mktemp $TEMPNAME)
-      cat $sort_file | sort -n -u -t '.' -k 1,1 -k 2,2 -k 3,3 -k 4,4 > $TEMPFILEDIR && cat $TEMPFILEDIR > $sort_file
+#      cat $sort_file | sort -d > $TEMPFILEDIR && cat $TEMPFILEDIR > $sort_file
+cat $sort_file | sort -n -u -t '.' -k 1,1 -k 2,2 -k 3,3 -k 4,4  > $TEMPFILEDIR && cat $TEMPFILEDIR > $sort_file
       rm $TEMPFILEDIR                  
       exit 0 
    fi

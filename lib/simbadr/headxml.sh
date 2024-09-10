@@ -112,8 +112,8 @@ just_time=$(date "+%s")
  date_now=$(date "+%y%m%d")
 
 # SUM devices
-   on_device=$(grep -wF "ON" $file_in_xml | wc -l)
-  off_device=$(grep -wF "OFF" $file_in_xml | wc -l)
+   on_device=$(grep -w "ON" $file_in_xml | wc -l)
+  off_device=$(grep -w "OFF" $file_in_xml | wc -l)
 total_device=$(echo $((on_device + off_device)))
 
 

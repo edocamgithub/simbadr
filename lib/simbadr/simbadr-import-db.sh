@@ -157,11 +157,7 @@ select_HOSTNAME () {
 # hostname_="PC_Eduardo"
 #devicetype_="Notebook"
 #
-#file:hostname.list
-#       1 ,    2   ,    3    ,  4
-#field key,Hostname,DeviceType,IDhost
-
-	line_read_hostname=$(grep -wF $ipaddress_ $baseDIR_DB"hostname.list")
+	line_read_hostname=$(grep -w $ipaddress_ $baseDIR_DB"hostname.list")
 	 hostName_Hostname=$(echo $line_read_hostname | cut -d "," -f "2")
   deviceType_Hostname=$(echo $line_read_hostname | cut -d "," -f "3")
 equipment_id_Hostname=$(echo $line_read_hostname | cut -d "," -f "4")
@@ -180,13 +176,7 @@ select_VENDOR () {
 #          sn_="0987654321"
 #       model_="Personal Computer"
 #
-
-#file:vendor.list
-#       1 ,    2   ,    3    ,    4
-#field key,Manufacturer,Model,SerialNumber
-
-
-	line_read_vendor=$(grep -wF $ipaddress_ $baseDIR_DB"vendor.list")
+	line_read_vendor=$(grep -w $ipaddress_ $baseDIR_DB"vendor.list")
 manufacturer_Vendor=$(echo $line_read_vendor | cut -d "," -f "2")
 serialnumber_Vendor=$(echo $line_read_vendor | cut -d "," -f "3")
 	    model_Vendor=$(echo $line_read_vendor | cut -d "," -f "4")
@@ -209,26 +199,18 @@ contact_depto_="sales department"
 contact_email_="owner@xyz.com" 
 contact_group_number_="12"
 #
-#file:contact.list
-#       1 ,  2  ,  3  ,    4      ,     5   ,6      
-#field key,owner,phone,numberGroup,nameGroup,e-mail
 
+line_read_contact=$(grep -w $ipaddress_ $baseDIR_DB"contact.list")
+ 	 owner_Contact=$(echo $line_read_contact | cut -d "," -f "2")
+	 phone_Contact=$(echo $line_read_contact | cut -d "," -f "3")
+	 email_Contact=$(echo $line_read_contact | cut -d "," -f "4")
+	 depto_Contact=$depto_Contact_
 
-  line_read_contact=$(grep -wF $ipaddress_ $baseDIR_DB"contact.list")
- 	   owner_Contact=$(echo $line_read_contact | cut -d "," -f "2")
-  	   phone_Contact=$(echo $line_read_contact | cut -d "," -f "3")
-numberGroup_Contact=$(echo $line_read_contact | cut -d "," -f "4")
-  nameGroup_Contact=$(echo $line_read_contact | cut -d "," -f "5")
-	   email_Contact=$(echo $line_read_contact | cut -d "," -f "6")
-	   #depto_Contact=$depto_Contact_
-
-       contact_owner_=$owner_Contact #2
-       contact_phone_=$phone_Contact #3
-contact_group_number_=$numberGroup_Contact #4
-       contact_depto_=$depto_Contact #5 
-       contact_email_=$email_Contact #6
-#contact_group_number_=$groupNumber_gnumber_Contact #
-
+       contact_owner_=$owner_Contact
+       contact_phone_=$phone_Contact
+       contact_depto_=$depto_Contact 
+       contact_email_=$email_Contact
+contact_group_number_=$groupNumber_gnumber_Contact
 
 echo_TEST_VARIABLES
 }
@@ -243,25 +225,20 @@ select_INVENTORY () {
 #         invoice_="purchase invoice 09877654433"
 #            note_="Use this is software!"
 #
-
-#file:inventory.list
-#       1 ,      2   ,   3   ,  4  ,      5     ,    6   ,      7   
-#field key, Regirster, others, Note, Accountable, Invoice, Description  
-
-  line_read_inventory=$(grep -wF $ipaddress_ $baseDIR_DB"inventory.list")
+  line_read_inventory=$(grep -w $ipaddress_ $baseDIR_DB"inventory.list")
    register_Inventory=$(echo $line_read_inventory | cut -d "," -f "2")
      others_Inventory=$(echo $line_read_inventory | cut -d "," -f "3")
-       note_Inventory=$(echo $line_read_inventory | cut -d "," -f "4")
-accountable_Inventory=$(echo $line_read_inventory | cut -d "," -f "5")
-    invoice_Inventory=$(echo $line_read_inventory | cut -d "," -f "6")    
+accountable_Inventory=$(echo $line_read_inventory | cut -d "," -f "4")
+    invoice_Inventory=$(echo $line_read_inventory | cut -d "," -f "5")
+       note_Inventory=$(echo $line_read_inventory | cut -d "," -f "6")
 description_Inventory=$(echo $line_read_inventory | cut -d "," -f "7")
 
-   reg_inventory_=$register_Inventory #2
-others_inventory_=$others_Inventory   #3
-     accountable_=$accountable_Inventory #5      
-         invoice_=$invoice_Inventory #6
-            note_=$note_Inventory #4
-     description_=$description_Inventory #7
+   reg_inventory_=$register_Inventory
+others_inventory_=$others_Inventory
+     accountable_=$accountable_Inventory      
+         invoice_=$invoice_Inventory
+            note_=$note_Inventory
+     description_=$description_Inventory
 
 echo_TEST_VARIABLES
 }   
@@ -280,17 +257,13 @@ select_SYSTEM () {
 #productkey_="GPL License"   
 #
 
-#file:inventory.list
-#       1 ,      2   ,   3   ,  4  ,      5     ,    6   ,      7   
-#field key, Regirster, others, Note, Accountable, Invoice, Description  
-
-line_read_system=$(grep -wF $ipaddress_ $baseDIR_DB"system.list")
+line_read_system=$(grep -w $ipaddress_ $baseDIR_DB"system.list")
 
    version_System=$(echo $line_read_system | cut -d "," -f "3")
 productkey_System=$(echo $line_read_system | cut -d "," -f "4")
     productkey_ID=$(echo $line_read_system | cut -d "," -f "5")
 
- line_read_Oslist=$(grep -wF $version_System $filenameOS)
+ line_read_Oslist=$(grep -w $version_System $filenameOS)
         os_System=$(echo $line_read_Oslist | cut -d ":" -f "4")
   codename_System=$(echo $line_read_Oslist | cut -d ":" -f "3")
 osfullname_System=$(echo $line_read_Oslist | cut -d ":" -f "5")
@@ -418,7 +391,7 @@ select_NETWORK () {
           
 #network_dhcp_enable_="yes"
 #
-              line_read_network=$(grep -wF $ipaddress_ $baseDIR_DB"network.list")
+              line_read_network=$(grep -w $ipaddress_ $baseDIR_DB"network.list")
      network_ipaddress_Ethernet=$(echo $line_read_network | cut -d "," -f "1")
            network_mac_Ethernet=$(echo $line_read_network | cut -d "," -f "2")
 network_ipaddress_wifi_Wireless=$(echo $line_read_network | cut -d "," -f "4")

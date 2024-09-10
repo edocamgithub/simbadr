@@ -82,7 +82,7 @@ $lib_DIR"rwinfodb.sh" --numberdb $db_DIR"$2"
 $lib_DIR"sum-device-92.sh"
 echo "$1,$2" >> $simbadr_remove_ip_only_FILE
 
-grep -wF $1 $simbadr_remove_ip_for_list_DIR*.list
+grep -w $1 $simbadr_remove_ip_for_list_DIR*.list
 
 echo "$1 removed from contact.list..."
 sed -i '/'$1'/d' $simbadr_remove_ip_for_list_DIR"contact.list"

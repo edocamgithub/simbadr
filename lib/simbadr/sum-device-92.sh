@@ -8,27 +8,13 @@ lib_DIR=$(simbadr-read-conf.sh -l)
 etc_DIR=$(simbadr-read-conf.sh -s)
 group_enable_list="simbadr"
 output_file="92"
-debug=$1
 
-group_list=$(cat "$etc_DIR""$group_enable_list" | grep -wF group_enable | cut -d"=" -f2)
+group_list=$(cat "$etc_DIR""$group_enable_list" | grep -w group_enable | cut -d"=" -f2)
 path=$(echo "$db_DIR")
 
 rm -f "$path""$output_file"
 
-if [[ $debug = "--debug" ]]
-	then
-     echo "Variables of sum-device-92"    
-     echo "           DB dir: "$db_DIR
-     echo "          LIB dir: "$lib_DIR
-     echo "          ETC dir: "$etc_DIR
-     echo "Enable Group List: "$group_enable_list
-     echo "      Output file: "$output_file
-     echo "            Input: "$debug
- 	  echo "        GroupList: "$group_list
-	  echo "             Path: "$path
-	fi
-
 for seq_group_list in $group_list
 do
-cat "$path""$seq_group_list" | sort -u -n >> "$path""$output_file"
+cat "$path""$seq_group_list" | sort -n -u -t '.' -k 1,1 -k 2,2 -k 3,3 -k 4,4  >> "$path""$output_file"
 done

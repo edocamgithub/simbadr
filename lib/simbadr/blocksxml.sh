@@ -134,7 +134,7 @@ function sortListUniq () {
 
 	file_sort_list=$1
 	file_in_sort_tmp=$(mktemp "$TEMP_LOCAL_SIMBADR/"simbadr_sort.XXX) 
-	sort -n -u -t '.' -k 1,1 -k 2,2 -k 3,3 -k 4,4 "$baseDIR"$file_sort_list > $file_in_sort_tmp && cat $file_in_sort_tmp > "$baseDIR"$file_sort_list
+	sort -n -u -t '.' -k 1,1 -k 2,2 -k 3,3 -k 4,4  "$baseDIR"$file_sort_list > $file_in_sort_tmp && cat $file_in_sort_tmp > "$baseDIR"$file_sort_list
 	#rm -f $file_in_sort_tmp
 	rm -f $file_in_sort_tmp 	
 }

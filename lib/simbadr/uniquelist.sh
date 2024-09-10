@@ -88,7 +88,7 @@ for i in {01..32}
 	do
    #echo "blocks/00/"$i"" 
 		
-	cat blocks/00/"$i" >> $file_in_sort_tmp && sort -n $file_in_sort_tmp > blocks/00/99
+	cat blocks/00/"$i" >> $file_in_sort_tmp && sort -n -u -t '.' -k 1,1 -k 2,2 -k 3,3 -k 4,4  $file_in_sort_tmp > blocks/00/99
 
 	#echo "------"
 	done
