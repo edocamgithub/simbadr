@@ -1,7 +1,7 @@
 #!/bin/bash
 ##################################################################
 #  File: rwinfodb.sh 	       Built: 201906221018
-#  Version: 1.0.1
+#  Version: 1.0.2
 #
 #  Function: Manager data - add, delete, compile/sort
 #
@@ -49,6 +49,9 @@ dirDB=$(simbadr-read-conf.sh -g)
 dirDB_XML=$(simbadr-read-conf.sh --group92)
 backupDIR=$(simbadr-read-conf.sh --backup)
 baseSYS=$(simbadr-read-conf.sh -x | cut -d"/" -f1-3)
+baseWEB=$(simbadr-read-conf.sh -f)
+
+
 path=$baseDIR_LIB
 #
 
@@ -130,7 +133,9 @@ if [ "$debugVerbose" = true ]
       echo " backup_enable -->" $backup_enable
       echo " backup_file_db --> " "$backup_file"db.tar.gz
       echo " backup_file-sys --> " "$backup_file"sys.tar.gz
-      echo " backup_simbadrdb.xml --> " "$backup_file"dbxml.tar.gz        
+      echo " backup_simbadrdb.xml --> " "$backup_file"dbxml.tar.gz
+      echo " backup_web_front-end --> " "$backup_file"web.tar.gz   
+      echo " backup_directory --> "$backupDIR        
       echo " total reg. --> " $totalrg
       echo "=== END ==="
       echo ""
@@ -342,12 +347,18 @@ if test $backup_enable -eq 1
      		  tar -czf "$backup_file"dbxml.tar.gz  -P "$dirDB_XML"simbadrdb.xml && mv "$backup_file"dbxml.tar.gz "$backupDIR"
      		  tar -czf "$backup_file"dblist.tar.gz  -P "$dirDB_XML"*.list && mv "$backup_file"dblist.tar.gz "$backupDIR"
      		  tar -czf "$backup_file"sys.tar.gz -P "$baseDIR"* && mv "$backup_file"sys.tar.gz "$backupDIR"
+     		  
+     		  tar -czf "$backup_file"web.tar.gz -P "$baseWEB"* && mv "$backup_file"web.tar.gz "$backupDIR"
+     		  
      		else
      		  
      		  tar -czf "$backup_file"db.tar.gz -P "$baseDIR_GLOBAL"* && mv "$backup_file"db.tar.gz "$backupDIR"
      		  tar -czf "$backup_file"dbxml.tar.gz  -P "$dirDB_XML"simbadrdb.xml && mv "$backup_file"dbxml.tar.gz "$backupDIR"
      		  tar -czf "$backup_file"dblist.tar.gz  -P "$dirDB_XML"*.list && mv "$backup_file"dblist.tar.gz "$backupDIR"
      		  tar -czf "$backup_file"sys.tar.gz -P "$baseDIR"* && mv "$backup_file"sys.tar.gz "$backupDIR"
+     		  
+     		  tar -czf "$backup_file"web.tar.gz -P "$baseWEB"* && mv "$backup_file"web.tar.gz "$backupDIR"
+     		  
 			fi   
 
  
